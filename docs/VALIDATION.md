@@ -1,5 +1,29 @@
 # Validation record
 
+## Version 0.4.0 — 7 September 2026
+
+**86 tests pass**: the prior 67 tests and 19 GitHub sync tests. The supplied plugin validator and all 11 skill validators pass. This release also has actual GitHub MCP file-operation evidence. It has not been installed through an actual Codex host, and no remote CI job or background runner was tested.
+
+| Contract | Observed result |
+| --- | --- |
+| GH-001 Target | Repository ID/name, branch, JSON path, visibility, and no-target-overwrite rules are checked. |
+| GH-002 Snapshot | Wrong targets, bad blob SHA, unknown branch, stale/future times, and unavailable reads are rejected. Failed reads remove the current label without deleting the common baseline. |
+| GH-003 Compare | Independent fields/additions merge. Overlapping edits, delete/edit races, first-contact differences, and remote deletion conflict. A merged dependency cycle is rejected before an operation is prepared. |
+| GH-004 Outbox | Create/update/no-write requests are distinct. Updates carry the observed blob SHA. Only one pending operation is allowed. |
+| GH-005 Completion | Mismatched read-back fails. Newer local decisions survive remote success. Interrupted completion and repeated confirmation do not duplicate the product decision. |
+| GH-006 Recovery | Pending/conflict/read-failed/local-changed/stale states are tested; cancel preserves the baseline and does not claim a remote undo. |
+| GH-007 Disclosure | Public candidates require review and reject internal/restricted opportunities. |
+| GH-008 Live integration | Actual selected-repository create/read-back, no-op, and independent local/remote field merge/update/read-back succeeded on codex/github-product-sync. |
+
+Raw results: [86 tests](evidence/v04-tool-tests.txt), [plugin validator](evidence/v04-plugin-validation.txt), [skill validators](evidence/v04-skill-validation.txt), and [live GitHub receipts](evidence/v04-live-github.json).
+
+The source baseline was uploaded to GhostlyGawd/spec-loop-codex through GitHub MCP. Its GitHub tree SHA exactly matched the reviewed v0.3 local source tree. The review branch then received the public product file. A repeat comparison emitted no write. A remote edit to strategy.review_trigger and an independent local edit to the existing initiative priority reason were preserved in the merged result. A fresh read verified the merged blob. This was a real connector operation; it was not a deployment or real-user study.
+
+An [independent offline agent exercise](evaluation/github-sync-exercise.md) used a clearly synthetic snapshot, prepared the merge, retained the local horizon and remote owner, and left it pending for actual service reads and confirmation. It made no external calls and did not change product intent. The later failed-read freshness correction and merged-cycle case were validated by the final tests, not a repeated agent exercise or live failure injection.
+
+Current limits: one configured JSON product file through an active agent; no GitHub Issues/Projects adapter, webhook, scheduler, independent service identity, or signed local receipt. File SHA checks do not provide a whole-branch transaction. Local snapshots and authority references remain editable claims. Cross-platform behavior, permission variations, rate-limit failures on the actual service, and long-running builder use remain open.
+
+
 ## Version 0.3.0 — 7 September 2026
 
 The complete regression suite passes **67 tests**: 47 existing tests and 20 product workflow tests. The supplied plugin validator passes and all **11 skills** pass their validator. Tests ran on Linux with Python 3.12.13 and Git 2.51.1. The local Codex CLI is still absent; actual plugin loading remains untested.

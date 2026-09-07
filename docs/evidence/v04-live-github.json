@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-07",
+  "repository": "GhostlyGawd/spec-loop-codex",
+  "branch": "codex/github-product-sync",
+  "path": "docs/product-roadmap.json",
+  "source_baseline": {
+    "local_commit": "a30074d2fbd069a7d3ec014b35fd4fe020843ee1",
+    "remote_commit": "2e0b309af6ec57cd0f18d59e899ad830df481ba5",
+    "verified_tree": "5d3a23c7b9ed5c21fd5e8b3b6ceac9ceab27bf4d",
+    "files": 86
+  },
+  "create": {
+    "operation": "SYNC-e487b9e1e6d7422d8b9e47348cca574e",
+    "write": {
+      "commit_sha": "bc95e7eed4ea5c1cbce849b7e5cf5133f82ce606"
+    },
+    "confirmation": {
+      "checked_at": "2026-09-07T16:58:07.927110+00:00",
+      "operation": "SYNC-e487b9e1e6d7422d8b9e47348cca574e",
+      "remote_blob_sha": "88c84b7bf7e2b3bebfc60dc826c394270a06144c",
+      "roadmap_refresh": {
+        "checked_at": "2026-09-07T16:58:08.449142+00:00",
+        "content_digest": "f1245bde804fb4a018b42939c071c5d5dd2f8916b90b426282f43f8e79b5bf0e",
+        "freshness": "current-at-check",
+        "path": ".spec-loop/product/roadmap.json"
+      },
+      "status": "current-at-check",
+      "trust": "Agent-supplied GitHub read-back; local receipt is unsigned."
+    }
+  },
+  "noop": {
+    "operation": "SYNC-f46589e545fb4702b89b5a3f2b035ceb",
+    "tool_request": null,
+    "remote_sha": "88c84b7bf7e2b3bebfc60dc826c394270a06144c"
+  },
+  "independent_edits": {
+    "remote_write": {
+      "commit_sha": "aeb474be33463c4d11b7cdbf8e4cab1db6ac00ff",
+      "content_sha": "d5b78c9d9ba334b95777c26017445c8af90cfba8"
+    },
+    "local_field": "initiatives[INI-GITHUB].priority_reason",
+    "remote_field": "strategy.review_trigger",
+    "merged_write": {
+      "commit_sha": "31065ef73c2fd8c25a922f58cd23dc29f522cada",
+      "content_sha": "0c93dd9e7fa00dee00632a38ac0a71ce8301f261"
+    },
+    "confirmation": {
+      "checked_at": "2026-09-07T16:59:20.007301+00:00",
+      "operation": "SYNC-3304dd7d7c2d4a6f81d9f9db363d1484",
+      "remote_blob_sha": "0c93dd9e7fa00dee00632a38ac0a71ce8301f261",
+      "roadmap_refresh": {
+        "checked_at": "2026-09-07T16:59:20.416586+00:00",
+        "content_digest": "e294d8f1509c9c5edbaa2637e0a2f6c6cd22ccbaaa18382169ebd70acf94509c",
+        "freshness": "current-at-check",
+        "path": ".spec-loop/product/roadmap.json"
+      },
+      "status": "current-at-check",
+      "trust": "Agent-supplied GitHub read-back; local receipt is unsigned."
+    }
+  },
+  "final_remote_commit": "31065ef73c2fd8c25a922f58cd23dc29f522cada",
+  "final_blob_sha": "0c93dd9e7fa00dee00632a38ac0a71ce8301f261",
+  "limits": [
+    "Live GitHub MCP file operations, not Issues or Projects integration",
+    "No scheduler, remote CI run, Codex host installation, deployment, or real-user study",
+    "Unsigned local capture of actual connector results",
+    "The final failed-read freshness correction was tested locally after the live successful-write sequence"
+  ]
+}

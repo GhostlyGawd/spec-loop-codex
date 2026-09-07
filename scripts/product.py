@@ -312,10 +312,17 @@ def derive(core, root):
         'effort_exceeds_capacity': high > body['capacity']['available_days']}
     if capacity['wip_exceeded'] or capacity['effort_exceeds_capacity'] or unknown:
         warnings.append('Review capacity; ranges are planning estimates, not delivery forecasts')
+    sync = {'mode': 'local-on-invocation', 'external': 'not-configured'}
+    import github_sync
+    if github_sync.path(core, root).exists():
+        try:
+            sync = github_sync.status(core, root)
+        except (core.LoopError, OSError, ValueError) as exc:
+            sync = {'mode': 'agent-mediated-github-file', 'status': 'unavailable', 'error': str(exc)}
     return {'schema_version': 1, 'product_revision': state['revision'], 'product_digest': state['digest'],
         'strategy': body['strategy'], 'objectives': body['objectives'], 'opportunities': body['opportunities'],
         'initiatives': rows, 'changes': reports, 'releases': releases, 'capacity': capacity,
-        'warnings': warnings, 'sync': {'mode': 'local-on-invocation', 'external': 'not-configured'},
+        'warnings': warnings, 'sync': sync,
         'trust': 'Local editable records. Historical coverage does not prove one combined deployment or product value.'}
 
 

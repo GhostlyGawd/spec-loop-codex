@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent-captured GitHub product file snapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "repository",
+    "repository_id",
+    "branch",
+    "path",
+    "visibility",
+    "observed_at",
+    "basis",
+    "status",
+    "blob_sha",
+    "branch_sha",
+    "content"
+  ],
+  "properties": {
+    "repository": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repository_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "visibility": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observed_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "present",
+        "absent",
+        "unavailable"
+      ]
+    },
+    "blob_sha": {
+      "type": "string"
+    },
+    "branch_sha": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    }
+  }
+}

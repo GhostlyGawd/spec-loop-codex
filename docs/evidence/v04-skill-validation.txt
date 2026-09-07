@@ -1,0 +1,32 @@
+loop-build: exit 0
+Skill is valid!
+
+loop-design: exit 0
+Skill is valid!
+
+loop-discover: exit 0
+Skill is valid!
+
+loop-evolve: exit 0
+Skill is valid!
+
+loop-operate: exit 0
+Skill is valid!
+
+loop-plan: exit 0
+Skill is valid!
+
+loop-product: exit 0
+Skill is valid!
+
+loop-release: exit 0
+Skill is valid!
+
+loop-specify: exit 0
+Skill is valid!
+
+loop-verify: exit 0
+Skill is valid!
+
+spec-loop: exit 0
+Skill is valid!

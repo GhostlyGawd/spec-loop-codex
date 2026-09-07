@@ -1,10 +1,10 @@
 # Spec Loop — system specification
 
-Version 0.3.0 · 7 September 2026 · Design and reference implementation
+Version 0.4.0 · 7 September 2026 · Design and reference implementation
 
 Spec Loop is a Codex plugin for people who use AI to create software. It turns an idea into a product through small, testable changes. It keeps the reason for each change, the product design, the implementation, and the evidence together. The same process supports the first prototype, an existing product, a production incident, and later growth.
 
-The complete operating system is specified here. This package includes the lifecycle skills, reference guides, templates, schemas, an example, a working local check tool, frozen release records, and later outcome observations. Live service adapters, signed evidence, and an always running control service are future work. The current tool does not deploy, approve a release, or prove market demand.
+The complete operating system is specified here. This package includes the lifecycle skills, reference guides, templates, schemas, an example, a working local check tool, frozen release records, and later outcome observations. A GitHub product-file adapter is included; other live service adapters, signed evidence, and an always running control service are future work. The current tool does not deploy, approve a release, or prove market demand.
 
 The target is a system that can earn a best in class position through measured results. This document does not claim that a market comparison or a broad user trial has been completed.
 
@@ -270,7 +270,7 @@ The runner records command arguments, exit code, output digest and byte count, t
 
 The plugin uses supported skill packaging and loads detailed references only when needed. Plugins can bundle skills, and skills can carry scripts and references. [OpenAI plugin guide](https://learn.chatgpt.com/docs/plugins), [OpenAI skill guide](https://learn.chatgpt.com/docs/build-skills)
 
-| Layer | Responsibility | Included in 0.3.0 |
+| Layer | Responsibility | Included in 0.4.0 |
 | --- | --- | --- |
 | Plugin manifest | Name, version, description, skill discovery | Yes; checked by the supplied plugin validator |
 | Main skill | Route a request and resume work | Yes |
@@ -280,7 +280,7 @@ The plugin uses supported skill packaging and loads detailed references only whe
 | Product management and local roadmap | Product records, explicit decisions, scope alignment, derived views, capacity, resume, and backup/restore | Yes; refresh on invocation, no external sync |
 | Local release history | Frozen inputs, evidence, artifact digest, receipt, and later outcome records | Yes; unsigned local records |
 | Preflight and package tools | Read-only environment checks and a verified archive of committed source | Yes |
-| Connected tool adapters | Translate records to GitHub, design tools, CI, hosting and observability | Protocol specified; use available tools manually |
+| Connected tool adapters | Translate records to connected services | GitHub product-file sync through an active agent/MCP; other adapters remain proposed |
 | Enforced release gateway | Authenticated approvals, signed receipts, immutable candidate identity | Future capability |
 | Continuous service | Scheduled drift checks, fleet state, remote locks, dashboards | Future capability |
 
@@ -296,7 +296,7 @@ Use a read-only discovery call before an ambiguous write. Check optimistic concu
 
 ### Installation and distribution boundary
 
-This deliverable is plugin source, with preserved Git history and a local test path. It has not been installed in the user's account, published to a marketplace, or tested through a live Codex installation in this session. The environment has no Codex CLI binary. Follow the current plugin publishing guide when choosing a distribution destination; do not infer public publication from a request to design the plugin.
+This deliverable is plugin source, with preserved Git history and a local test path. Source has been uploaded to the user-selected GhostlyGawd/spec-loop-codex repository; the v0.4 integration is prepared on its review branch. It has not been installed in the user's account, published to a marketplace, or tested through a live Codex installation in this session. The environment has no Codex CLI binary. Follow the current plugin publishing guide when choosing a distribution destination; do not infer public publication from a request to design the plugin.
 
 For local evaluation, an agent can read the main skill from the extracted package and use the included Python tool on an isolated project. This does not require a marketplace or credentials. Publication needs the chosen owner, destination, distribution terms, and an actual host installation test.
 
@@ -311,6 +311,7 @@ For local evaluation, an agent can read the main skill from the extracted packag
 | `templates/` | Product, design, architecture, release, operations, and learning records |
 | `schemas/` | JSON Schema files for project, change, ordinary evidence, release, and outcome |
 | `scripts/spec_loop.py` | Working local command tool |
+| `scripts/github_sync.py` | Product-file comparison, pending operations, read-back, and sync recovery |
 | `scripts/product.py` | Product decisions, scope alignment, capacity, and derived local roadmap |
 | `scripts/release_ledger.py` | Frozen release and outcome records |
 | `scripts/package.py` | Repeatable committed-source packaging |
@@ -323,6 +324,7 @@ Run `python3 /path/to/spec-loop/scripts/spec_loop.py --root /path/to/project <co
 
 | Command | Result |
 | --- | --- |
+| `github configure/status/plan/confirm/cancel` | Prepare and reconcile configured product-file sync through GitHub MCP |
 | `product init/show/apply/align/inventory/backup/restore` | Manage local product intent, reviewed scope, and recovery |
 | `roadmap show/refresh` | Recompute local roadmap facts without changing intent |
 | `doctor` | Inspect local requirements, source support, project config, and change contracts without writes |
@@ -390,7 +392,7 @@ These are targets for a future pilot, not measured results: zero unauthorized ex
 | 0.1 | Full lifecycle instructions, templates, schemas, local state and evidence tool | Local tests, manifest checks, isolated skill exercises |
 | 0.2 | Frozen release evidence, later outcome records, local preflight, repeatable packaging | Regression tests and isolated historical-use exercise |
 | 0.3 | Local product management, automatic roadmap reconciliation on invocation, basic inventory, scope alignment, and recovery | Product invariants, historical compatibility, isolated agent use, and package checks |
-| 0.4 proposed | Scoped GitHub comparison and sync, then suitable CI adapters | Live tests of capability, field ownership, conflicts, retries, and offline recovery in an authorized destination |
+| 0.4 | GitHub product-file comparison and sync through MCP | Local conflict/recovery tests and an actual create/no-op/merge/read-back sequence on the selected review branch |
 | 0.5 proposed | Product telemetry intake and a tested continuous review runner | Sustained pilot, visible freshness, cost limits, and recovery from missed runs |
 | 1.0 | Stable contracts, published compatibility matrix, verified upgrade path, external review | Multi-project benchmark, novice builder study, release and recovery drills |
 
@@ -434,6 +436,20 @@ The roadmap derives task reports, current gates, dependency blockers, historical
 
 Semantic product scope is bound into a change only after explicit contract review. The bound hash includes linked initiative scope, non-goals, risk, and objective measurement definitions. A mismatch blocks readiness. Alignment changes the contract hash and stales current evidence. Priority, horizon, display, owner, and date-only changes do not alter the semantic binding. A linked initiative cannot lower the change risk floor. The tool checks bindings, not the truth of an agent's semantic review.
 
-On relevant CLI writes and on roadmap/context invocation, refresh reads stable inputs, evaluates current gates and evidence age, checks the inputs again, and writes a derived view. It keeps intent unchanged. The view reports its checked time and local-only mode. A refresh failure is reported separately from a completed mutation; it must not cause a duplicate decision. Direct function calls do not invoke the CLI wrapper. Out-of-tool edits are detected on the next invocation. External and background sync are not implemented.
+On relevant CLI writes and on roadmap/context invocation, refresh reads stable inputs, evaluates current gates and evidence age, checks the inputs again, and writes a derived view. It keeps intent unchanged. The view reports its checked time and local-only mode. A refresh failure is reported separately from a completed mutation; it must not cause a duplicate decision. Direct function calls do not invoke the CLI wrapper. Out-of-tool edits are detected on the next invocation. v0.4 adds configured GitHub product-file sync through an active agent; background sync remains unimplemented.
 
 The product inventory reports existing local change records and source identity with unverified intent. It does not automatically recover missing specs from code or import an external backlog. Product backup/restore protects intent and decisions, not the full project. Unknown schemas fail closed. Broad schema migration, large-product performance, live sync, host installation, and builder pilots retain their own acceptance gates.
+
+## 15. GitHub product-file adapter in 0.4
+
+The first external adapter binds repository ID/name, branch, path, and visibility. It synchronizes one reviewed JSON product body, not code, Issues, Projects, or release evidence. Source upload is a separate repository operation. Configuration never silently changes its target. The local tool contains no network client, credential store, or service identity; it prepares exact operations for the available GitHub MCP tools.
+
+The adapter validates a recent agent-captured file snapshot, including the Git blob SHA and observed branch commit. Unavailable reads cannot mean absence. A confirmed missing path requires readable branch/directory evidence. Local captures are unsigned; hash consistency does not authenticate their origin.
+
+Comparison uses the last shared body as a baseline. Independent fields and records merge; overlapping changes and delete/edit races require an explicit resolution tied to the current conflict digest. Schema, reference, cycle, and public-disclosure checks run on the merged candidate. An outbound operation retains expected local intent and remote file SHA. The agent re-reads both before writing and uses the GitHub file SHA concurrency check.
+
+Read-back confirmation must match the candidate before the common baseline advances. Inbound changes become an ordinary product decision and remain subject to scope alignment. A newer local decision is preserved even after remote success. A retained pending operation supports read-before-retry and interrupted local completion. Repeated confirmation does not add a duplicate product decision. Cancellation records the decision without undoing a remote mutation.
+
+Status separates not-checked, prepared, remote-confirmed, conflict, read-failed, local-changed, needs-reconciliation, current-at-check, and stale. A failed read removes the current label while retaining the last shared body. The roadmap exposes sync health. There is no background runner; freshness expires after 15 minutes unless new actual reads support it.
+
+GitHub MCP live checks on the selected repository exercised create, read-back, no-op, and independent local/remote field edits. Local tests cover failures and conflicts that were not induced on GitHub. The adapter is a first integration slice; actual host installation, Issues/Projects adapters, continuous review, larger teams, CI adapters, and authenticated evidence retain separate gates.
