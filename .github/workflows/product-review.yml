@@ -1,0 +1,70 @@
+name: Spec Loop product review
+
+on:
+  pull_request:
+  push:
+    branches: [main, codex/background-review]
+  schedule:
+    - cron: '17 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: product-review-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Review committed product inputs
+        env:
+          REVIEW_RUN_ID: review-${{ github.run_id }}-${{ github.run_attempt }}
+        run: >-
+          python3 scripts/review_runner.py run
+          --output "$RUNNER_TEMP/spec-loop-review"
+          --run-id "$REVIEW_RUN_ID"
+      - name: Validate the published receipt against this checkout
+        env:
+          REVIEW_RUN_ID: review-${{ github.run_id }}-${{ github.run_attempt }}
+        run: >-
+          python3 scripts/review_runner.py status
+          --receipt "$RUNNER_TEMP/spec-loop-review/$REVIEW_RUN_ID.json"
+      - name: Publish review summary
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          folder = Path(os.environ['RUNNER_TEMP']) / 'spec-loop-review'
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as stream:
+              reports = sorted(folder.glob('*.md'))
+              if not reports:
+                  stream.write('Product review is unavailable. Inspect the failed or cancelled job.\n')
+              for report in reports:
+                  stream.write(report.read_text())
+          PY
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        if: always()
+        with:
+          name: product-review-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/spec-loop-review/
+          if-no-files-found: warn
+          retention-days: 14
+
+  tests:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Run regression tests
+        run: python3 -m unittest discover -s tests -v

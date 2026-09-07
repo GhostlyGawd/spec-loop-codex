@@ -1,6 +1,6 @@
 # Spec Loop — system specification
 
-Version 0.4.0 · 7 September 2026 · Design and reference implementation
+Version 0.5.0 · 7 September 2026 · Design and reference implementation
 
 Spec Loop is a Codex plugin for people who use AI to create software. It turns an idea into a product through small, testable changes. It keeps the reason for each change, the product design, the implementation, and the evidence together. The same process supports the first prototype, an existing product, a production incident, and later growth.
 
@@ -243,7 +243,7 @@ Use the user's connected GitHub tools for authorized repository work when availa
 
 Keep authority scoped to action, target, environment, cost, and any stated condition. Reuse authority that still applies. Prepare a concrete diff, release candidate, migration, or communication draft before requesting missing authority. A recorded approval string is only a reference; the host and external service remain responsible for enforcement. Never let a skill lower the host's approval or sandbox controls.
 
-The core plugin has no account credentials, external network client, autonomous background worker, or default telemetry. Commands that the agent explicitly runs can use services under the host's controls. An ongoing schedule requires an available scheduler and a real created task; a Markdown cadence is only a plan.
+The core plugin has no account credentials, external network client, autonomous decision worker, or default telemetry. Commands that the agent explicitly runs can use services under the host's controls. An ongoing schedule requires an available scheduler and a real created task; a Markdown cadence is only a plan.
 
 ## 7. Gate contracts
 
@@ -270,7 +270,7 @@ The runner records command arguments, exit code, output digest and byte count, t
 
 The plugin uses supported skill packaging and loads detailed references only when needed. Plugins can bundle skills, and skills can carry scripts and references. [OpenAI plugin guide](https://learn.chatgpt.com/docs/plugins), [OpenAI skill guide](https://learn.chatgpt.com/docs/build-skills)
 
-| Layer | Responsibility | Included in 0.4.0 |
+| Layer | Responsibility | Included in 0.5.0 |
 | --- | --- | --- |
 | Plugin manifest | Name, version, description, skill discovery | Yes; checked by the supplied plugin validator |
 | Main skill | Route a request and resume work | Yes |
@@ -296,7 +296,7 @@ Use a read-only discovery call before an ambiguous write. Check optimistic concu
 
 ### Installation and distribution boundary
 
-This deliverable is plugin source, with preserved Git history and a local test path. Source has been uploaded to the user-selected GhostlyGawd/spec-loop-codex repository; the v0.4 integration is prepared on its review branch. It has not been installed in the user's account, published to a marketplace, or tested through a live Codex installation in this session. The environment has no Codex CLI binary. Follow the current plugin publishing guide when choosing a distribution destination; do not infer public publication from a request to design the plugin.
+This deliverable is plugin source, with preserved Git history and a local test path. Source has been uploaded to the user-selected GhostlyGawd/spec-loop-codex repository; the approved v0.4 integration is merged and v0.5 is prepared on a review branch. It has not been installed in the user's account, published to a marketplace, or tested through a live Codex installation in this session. The environment has no Codex CLI binary. Follow the current plugin publishing guide when choosing a distribution destination; do not infer public publication from a request to design the plugin.
 
 For local evaluation, an agent can read the main skill from the extracted package and use the included Python tool on an isolated project. This does not require a marketplace or credentials. Publication needs the chosen owner, destination, distribution terms, and an actual host installation test.
 
@@ -393,7 +393,7 @@ These are targets for a future pilot, not measured results: zero unauthorized ex
 | 0.2 | Frozen release evidence, later outcome records, local preflight, repeatable packaging | Regression tests and isolated historical-use exercise |
 | 0.3 | Local product management, automatic roadmap reconciliation on invocation, basic inventory, scope alignment, and recovery | Product invariants, historical compatibility, isolated agent use, and package checks |
 | 0.4 | GitHub product-file comparison and sync through MCP | Local conflict/recovery tests and an actual create/no-op/merge/read-back sequence on the selected review branch |
-| 0.5 proposed | Product telemetry intake and a tested continuous review runner | Sustained pilot, visible freshness, cost limits, and recovery from missed runs |
+| 0.5 | Reviewed signal intake and bounded scheduled review worker | Receipt freshness, missed-run recovery and runtime checks; sustained scheduling pilot remains required |
 | 1.0 | Stable contracts, published compatibility matrix, verified upgrade path, external review | Multi-project benchmark, novice builder study, release and recovery drills |
 
 Upgrade the plugin independently from the product. Pin the plugin version in project delivery records. Future schema migrations must support dry run, backups, idempotence, version checks, and a tested restore path. Version 0.3 keeps project, change, and ordinary evidence schema version 1, with optional change scope/review fields. Product intent/state adds dedicated schemas and a validated restore-as-new-revision command. Release and outcome records each have their own version 1 schema. Unknown versions are rejected. An engine upgrade invalidates current-tree evidence; re-run the checks. Frozen records retain their original engine identity and do not expire merely because time passes.
@@ -436,7 +436,7 @@ The roadmap derives task reports, current gates, dependency blockers, historical
 
 Semantic product scope is bound into a change only after explicit contract review. The bound hash includes linked initiative scope, non-goals, risk, and objective measurement definitions. A mismatch blocks readiness. Alignment changes the contract hash and stales current evidence. Priority, horizon, display, owner, and date-only changes do not alter the semantic binding. A linked initiative cannot lower the change risk floor. The tool checks bindings, not the truth of an agent's semantic review.
 
-On relevant CLI writes and on roadmap/context invocation, refresh reads stable inputs, evaluates current gates and evidence age, checks the inputs again, and writes a derived view. It keeps intent unchanged. The view reports its checked time and local-only mode. A refresh failure is reported separately from a completed mutation; it must not cause a duplicate decision. Direct function calls do not invoke the CLI wrapper. Out-of-tool edits are detected on the next invocation. v0.4 adds configured GitHub product-file sync through an active agent; background sync remains unimplemented.
+On relevant CLI writes and on roadmap/context invocation, refresh reads stable inputs, evaluates current gates and evidence age, checks the inputs again, and writes a derived view. It keeps intent unchanged. The view reports its checked time and local-only mode. A refresh failure is reported separately from a completed mutation; it must not cause a duplicate decision. Direct function calls do not invoke the CLI wrapper. Out-of-tool edits are detected on the next invocation. v0.4 adds configured GitHub product-file sync through an active agent; the v0.5 worker adds derived Actions reports; unattended bidirectional sync remains unimplemented.
 
 The product inventory reports existing local change records and source identity with unverified intent. It does not automatically recover missing specs from code or import an external backlog. Product backup/restore protects intent and decisions, not the full project. Unknown schemas fail closed. Broad schema migration, large-product performance, live sync, host installation, and builder pilots retain their own acceptance gates.
 
@@ -450,6 +450,14 @@ Comparison uses the last shared body as a baseline. Independent fields and recor
 
 Read-back confirmation must match the candidate before the common baseline advances. Inbound changes become an ordinary product decision and remain subject to scope alignment. A newer local decision is preserved even after remote success. A retained pending operation supports read-before-retry and interrupted local completion. Repeated confirmation does not add a duplicate product decision. Cancellation records the decision without undoing a remote mutation.
 
-Status separates not-checked, prepared, remote-confirmed, conflict, read-failed, local-changed, needs-reconciliation, current-at-check, and stale. A failed read removes the current label while retaining the last shared body. The roadmap exposes sync health. There is no background runner; freshness expires after 15 minutes unless new actual reads support it.
+Status separates not-checked, prepared, remote-confirmed, conflict, read-failed, local-changed, needs-reconciliation, current-at-check, and stale. A failed read removes the current label while retaining the last shared body. The roadmap exposes sync health. Adapter freshness expires after 15 minutes unless new actual remote reads support it. The v0.5 review worker does not renew this remote-read clock.
 
-GitHub MCP live checks on the selected repository exercised create, read-back, no-op, and independent local/remote field edits. Local tests cover failures and conflicts that were not induced on GitHub. The adapter is a first integration slice; actual host installation, Issues/Projects adapters, continuous review, larger teams, CI adapters, and authenticated evidence retain separate gates.
+GitHub MCP live checks on the selected repository exercised create, read-back, no-op, and independent local/remote field edits. Local tests cover failures and conflicts that were not induced on GitHub. The adapter is a first integration slice; actual host installation, Issues/Projects adapters, sustained scheduled operation, larger teams, delivery CI adapters, and authenticated evidence retain separate gates.
+
+## 16. Background review worker in 0.5
+
+[CHG-005](CHANGE-005.md) defines the acceptance contract. The worker runs on Linux with an optional GitHub Actions schedule. It reads native product state or one committed exchange envelope and optional reviewed feedback/telemetry. Native mode derives gates without executing application checks. Exchange mode cannot infer implementation completion. Both preserve user intent and report measurement gaps.
+
+Each run writes an atomic JSON receipt and a Markdown view outside the project. Source, commit, config, product and signal hashes bind the review. Inputs are checked again before publication. Stable run IDs are immutable; replays keep their original age. Distinct attempts preserve failure history. Exclusive output locks prevent competing writers. Receipts are unsigned and require a current-input/age check on read. A missed schedule cannot keep an old report current beyond its expiry.
+
+The workflow uses read-only contents permission, pinned actions, no persisted checkout credentials, a five-minute timeout and 14-day artifacts. The worker has a 60-second deadline and explicit input/report budgets. No model or external service calls occur. GitHub account billing, an independent missed-run monitor, telemetry collection and automatic intent changes are separate capabilities. Scheduled Actions can be delayed or disabled; a live push/PR test does not establish sustained daily operation. Read the [operating guide](../skills/spec-loop/references/review-runner.md) for exact setup and recovery.

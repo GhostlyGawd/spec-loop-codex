@@ -60,4 +60,4 @@ If the remote mutation times out, first read the target. If it already equals th
 
 `github cancel SYNC-ID --actor NAME --authority-ref TEXT --reason TEXT` records cancellation and preserves the last common baseline. It does not undo any remote write. The pending history is retained. A second operation cannot start until the first is confirmed or cancelled. Corrupt local state requires a reviewed project backup; unknown schemas fail closed.
 
-This version synchronizes one product JSON file through an active agent. It does not synchronize GitHub Issues, Projects, arbitrary documents, or release evidence. It has no webhook, background runner, or independent service identity. A plugin alone cannot keep a remote tracker current between invocations.
+This version synchronizes one product JSON file through an active agent. It does not synchronize GitHub Issues, Projects, arbitrary documents, or release evidence. It has no webhook or independent service identity for unattended writes. The [v0.5 review worker](review-runner.md) reads committed inputs and publishes a dated Actions report; it does not call MCP or advance this adapter's baseline.

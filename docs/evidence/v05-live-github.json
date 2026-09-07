@@ -1,0 +1,37 @@
+{
+  "date": "2026-09-07",
+  "repository": "GhostlyGawd/spec-loop-codex",
+  "head": "b1fd4030d0fd88cdcd8164935dec37771a2e1f1f",
+  "tree": "8d90928a72cfd8bbeae7a177358a4467c51aceb3",
+  "push_run": 34167577945,
+  "pull_request_run": 34167590464,
+  "conclusion": "success",
+  "jobs": {
+    "review": 101881586594,
+    "tests": 101881586370
+  },
+  "tests": 104,
+  "receipt_digest_from_job_log": "7ba0b00729e74c9a14de66bc4cb497bda907b915524b38ff6b55443ebf7de57a",
+  "artifact": {
+    "id": 10034649882,
+    "name": "product-review-34167577945-1",
+    "bytes": 2754,
+    "sha256": "604a91c4233082aa82a4c90a8fcd658347a46f25458e3ccfee4e66e60e5bf823",
+    "expires_at": "2026-09-21T22:42:34Z"
+  },
+  "limits": [
+    "Artifact was created according to GitHub metadata and upload logs. Connector returned a ZIP file reference; materializing that signed download URL returned HTTP 403 in this environment. Artifact bytes were not inspected locally.",
+    "Default-branch schedule and sustained operation are not tested.",
+    "Signals are empty in this project; no real telemetry or users were observed."
+  ],
+  "receipt_reader_validation": {
+    "head": "8b0e8e3263bd72cb81a6cc6d72287d1d06f905eb",
+    "push_run": 34167714700,
+    "pr_run": 34167716926,
+    "review_job": 101881971987,
+    "conclusion": "success",
+    "freshness": "current-at-read",
+    "checked_at": "2026-09-07T22:44:59.963223+00:00",
+    "receipt_digest": "ddb7ad1d7002d6b1a8ea3882bd59507539db8992d4c026c11823bef41f3d5717"
+  }
+}

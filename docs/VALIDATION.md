@@ -1,3 +1,17 @@
+# v0.5 validation — 7 September 2026
+
+The bounded review worker is implemented on a review branch. All 105 local tests, all 11 skills, the plugin manifest and local Markdown links passed. Independent offline use passed 19 CLI invocations. Actual push and PR Actions runs passed both review and regression jobs. No default-branch schedule or actual Codex installation is claimed.
+
+The worker reads native gates or exchange planning data, checks optional supplied signals, and writes dated receipts outside the source project. Tests cover unchanged intent, unknown exchange delivery, expiry after missed runs, input conflicts, interrupted publication, failed attempts, disclosure, budgets and CLI status. Fixtures contain no actual user telemetry. Read [CHG-005](CHANGE-005.md) and [the runner guide](../skills/spec-loop/references/review-runner.md) for acceptance and operating boundaries.
+
+Live evidence: [GitHub run record](evidence/v05-live-github.json), [test log](evidence/v05-tool-tests.txt), and [independent exercise](evaluation/background-review-exercise.md). The first run created and uploaded a report artifact. Its signed download returned HTTP 403 when this environment tried to materialize it, so artifact bytes were not inspected here. The added receipt-read step passed in push run 34167714700 and PR run 34167716926 at head 8b0e8e3263bd72cb81a6cc6d72287d1d06f905eb. The job reported current-at-read for the generated receipt against that exact checkout. This validates JSON integrity, age and input binding inside the runtime; it does not replace a local inspection of the downloaded ZIP.
+
+The independent exercise found that the Markdown view hid concrete gate blockers. The report now exposes up to five distinct blockers per change, with remaining detail in JSON. A native-mode regression assertion checks the alignment blocker. Final local tests include this change and an ignored-artifact byte-budget check. These refinements were not independently re-exercised. A final regression verifies that the report budget measures the actual formatted output bytes; this brought the local suite to 105 tests. Live runs recorded below preceded that final budget refinement and ran 104 tests. The PR checks identify the tested final head.
+
+Limits: no default-branch schedule observation, sustained pilot, independent missing-run notification service, real telemetry collector, unattended bidirectional sync, marketplace installation or authenticated receipts. CI and push/PR worker execution are now tested. Scheduled delivery still needs observation after merge.
+
+Prior release validation follows.
+
 # Validation record
 
 ## Version 0.4.0 — 7 September 2026

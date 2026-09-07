@@ -1,0 +1,1 @@
+Plugin validation passed: /workspace/scratch/c574d7af1897/v05/spec-loop
