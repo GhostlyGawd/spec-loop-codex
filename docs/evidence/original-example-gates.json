@@ -1,0 +1,119 @@
+{
+  "observed_at": "2026-09-06T20:24:12.615072+00:00",
+  "observer": "codex-release-review",
+  "source_files_unchanged": {
+    "app.py": true,
+    "test_app.py": true,
+    "README.md": true
+  },
+  "gates": [
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/c574d7af1897/spec-loop/scripts/spec_loop.py",
+        "--root",
+        "/workspace/scratch/c574d7af1897/forward/release",
+        "gate",
+        "CHG-001",
+        "--stage",
+        "ready"
+      ],
+      "exit_code": 0,
+      "report": {
+        "change": "CHG-001",
+        "gate": "ready",
+        "profile": "quick",
+        "passed": true,
+        "errors": [],
+        "checks": {},
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/c574d7af1897/spec-loop/scripts/spec_loop.py",
+        "--root",
+        "/workspace/scratch/c574d7af1897/forward/release",
+        "gate",
+        "CHG-001",
+        "--stage",
+        "verify"
+      ],
+      "exit_code": 1,
+      "report": {
+        "change": "CHG-001",
+        "gate": "verify",
+        "profile": "quick",
+        "passed": false,
+        "errors": [
+          "TASK-001: task is blocked"
+        ],
+        "checks": {
+          "CHK-001": "pass"
+        },
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/c574d7af1897/spec-loop/scripts/spec_loop.py",
+        "--root",
+        "/workspace/scratch/c574d7af1897/forward/release",
+        "gate",
+        "CHG-001",
+        "--stage",
+        "release"
+      ],
+      "exit_code": 1,
+      "report": {
+        "change": "CHG-001",
+        "gate": "release",
+        "profile": "quick",
+        "passed": false,
+        "errors": [
+          "TASK-001: task is blocked",
+          "CHK-002: fail"
+        ],
+        "checks": {
+          "CHK-001": "pass",
+          "CHK-002": "fail",
+          "CHK-003": "pass"
+        },
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/c574d7af1897/spec-loop/scripts/spec_loop.py",
+        "--root",
+        "/workspace/scratch/c574d7af1897/forward/release",
+        "gate",
+        "CHG-001",
+        "--stage",
+        "learn"
+      ],
+      "exit_code": 1,
+      "report": {
+        "change": "CHG-001",
+        "gate": "learn",
+        "profile": "quick",
+        "passed": false,
+        "errors": [
+          "TASK-001: task is blocked",
+          "CHK-002: fail",
+          "CHK-004: missing"
+        ],
+        "checks": {
+          "CHK-001": "pass",
+          "CHK-002": "fail",
+          "CHK-003": "pass",
+          "CHK-004": "missing"
+        },
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      }
+    }
+  ]
+}

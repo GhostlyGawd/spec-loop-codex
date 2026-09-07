@@ -1,0 +1,507 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "body": {
+      "type": "object",
+      "properties": {
+        "strategy": {
+          "type": "object",
+          "properties": {
+            "audience": {
+              "type": "string",
+              "minLength": 1
+            },
+            "problem": {
+              "type": "string",
+              "minLength": 1
+            },
+            "positioning": {
+              "type": "string",
+              "minLength": 1
+            },
+            "business_model": {
+              "type": "string",
+              "minLength": 1
+            },
+            "constraints": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "non_goals": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "review_trigger": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "audience",
+            "problem",
+            "positioning",
+            "business_model",
+            "constraints",
+            "non_goals",
+            "review_trigger"
+          ],
+          "additionalProperties": false
+        },
+        "objectives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^OBJ-[A-Z0-9][A-Z0-9-]*$"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "metric": {
+                "type": "string",
+                "minLength": 1
+              },
+              "baseline": {
+                "type": "string",
+                "minLength": 1
+              },
+              "target": {
+                "type": "string",
+                "minLength": 1
+              },
+              "cohort": {
+                "type": "string",
+                "minLength": 1
+              },
+              "window": {
+                "type": "string",
+                "minLength": 1
+              },
+              "guardrails": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "metric",
+              "baseline",
+              "target",
+              "cohort",
+              "window",
+              "guardrails",
+              "owner"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^OPP-[A-Z0-9][A-Z0-9-]*$"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observed_at": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence": {
+                "type": "string",
+                "enum": [
+                  "assumption",
+                  "observation",
+                  "inference"
+                ]
+              },
+              "privacy": {
+                "type": "string",
+                "enum": [
+                  "public",
+                  "internal",
+                  "restricted"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "new",
+                  "researching",
+                  "supported",
+                  "rejected"
+                ]
+              },
+              "experiment": {
+                "type": "string",
+                "minLength": 1
+              },
+              "stop_rule": {
+                "type": "string",
+                "minLength": 1
+              },
+              "objectives": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^OBJ-[A-Z0-9][A-Z0-9-]*$"
+                },
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "source",
+              "observed_at",
+              "evidence",
+              "privacy",
+              "status",
+              "experiment",
+              "stop_rule",
+              "objectives"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "initiatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^INI-[A-Z0-9][A-Z0-9-]*$"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1
+              },
+              "non_goals": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "objectives": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^OBJ-[A-Z0-9][A-Z0-9-]*$"
+                },
+                "uniqueItems": true
+              },
+              "opportunities": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^OPP-[A-Z0-9][A-Z0-9-]*$"
+                },
+                "uniqueItems": true
+              },
+              "horizon": {
+                "type": "string",
+                "enum": [
+                  "now",
+                  "next",
+                  "later"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "parked",
+                  "retired"
+                ]
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "priority_reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "unknown",
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              "risk": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              "depends_on": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^INI-[A-Z0-9][A-Z0-9-]*$"
+                },
+                "uniqueItems": true
+              },
+              "changes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^CHG-[A-Z0-9][A-Z0-9-]*$"
+                },
+                "uniqueItems": true
+              },
+              "partial_release": {
+                "type": "string",
+                "enum": [
+                  "allowed",
+                  "all_required"
+                ]
+              },
+              "date": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "target",
+                      "forecast",
+                      "commitment"
+                    ]
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              "review_trigger": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "scope",
+              "non_goals",
+              "objectives",
+              "opportunities",
+              "horizon",
+              "status",
+              "owner",
+              "priority_reason",
+              "confidence",
+              "risk",
+              "depends_on",
+              "changes",
+              "partial_release",
+              "date",
+              "review_trigger"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "capacity": {
+          "type": "object",
+          "properties": {
+            "wip_limit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "available_days": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "estimates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "change": {
+                    "type": "string",
+                    "pattern": "^CHG-[A-Z0-9][A-Z0-9-]*$"
+                  },
+                  "low_days": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "high_days": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "change",
+                  "low_days",
+                  "high_days"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "wip_limit",
+            "available_days",
+            "estimates"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "strategy",
+        "objectives",
+        "opportunities",
+        "initiatives",
+        "capacity"
+      ],
+      "additionalProperties": false,
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "Spec Loop product intent v1"
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "at": {
+            "type": "string",
+            "minLength": 1
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "authority_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "before": {
+            "type": "string"
+          },
+          "after": {
+            "type": "string",
+            "minLength": 1
+          },
+          "changed_sections": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "changes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "section",
+                "before_json",
+                "after_json"
+              ],
+              "properties": {
+                "section": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "before_json": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "after_json": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "revision",
+          "at",
+          "actor",
+          "authority_ref",
+          "reason",
+          "before",
+          "after",
+          "changed_sections",
+          "changes"
+        ],
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "digest": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "revision",
+    "body",
+    "decisions",
+    "digest"
+  ],
+  "additionalProperties": false
+}

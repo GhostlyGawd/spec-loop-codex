@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "id": "REL-001",
+  "sealed_at": "2026-09-07T14:13:14.010005+00:00",
+  "engine_version": "0.2.0",
+  "change_id": "CHG-001",
+  "target": "synthetic-local",
+  "observer": "fixture-builder",
+  "authority_ref": "Local evaluation only",
+  "source_hash": "fdc048a8063f797be63136fb9c6c224e09e96edb634aa64e9870bd791fa4c695",
+  "project": {
+    "schema_version": 1,
+    "name": "Reading list example",
+    "profile": "quick",
+    "constraints": [
+      {
+        "statement": "Synthetic example; no network, accounts, persistence, or deployment.",
+        "source": "README.md"
+      }
+    ],
+    "evidence_ttl_hours": 168,
+    "context_max_chars": 24000
+  },
+  "changes": [
+    {
+      "contract": {
+        "schema_version": 1,
+        "id": "CHG-001",
+        "title": "Add valid URLs without duplicates",
+        "phase": "building",
+        "risk": "low",
+        "intent": {
+          "user": "A person running this local example",
+          "problem": "Collect valid web URLs without repeated entries",
+          "outcome": "Add a valid URL and receive one list entry",
+          "non_goals": [
+            "Persistence",
+            "Accounts",
+            "Network requests",
+            "Production deployment",
+            "DNS resolution",
+            "Complete URL canonicalization"
+          ]
+        },
+        "sources": [
+          {
+            "id": "SRC-001",
+            "kind": "assumption",
+            "reference": "README.md — synthetic scenario, not user research",
+            "statement": "The local user wants to collect web URLs once."
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-001",
+            "statement": "Accept HTTP and HTTPS URLs with a host. Reject empty input, embedded credentials, internal whitespace or control characters, and malformed or out-of-range ports.",
+            "source_ids": [
+              "SRC-001"
+            ],
+            "criteria": [
+              {
+                "id": "AC-001",
+                "statement": "Adding a valid URL with surrounding spaces returns one trimmed URL."
+              },
+              {
+                "id": "AC-002",
+                "statement": "An empty URL, unsupported scheme, missing host, embedded credentials, internal whitespace or control characters, or malformed or out-of-range port raises a validation error."
+              }
+            ]
+          },
+          {
+            "id": "REQ-002",
+            "statement": "Repeated additions of the same trimmed URL are idempotent.",
+            "source_ids": [
+              "SRC-001"
+            ],
+            "criteria": [
+              {
+                "id": "AC-003",
+                "statement": "Adding the same URL twice leaves exactly one list entry."
+              }
+            ]
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "ASM-001",
+            "statement": "Exact trimmed string equality is enough for duplicate detection in this example.",
+            "impact": "low",
+            "status": "accepted",
+            "basis": "Explicit teaching scope; URL canonicalization is excluded."
+          }
+        ],
+        "depends_on": [],
+        "artifacts": [
+          {
+            "id": "ART-001",
+            "kind": "release",
+            "path": ".spec-loop/artifacts/release-plan.md"
+          },
+          {
+            "id": "ART-002",
+            "kind": "operations",
+            "path": ".spec-loop/artifacts/operations-plan.md"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "TASK-001",
+            "title": "Implement URL validation and idempotent addition",
+            "requirement_ids": [
+              "REQ-001",
+              "REQ-002"
+            ],
+            "depends_on": [],
+            "status": "done",
+            "write_scope": [
+              "app.py",
+              "test_app.py"
+            ]
+          }
+        ],
+        "checks": [
+          {
+            "id": "CHK-001",
+            "kind": "automated",
+            "purpose": "acceptance",
+            "covers": [
+              "AC-001",
+              "AC-002",
+              "AC-003"
+            ],
+            "argv": [
+              "python3",
+              "-m",
+              "unittest",
+              "-v"
+            ],
+            "procedure": "",
+            "timeout_seconds": 30
+          },
+          {
+            "id": "CHK-002",
+            "kind": "manual",
+            "purpose": "release",
+            "covers": [],
+            "argv": [],
+            "procedure": "Run the local command with duplicate valid URLs and then invalid input. Record actual results. No deployment is included.",
+            "timeout_seconds": 30
+          },
+          {
+            "id": "CHK-003",
+            "kind": "manual",
+            "purpose": "operations",
+            "covers": [],
+            "argv": [],
+            "procedure": "Inspect network and persistence behavior and confirm recovery from invalid input. Record actual results.",
+            "timeout_seconds": 30
+          },
+          {
+            "id": "CHK-004",
+            "kind": "manual",
+            "purpose": "outcome",
+            "covers": [],
+            "argv": [],
+            "procedure": "Observe a person complete the local task. Record the actual observation and limits; leave open if no person participated.",
+            "timeout_seconds": 30
+          }
+        ]
+      },
+      "contract_hash": "f9e89ca1e9169aebb3ccc5ec8223e8f43837a7f5aef5c1affd2775f78bc35904",
+      "evidence": [
+        {
+          "schema_version": 1,
+          "id": "EV-a08bd30c220e4d3b9b44f0ff0731a08f",
+          "change_id": "CHG-001",
+          "check_id": "CHK-001",
+          "kind": "automated",
+          "result": "pass",
+          "observed_at": "2026-09-07T14:13:13.627672+00:00",
+          "expires_at": "2026-09-14T14:13:13.627672+00:00",
+          "contract_hash": "f9e89ca1e9169aebb3ccc5ec8223e8f43837a7f5aef5c1affd2775f78bc35904",
+          "source_hash": "fdc048a8063f797be63136fb9c6c224e09e96edb634aa64e9870bd791fa4c695",
+          "observer": "fixture-builder",
+          "argv": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v"
+          ],
+          "exit_code": 0,
+          "output_hash": "a1dd97b08489aab21aee5a3864d46c1daa8c580b7abfdb41ffce2edff0e1ff70",
+          "output_bytes": 457,
+          "artifact": "",
+          "artifact_hash": "",
+          "notes": "",
+          "environment": "Linux x86_64; Python 3.12.13",
+          "trust": "local-untrusted"
+        },
+        {
+          "schema_version": 1,
+          "id": "EV-25e0fbeb30914163b605f7f826b8369b",
+          "change_id": "CHG-001",
+          "check_id": "CHK-002",
+          "kind": "manual",
+          "result": "pass",
+          "observed_at": "2026-09-07T14:13:13.956178+00:00",
+          "expires_at": "2026-09-14T14:13:13.956178+00:00",
+          "contract_hash": "f9e89ca1e9169aebb3ccc5ec8223e8f43837a7f5aef5c1affd2775f78bc35904",
+          "source_hash": "fdc048a8063f797be63136fb9c6c224e09e96edb634aa64e9870bd791fa4c695",
+          "observer": "fixture-builder",
+          "argv": [],
+          "exit_code": -1,
+          "output_hash": "",
+          "output_bytes": 0,
+          "artifact": ".spec-loop/artifacts/local-receipt.md",
+          "artifact_hash": "1ff8191a0e0dfc7ee0839dc256248cdfe44e79a336bdaab4866c7c3d19bf99cb",
+          "notes": "Synthetic test fixture; no live service.",
+          "environment": "Linux x86_64; Python 3.12.13",
+          "trust": "local-untrusted"
+        },
+        {
+          "schema_version": 1,
+          "id": "EV-4afe937b4b094f9484578dfc643fe247",
+          "change_id": "CHG-001",
+          "check_id": "CHK-003",
+          "kind": "manual",
+          "result": "pass",
+          "observed_at": "2026-09-07T14:13:13.969834+00:00",
+          "expires_at": "2026-09-14T14:13:13.969834+00:00",
+          "contract_hash": "f9e89ca1e9169aebb3ccc5ec8223e8f43837a7f5aef5c1affd2775f78bc35904",
+          "source_hash": "fdc048a8063f797be63136fb9c6c224e09e96edb634aa64e9870bd791fa4c695",
+          "observer": "fixture-builder",
+          "argv": [],
+          "exit_code": -1,
+          "output_hash": "",
+          "output_bytes": 0,
+          "artifact": ".spec-loop/artifacts/local-receipt.md",
+          "artifact_hash": "1ff8191a0e0dfc7ee0839dc256248cdfe44e79a336bdaab4866c7c3d19bf99cb",
+          "notes": "Synthetic test fixture; no live service.",
+          "environment": "Linux x86_64; Python 3.12.13",
+          "trust": "local-untrusted"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": ".spec-loop/artifacts/release-plan.md",
+      "sha256": "1a12b92a2fc48eaa2a518ee339f65c75b492ff200888afb3badfd881d73e15df",
+      "content_base64": "IyBMb2NhbCBkZW1vbnN0cmF0aW9uIHJlbGVhc2UKCkNhbmRpZGF0ZTogdGhlIGZpbGVzIGluIHRoaXMgZGlzcG9zYWJsZSBleGFtcGxlIHByb2plY3QuIFRhcmdldDogYSBsb2NhbCBQeXRob24gcHJvY2Vzcy4gTm8gaG9zdGluZyBvciBwdWJsaWNhdGlvbiBpcyBpbmNsdWRlZC4KClJ1biB0aGUgYWNjZXB0YW5jZSBjb21tYW5kLiBSdW4gYXBwLnB5IHdpdGggdHdvIGlkZW50aWNhbCB2YWxpZCBVUkxzIGFuZCBvbmUgaW52YWxpZCBVUkwgaW4gYSBzZXBhcmF0ZSBpbnZvY2F0aW9uLiBDb25maXJtIG9uZSBzdG9yZWQgaXRlbSBhbmQgYW4gZXJyb3IgZm9yIHRoZSBpbnZhbGlkIGlucHV0LgoKU3RvcCBpZiBhIGNoZWNrIGZhaWxzLiBSZWNvdmVyeSBpcyB0byBkaXNjYXJkIHRoaXMgZGlzcG9zYWJsZSBjb3B5LiBObyBwcm9kdWN0aW9uIGRhdGEgZXhpc3RzLiBSZWNvcmQgdGhlIGFjdHVhbCBvdXRwdXQgaW4gYSBzZXBhcmF0ZSBvYnNlcnZhdGlvbiBmaWxlIGJlZm9yZSByZWNvcmRpbmcgdGhlIG1hbnVhbCByZWxlYXNlIGNoZWNrLgo="
+    },
+    {
+      "path": ".spec-loop/artifacts/operations-plan.md",
+      "sha256": "aaade8690c852196421f3e648bcc9e58291a670e8ba1dd802c6f2177da9d535d",
+      "content_base64": "IyBMb2NhbCBkZW1vbnN0cmF0aW9uIG9wZXJhdGlvbnMKCk93bmVyOiB0aGUgcGVyc29uIHJ1bm5pbmcgdGhpcyBleGFtcGxlLiBFbnZpcm9ubWVudDogZGlzcG9zYWJsZSBsb2NhbCBwcm9jZXNzLgoKQSBub256ZXJvIGV4aXQgY29kZSBzaWduYWxzIHJlamVjdGVkIGlucHV0LiBUaGUgcHJvZ3JhbSBwZXJmb3JtcyBubyBuZXR3b3JrIHJlcXVlc3RzIGFuZCBrZWVwcyBubyBkYXRhIGFmdGVyIGV4aXQuIFRvIHJlY292ZXIsIGNvcnJlY3QgdGhlIGlucHV0IGFuZCBydW4gYWdhaW4uCgpJbnNwZWN0IHRoZSBzb3VyY2UgYW5kIHJ1biBpbnZhbGlkIGlucHV0LiBSZWNvcmQgdGhlIGFjdHVhbCByZXN1bHQgaW4gYSBzZXBhcmF0ZSBvYnNlcnZhdGlvbiBmaWxlLiBObyBzY2hlZHVsZXIsIGRlcGxveW1lbnQsIG9yIHByb2R1Y3Rpb24gbW9uaXRvcmluZyBpcyBjcmVhdGVkLgo="
+    },
+    {
+      "path": ".spec-loop/artifacts/local-receipt.md",
+      "sha256": "1ff8191a0e0dfc7ee0839dc256248cdfe44e79a336bdaab4866c7c3d19bf99cb",
+      "content_base64": "U3ludGhldGljIGxvY2FsIHRlYWNoaW5nIGZpeHR1cmUuIFRoZSBsb2NhbCBzb3VyY2UgYW5kIENMSSB3ZXJlIGNoZWNrZWQuIE5vIHJlbW90ZSBkZXBsb3ltZW50LCBhcHByb3ZhbCwgb3IgcmVhbCB1c2VyIG9ic2VydmF0aW9uIG9jY3VycmVkLgo="
+    }
+  ],
+  "receipt_path": ".spec-loop/artifacts/local-receipt.md",
+  "artifact": {
+    "path": "app.py",
+    "sha256": "c469e26c6c709f8106356260b3d021c4ad830e54b8c40a6090c59a71ef084585",
+    "size_bytes": 1021
+  },
+  "trust": "local-untrusted",
+  "digest": "7a45e11a7734bf196b2d62f542855f027c39726085e929111cfe9bd0f200dc7a"
+}

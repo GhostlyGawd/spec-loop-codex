@@ -1,0 +1,104 @@
+[
+  {
+    "command": [
+      "gate",
+      "CHG-001",
+      "--stage",
+      "ready"
+    ],
+    "exit_code": 0,
+    "result": {
+      "change": "CHG-001",
+      "gate": "ready",
+      "profile": "quick",
+      "passed": true,
+      "errors": [],
+      "checks": {},
+      "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+    }
+  },
+  {
+    "command": [
+      "run",
+      "CHG-001",
+      "--check",
+      "CHK-001",
+      "--observer",
+      "codex-author"
+    ],
+    "exit_code": 0,
+    "result": {
+      "evidence": ".spec-loop/evidence/CHG-001/EV-f0860f8b920240729efe2216a6d00e8e.json",
+      "result": "pass",
+      "exit_code": 0,
+      "notes": ""
+    }
+  },
+  {
+    "command": [
+      "gate",
+      "CHG-001",
+      "--stage",
+      "verify"
+    ],
+    "exit_code": 0,
+    "result": {
+      "change": "CHG-001",
+      "gate": "verify",
+      "profile": "quick",
+      "passed": true,
+      "errors": [],
+      "checks": {
+        "CHK-001": "pass"
+      },
+      "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+    }
+  },
+  {
+    "command": [
+      "gate",
+      "CHG-001",
+      "--stage",
+      "release"
+    ],
+    "exit_code": 0,
+    "result": {
+      "change": "CHG-001",
+      "gate": "release",
+      "profile": "quick",
+      "passed": true,
+      "errors": [],
+      "checks": {
+        "CHK-001": "pass",
+        "CHK-002": "pass",
+        "CHK-003": "pass"
+      },
+      "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+    }
+  },
+  {
+    "command": [
+      "gate",
+      "CHG-001",
+      "--stage",
+      "learn"
+    ],
+    "exit_code": 1,
+    "result": {
+      "change": "CHG-001",
+      "gate": "learn",
+      "profile": "quick",
+      "passed": false,
+      "errors": [
+        "CHK-004: missing"
+      ],
+      "checks": {
+        "CHK-001": "pass",
+        "CHK-002": "pass",
+        "CHK-003": "pass",
+        "CHK-004": "missing"
+      },
+      "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+    }
+  }
+]

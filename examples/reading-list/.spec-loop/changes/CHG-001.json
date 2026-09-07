@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "id": "CHG-001",
+  "title": "Add valid URLs without duplicates",
+  "phase": "building",
+  "risk": "low",
+  "intent": {
+    "user": "A person running this local example",
+    "problem": "Collect valid web URLs without repeated entries",
+    "outcome": "Add a valid URL and receive one list entry",
+    "non_goals": [
+      "Persistence",
+      "Accounts",
+      "Network requests",
+      "Production deployment",
+      "DNS resolution",
+      "Complete URL canonicalization"
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-001",
+      "kind": "assumption",
+      "reference": "README.md \u2014 synthetic scenario, not user research",
+      "statement": "The local user wants to collect web URLs once."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "Accept HTTP and HTTPS URLs with a host. Reject empty input, embedded credentials, internal whitespace or control characters, and malformed or out-of-range ports.",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "criteria": [
+        {
+          "id": "AC-001",
+          "statement": "Adding a valid URL with surrounding spaces returns one trimmed URL."
+        },
+        {
+          "id": "AC-002",
+          "statement": "An empty URL, unsupported scheme, missing host, embedded credentials, internal whitespace or control characters, or malformed or out-of-range port raises a validation error."
+        }
+      ]
+    },
+    {
+      "id": "REQ-002",
+      "statement": "Repeated additions of the same trimmed URL are idempotent.",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "criteria": [
+        {
+          "id": "AC-003",
+          "statement": "Adding the same URL twice leaves exactly one list entry."
+        }
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "ASM-001",
+      "statement": "Exact trimmed string equality is enough for duplicate detection in this example.",
+      "impact": "low",
+      "status": "accepted",
+      "basis": "Explicit teaching scope; URL canonicalization is excluded."
+    }
+  ],
+  "depends_on": [],
+  "artifacts": [
+    {
+      "id": "ART-001",
+      "kind": "release",
+      "path": ".spec-loop/artifacts/release-plan.md"
+    },
+    {
+      "id": "ART-002",
+      "kind": "operations",
+      "path": ".spec-loop/artifacts/operations-plan.md"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Implement URL validation and idempotent addition",
+      "requirement_ids": [
+        "REQ-001",
+        "REQ-002"
+      ],
+      "depends_on": [],
+      "status": "done",
+      "write_scope": [
+        "app.py",
+        "test_app.py"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "CHK-001",
+      "kind": "automated",
+      "purpose": "acceptance",
+      "covers": [
+        "AC-001",
+        "AC-002",
+        "AC-003"
+      ],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "procedure": "",
+      "timeout_seconds": 30
+    },
+    {
+      "id": "CHK-002",
+      "kind": "manual",
+      "purpose": "release",
+      "covers": [],
+      "argv": [],
+      "procedure": "Run the local command with duplicate valid URLs and then invalid input. Record actual results. No deployment is included.",
+      "timeout_seconds": 30
+    },
+    {
+      "id": "CHK-003",
+      "kind": "manual",
+      "purpose": "operations",
+      "covers": [],
+      "argv": [],
+      "procedure": "Inspect network and persistence behavior and confirm recovery from invalid input. Record actual results.",
+      "timeout_seconds": 30
+    },
+    {
+      "id": "CHK-004",
+      "kind": "manual",
+      "purpose": "outcome",
+      "covers": [],
+      "argv": [],
+      "procedure": "Observe a person complete the local task. Record the actual observation and limits; leave open if no person participated.",
+      "timeout_seconds": 30
+    }
+  ]
+}

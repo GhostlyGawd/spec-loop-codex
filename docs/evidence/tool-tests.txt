@@ -1,0 +1,37 @@
+test_active_lock_blocks_a_write (test_spec_loop.ContractTests.test_active_lock_blocks_a_write) ... ok
+test_artifact_edit_stales_evidence (test_spec_loop.ContractTests.test_artifact_edit_stales_evidence) ... ok
+test_checkpoint_detects_conflict_and_stale_source (test_spec_loop.ContractTests.test_checkpoint_detects_conflict_and_stale_source) ... ok
+test_command_arguments_do_not_expand_as_shell_code (test_spec_loop.ContractTests.test_command_arguments_do_not_expand_as_shell_code) ... ok
+test_context_budget_does_not_silently_truncate (test_spec_loop.ContractTests.test_context_budget_does_not_silently_truncate) ... ok
+test_contract_edit_stales_evidence (test_spec_loop.ContractTests.test_contract_edit_stales_evidence) ... ok
+test_criterion_without_check_blocks_ready (test_spec_loop.ContractTests.test_criterion_without_check_blocks_ready) ... ok
+test_dependency_change_stales_consumer_and_impact_is_transitive (test_spec_loop.ContractTests.test_dependency_change_stales_consumer_and_impact_is_transitive) ... ok
+test_expired_evidence_fails (test_spec_loop.ContractTests.test_expired_evidence_fails) ... ok
+test_future_timestamp_is_invalid (test_spec_loop.ContractTests.test_future_timestamp_is_invalid) ... ok
+test_high_impact_open_assumption_blocks (test_spec_loop.ContractTests.test_high_impact_open_assumption_blocks) ... ok
+test_high_risk_has_critical_floor (test_spec_loop.ContractTests.test_high_risk_has_critical_floor) ... ok
+test_incomplete_manual_release_blocks (test_spec_loop.ContractTests.test_incomplete_manual_release_blocks) ... ok
+test_init_and_new_never_overwrite (test_spec_loop.ContractTests.test_init_and_new_never_overwrite) ... ok
+test_later_failure_cannot_reuse_older_pass (test_spec_loop.ContractTests.test_later_failure_cannot_reuse_older_pass) ... ok
+test_manual_record_cannot_replace_automated_result (test_spec_loop.ContractTests.test_manual_record_cannot_replace_automated_result) ... ok
+test_missing_evidence_does_not_pass (test_spec_loop.ContractTests.test_missing_evidence_does_not_pass) ... ok
+test_modified_observation_is_rejected (test_spec_loop.ContractTests.test_modified_observation_is_rejected) ... ok
+test_nonzero_command_records_failure (test_spec_loop.ContractTests.test_nonzero_command_records_failure) ... ok
+test_parent_and_symlink_paths_are_rejected (test_spec_loop.ContractTests.test_parent_and_symlink_paths_are_rejected) ... ok
+test_phase_is_not_proof_and_does_not_change_contract (test_spec_loop.ContractTests.test_phase_is_not_proof_and_does_not_change_contract) ... ok
+test_policy_edit_stales_evidence (test_spec_loop.ContractTests.test_policy_edit_stales_evidence) ... ok
+test_raw_output_is_not_retained (test_spec_loop.ContractTests.test_raw_output_is_not_retained) ... ok
+test_ready_and_automated_verification_work (test_spec_loop.ContractTests.test_ready_and_automated_verification_work) ... ok
+test_release_and_learning_require_distinct_evidence (test_spec_loop.ContractTests.test_release_and_learning_require_distinct_evidence) ... ok
+test_source_edit_stales_evidence (test_spec_loop.ContractTests.test_source_edit_stales_evidence) ... ok
+test_source_mutation_during_check_is_invalid (test_spec_loop.ContractTests.test_source_mutation_during_check_is_invalid) ... ok
+test_task_and_change_cycles_are_rejected (test_spec_loop.ContractTests.test_task_and_change_cycles_are_rejected) ... ok
+test_timeout_is_not_a_pass (test_spec_loop.ContractTests.test_timeout_is_not_a_pass) ... ok
+test_unknown_and_duplicate_ids_are_rejected (test_spec_loop.ContractTests.test_unknown_and_duplicate_ids_are_rejected) ... ok
+test_unknown_schema_and_malformed_evidence_fail_closed (test_spec_loop.ContractTests.test_unknown_schema_and_malformed_evidence_fail_closed) ... ok
+test_unrelated_draft_does_not_block_valid_change (test_spec_loop.ContractTests.test_unrelated_draft_does_not_block_valid_change) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 2.722s
+
+OK

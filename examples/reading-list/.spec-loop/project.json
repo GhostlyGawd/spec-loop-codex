@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "name": "Reading list example",
+  "profile": "quick",
+  "constraints": [
+    {
+      "statement": "Synthetic example; no network, accounts, persistence, or deployment.",
+      "source": "README.md"
+    }
+  ],
+  "evidence_ttl_hours": 168,
+  "context_max_chars": 24000
+}

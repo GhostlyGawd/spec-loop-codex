@@ -1,0 +1,85 @@
+{
+  "strategy": {
+    "audience": "Local example user",
+    "problem": "Collect URLs once",
+    "positioning": "Synthetic teaching fixture",
+    "business_model": "No commercial claim",
+    "constraints": [],
+    "non_goals": [],
+    "review_trigger": "Review before committing implementation"
+  },
+  "objectives": [
+    {
+      "id": "OBJ-001",
+      "title": "Save a URL once",
+      "metric": "Task completion",
+      "baseline": "Unknown",
+      "target": "One person completes the task",
+      "cohort": "No participants yet",
+      "window": "After release",
+      "guardrails": [
+        "No network calls"
+      ],
+      "owner": "Builder"
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "OPP-001",
+      "title": "Collect a link",
+      "source": "Synthetic assumption",
+      "observed_at": "No observation",
+      "evidence": "assumption",
+      "privacy": "internal",
+      "status": "new",
+      "experiment": "Observe a person use the released artifact",
+      "stop_rule": "Reconsider if unusable",
+      "objectives": [
+        "OBJ-001"
+      ]
+    }
+  ],
+  "initiatives": [
+    {
+      "id": "INI-001",
+      "title": "Local URL collection",
+      "scope": "Add valid URLs without duplicates",
+      "non_goals": [
+        "Persistence"
+      ],
+      "objectives": [
+        "OBJ-001"
+      ],
+      "opportunities": [
+        "OPP-001"
+      ],
+      "horizon": "now",
+      "status": "active",
+      "owner": "Builder",
+      "priority_reason": "Small first useful result",
+      "confidence": "low",
+      "risk": "low",
+      "depends_on": [],
+      "changes": [
+        "CHG-001"
+      ],
+      "partial_release": "all_required",
+      "date": {
+        "kind": "none",
+        "value": ""
+      },
+      "review_trigger": "After the first real task observation"
+    }
+  ],
+  "capacity": {
+    "wip_limit": 1,
+    "available_days": 2,
+    "estimates": [
+      {
+        "change": "CHG-001",
+        "low_days": 1,
+        "high_days": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "change": "CHG-001",
+  "observer": "codex-release-review",
+  "observed_at": "2026-09-06T20:22:28.006231+00:00",
+  "scope": "Local CLI observations; no human usability study or external services.",
+  "source_sha256": {
+    "app.py": "8ae951267382469f97d004031fc4a6c742cc683872bd13ef83301c308315c7c1",
+    "test_app.py": "687cf0844a2a91d9998845a477d734cdfecbb66a552d85d56743e93e18817f9e",
+    "README.md": "49c9dd8bd593a829a587dc9a549595bc29ace9c9b5e2bbc3c1425a46b0263e3b"
+  },
+  "results": [
+    {
+      "case": "trimmed_duplicate",
+      "argv": [
+        "python3",
+        "app.py",
+        " https://example.com/a ",
+        "https://example.com/a"
+      ],
+      "expected_exit": 0,
+      "expected_items": [
+        "https://example.com/a"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"https://example.com/a\"]\n",
+      "stderr": "",
+      "matches_expected": true
+    },
+    {
+      "case": "http_valid",
+      "argv": [
+        "python3",
+        "app.py",
+        "http://example.com"
+      ],
+      "expected_exit": 0,
+      "expected_items": [
+        "http://example.com"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"http://example.com\"]\n",
+      "stderr": "",
+      "matches_expected": true
+    },
+    {
+      "case": "unsupported_scheme",
+      "argv": [
+        "python3",
+        "app.py",
+        "javascript:alert(1)"
+      ],
+      "expected_exit": 1,
+      "expected_items": null,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Use an HTTP or HTTPS URL without credentials.\n",
+      "matches_expected": true
+    },
+    {
+      "case": "missing_host",
+      "argv": [
+        "python3",
+        "app.py",
+        "https://"
+      ],
+      "expected_exit": 1,
+      "expected_items": null,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Use an HTTP or HTTPS URL without credentials.\n",
+      "matches_expected": true
+    },
+    {
+      "case": "embedded_credentials",
+      "argv": [
+        "python3",
+        "app.py",
+        "https://name:pass@example.com"
+      ],
+      "expected_exit": 1,
+      "expected_items": null,
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Use an HTTP or HTTPS URL without credentials.\n",
+      "matches_expected": true
+    },
+    {
+      "case": "invalid_host_space",
+      "argv": [
+        "python3",
+        "app.py",
+        "https://bad host/"
+      ],
+      "expected_exit": 1,
+      "expected_items": null,
+      "exit_code": 0,
+      "stdout": "[\"https://bad host/\"]\n",
+      "stderr": "",
+      "matches_expected": false
+    },
+    {
+      "case": "invalid_port_text",
+      "argv": [
+        "python3",
+        "app.py",
+        "https://example.com:abc/"
+      ],
+      "expected_exit": 1,
+      "expected_items": null,
+      "exit_code": 0,
+      "stdout": "[\"https://example.com:abc/\"]\n",
+      "stderr": "",
+      "matches_expected": false
+    },
+    {
+      "case": "recovery_valid",
+      "argv": [
+        "python3",
+        "app.py",
+        "https://example.com/recovered"
+      ],
+      "expected_exit": 0,
+      "expected_items": [
+        "https://example.com/recovered"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"https://example.com/recovered\"]\n",
+      "stderr": "",
+      "matches_expected": true
+    },
+    {
+      "case": "fresh_process_empty",
+      "argv": [
+        "python3",
+        "app.py"
+      ],
+      "expected_exit": 0,
+      "expected_items": [],
+      "exit_code": 0,
+      "stdout": "[]\n",
+      "stderr": "",
+      "matches_expected": true
+    }
+  ]
+}

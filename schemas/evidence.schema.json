@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Spec Loop evidence v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^EV-[a-f0-9]{32}$"
+    },
+    "change_id": {
+      "type": "string",
+      "pattern": "^CHG-[A-Z0-9][A-Z0-9-]*$"
+    },
+    "check_id": {
+      "type": "string",
+      "pattern": "^CHK-[A-Z0-9][A-Z0-9-]*$"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "automated",
+        "manual"
+      ]
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail",
+        "invalid",
+        "timeout"
+      ]
+    },
+    "observed_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expires_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "observer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "argv": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "exit_code": {
+      "type": "integer",
+      "minimum": -999,
+      "maximum": 99999
+    },
+    "output_hash": {
+      "type": "string",
+      "pattern": "^([a-f0-9]{64})?$"
+    },
+    "output_bytes": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9223372036854775807
+    },
+    "artifact": {
+      "type": "string",
+      "minLength": 0
+    },
+    "artifact_hash": {
+      "type": "string",
+      "pattern": "^([a-f0-9]{64})?$"
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 0
+    },
+    "environment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trust": {
+      "type": "string",
+      "enum": [
+        "local-untrusted"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "change_id",
+    "check_id",
+    "kind",
+    "result",
+    "observed_at",
+    "expires_at",
+    "contract_hash",
+    "source_hash",
+    "observer",
+    "argv",
+    "exit_code",
+    "output_hash",
+    "output_bytes",
+    "artifact",
+    "artifact_hash",
+    "notes",
+    "environment",
+    "trust"
+  ],
+  "additionalProperties": false
+}

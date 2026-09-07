@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Spec Loop outcome v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^OBS-[a-f0-9]{32}$"
+    },
+    "release_id": {
+      "type": "string",
+      "pattern": "^REL-[A-Z0-9][A-Z0-9-]*$"
+    },
+    "release_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "check_id": {
+      "type": "string",
+      "pattern": "^CHK-[A-Z0-9][A-Z0-9-]*$"
+    },
+    "observed_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "window_start": {
+      "type": "string",
+      "minLength": 1
+    },
+    "window_end": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cohort": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 1
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail"
+      ]
+    },
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "content_base64": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "content_base64"
+      ],
+      "additionalProperties": false
+    },
+    "trust": {
+      "type": "string",
+      "enum": [
+        "local-untrusted"
+      ]
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "release_id",
+    "release_digest",
+    "check_id",
+    "observed_at",
+    "window_start",
+    "window_end",
+    "cohort",
+    "observer",
+    "notes",
+    "result",
+    "artifact",
+    "trust",
+    "digest"
+  ],
+  "additionalProperties": false
+}

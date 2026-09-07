@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "revision": 0,
+  "active_change": "CHG-001",
+  "summary": "Example code is supplied; evidence has not been collected.",
+  "next_action": "Inspect and run CHK-001 in a disposable Git repository.",
+  "blockers": [],
+  "updated_at": "2026-09-06T00:00:00+00:00",
+  "source_hash": "",
+  "events": [],
+  "contract_hash": ""
+}

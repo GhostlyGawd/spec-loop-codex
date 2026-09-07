@@ -1,0 +1,21 @@
+{
+  "ready-gate.json": {
+    "exit_code": 0,
+    "passed": true
+  },
+  "context.json": {
+    "exit_code": 0,
+    "checkpoint_stale": false,
+    "ready": true,
+    "characters": 22147
+  },
+  "impact.json": {
+    "exit_code": 0,
+    "dependent_changes": []
+  },
+  "document_links": "pass",
+  "product_code_files": [],
+  "all_build_tasks_todo": true,
+  "automated_product_checks_executed": false,
+  "manual_evidence_scope": "Agent document reviews only; no independent or real-user observation."
+}

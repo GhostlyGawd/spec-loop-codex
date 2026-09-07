@@ -1,0 +1,57 @@
+{
+  "observer": "codex-author",
+  "scope": "Synthetic local example; no deployment or real user study.",
+  "cli": [
+    {
+      "argv": [
+        "python3",
+        "app.py",
+        "https://example.com",
+        "https://example.com"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"https://example.com\"]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "app.py",
+        "https://bad host/"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "The URL must not contain spaces or control characters.\n"
+    },
+    {
+      "argv": [
+        "python3",
+        "app.py",
+        "https://example.com:abc/"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Port could not be cast to integer value as 'abc'\n"
+    },
+    {
+      "argv": [
+        "python3",
+        "app.py",
+        "javascript:alert(1)"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Use an HTTP or HTTPS URL with a host and without credentials.\n"
+    },
+    {
+      "argv": [
+        "python3",
+        "app.py"
+      ],
+      "exit_code": 0,
+      "stdout": "[]\n",
+      "stderr": ""
+    }
+  ],
+  "inspection": "Source uses local argument parsing and an in-memory list; no network or persistent write is present."
+}

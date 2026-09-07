@@ -1,0 +1,19 @@
+{
+  "strategy": {
+    "audience": "Unknown \u2014 capture the intended user",
+    "problem": "Unknown \u2014 capture the need",
+    "positioning": "Unknown",
+    "business_model": "Unknown",
+    "constraints": [],
+    "non_goals": [],
+    "review_trigger": "Review before committing implementation"
+  },
+  "objectives": [],
+  "opportunities": [],
+  "initiatives": [],
+  "capacity": {
+    "wip_limit": 1,
+    "available_days": 0,
+    "estimates": []
+  }
+}

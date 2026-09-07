@@ -1,0 +1,22 @@
+{
+  "name": "spec-loop",
+  "version": "0.3.0",
+  "description": "Build and improve products from linked specs and current evidence.",
+  "author": {
+    "name": "Spec Loop project"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Spec Loop",
+    "shortDescription": "Turn ideas into products with specs and evidence.",
+    "longDescription": "Guide product research, design, planning, implementation, verification, release, operations, and change. Keep decisions and evidence with the project.",
+    "developerName": "Spec Loop project",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Use Spec Loop to build my idea.",
+      "Use Spec Loop to improve this project.",
+      "Use Spec Loop to check this release."
+    ]
+  }
+}
