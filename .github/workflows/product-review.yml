@@ -30,6 +30,12 @@ jobs:
           python3 scripts/review_runner.py run
           --output "$RUNNER_TEMP/spec-loop-review"
           --run-id "$REVIEW_RUN_ID"
+      - name: Validate the published receipt against this checkout
+        env:
+          REVIEW_RUN_ID: review-${{ github.run_id }}-${{ github.run_attempt }}
+        run: >-
+          python3 scripts/review_runner.py status
+          --receipt "$RUNNER_TEMP/spec-loop-review/$REVIEW_RUN_ID.json"
       - name: Publish review summary
         if: always()
         run: |

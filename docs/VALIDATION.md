@@ -1,8 +1,14 @@
 # v0.5 validation — 7 September 2026
 
-The bounded review worker is implemented on a review branch. Local regression and structural checks passed; live GitHub Actions validation is pending. No default-branch schedule or actual Codex installation is claimed.
+The bounded review worker is implemented on a review branch. All 104 local tests, all 11 skills, the plugin manifest and local Markdown links passed. Independent offline use passed 19 CLI invocations. Actual push and PR Actions runs passed both review and regression jobs. No default-branch schedule or actual Codex installation is claimed.
 
 The worker reads native gates or exchange planning data, checks optional supplied signals, and writes dated receipts outside the source project. Tests cover unchanged intent, unknown exchange delivery, expiry after missed runs, input conflicts, interrupted publication, failed attempts, disclosure, budgets and CLI status. Fixtures contain no actual user telemetry. Read [CHG-005](CHANGE-005.md) and [the runner guide](../skills/spec-loop/references/review-runner.md) for acceptance and operating boundaries.
+
+Live evidence: [GitHub run record](evidence/v05-live-github.json), [test log](evidence/v05-tool-tests.txt), and [independent exercise](evaluation/background-review-exercise.md). The first run created and uploaded a report artifact. Its signed download returned HTTP 403 when this environment tried to materialize it, so artifact bytes were not inspected here. A receipt-read step has been added to validate the generated JSON against its checkout inside the live job; that final workflow step is awaiting its next run.
+
+The independent exercise found that the Markdown view hid concrete gate blockers. The report now exposes up to five distinct blockers per change, with remaining detail in JSON. A native-mode regression assertion checks the alignment blocker. Final local tests include this change and an ignored-artifact byte-budget check. These two refinements were not independently re-exercised.
+
+Limits: no default-branch schedule observation, sustained pilot, independent missing-run notification service, real telemetry collector, unattended bidirectional sync, marketplace installation or authenticated receipts. CI and push/PR worker execution are now tested. Scheduled delivery still needs observation after merge.
 
 Prior release validation follows.
 
