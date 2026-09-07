@@ -11,6 +11,7 @@ Read [the operating protocol](references/protocol.md). Read only the stage guide
 
 | Need | Guide |
 | --- | --- |
+| Compare or sync product intent with a GitHub file | [GitHub sync](references/github.md) |
 | Manage goals, priorities, capacity, or a current roadmap | [Product workflow](references/product.md) |
 | Understand a need, scope an idea, test demand | [Discovery](references/discover.md) |
 | Design a journey, interface, or interaction | [Product design](references/design.md) |

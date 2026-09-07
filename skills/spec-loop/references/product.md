@@ -55,7 +55,7 @@ The CLI refreshes after product init/apply/align/restore and new/run/record/chec
 
 At session start or resume, use `roadmap show` when product state exists. `context CHG-001` refreshes and includes linked objectives and initiatives within its existing context budget. Out-of-tool edits are detected at the next invocation. Direct Python function calls do not run the CLI refresh wrapper. `doctor`, `product inventory`, and `product show` are read-only.
 
-The view is current at its checked time. There is no background runner, webhook, remote sync, or scheduled job in v0.3. A stopped plugin cannot keep refreshing. External sync is explicitly not configured. Do not describe this as continuously synchronized with GitHub.
+The view is current at its checked time. For an explicitly configured product file, v0.4 adds [agent-mediated GitHub sync](github.md). Otherwise external sync is not configured. There is no background runner, webhook, or scheduled job. A stopped plugin cannot keep refreshing; do not describe it as continuously synchronized.
 
 Refresh is protected by the local writer lock and compares source/metadata inputs before and after evaluation. Non-cooperating filesystem writers cannot be made fully transactional by this local tool. On conflict, preserve intent, reread, and refresh again. Every invocation reevaluates evidence age. If output exceeds the budget, the view is saved but the command reports an error instead of silently dropping constraints; use focused `context` or an explicit `--max-chars` for the roadmap.
 

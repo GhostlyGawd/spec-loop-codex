@@ -4,7 +4,7 @@ A Codex plugin for spec driven product development with AI agents.
 
 Use it to move from a user need through product design, architecture, implementation, verification, release, operation, and improvement. Keep specs and evidence with the project so work can resume over time.
 
-Version: 0.3.0. This is a source package and working local reference implementation. It has not been installed or published from this session.
+Version: 0.4.0. This is a source package and working local reference implementation. Source is available in GhostlyGawd/spec-loop-codex. Actual Codex installation remains untested.
 
 ## Start here
 
@@ -17,7 +17,7 @@ Normal requests include “Turn this idea into a small first version,” “Add 
 
 ## Included
 
-Eleven skills cover the full lifecycle. Nine templates define product, design, architecture, security, release, operations, learning, and retirement records. Seven JSON schemas define project, change, ordinary evidence, release, outcome, and product intent/state files. A Python tool checks links, dependencies, evidence freshness, release readiness, and local state conflicts.
+Eleven skills cover the full lifecycle. Nine templates define product, design, architecture, security, release, operations, learning, and retirement records. Eight JSON schemas define project, change, ordinary evidence, release, outcome, product intent/state, and GitHub file snapshots. A Python tool checks links, dependencies, evidence freshness, release readiness, and local state conflicts.
 
 The workflow has three profiles: quick, product, and critical. More impact requires stronger evidence. A small change can use a short contract and a focused check.
 
@@ -47,7 +47,15 @@ Use “Show my roadmap”, “What should I build next?”, or “Capture this f
 
 The roadmap refreshes on show/resume and after relevant CLI writes. It derives delivery facts from existing contracts, checks, releases, and observations. Goal/scope changes require contract alignment and fresh evidence. Priority-only edits preserve valid product test evidence. Product backup/restore preserves decision history.
 
-Updates are local and occur on invocation. There is no background job or external tracker sync. A local release envelope does not prove remote deployment; an outcome check does not prove causation or market demand. The roadmap retains these distinctions.
+Roadmap refresh occurs on invocation. A configured product file can also sync through GitHub MCP as described below. There is no background job. A local release envelope does not prove remote deployment; an outcome check does not prove causation or market demand. The roadmap retains these distinctions.
+
+## GitHub file sync in 0.4
+
+The adapter compares local intent with one configured GitHub JSON file, merges independent edits, reports conflicts, and prepares an exact MCP file request. It verifies read-back before applying inbound intent or updating the last common version. A durable pending operation supports timeout and local-crash recovery. Public transfers require review and reject internal/restricted opportunity records.
+
+Read [the GitHub guide](skills/spec-loop/references/github.md) for configure, plan, confirm, status, and cancel. [The public product roadmap record](docs/product-roadmap.json) contains the project's intended sequence; it is not release or outcome evidence. [Live check results](docs/evidence/v04-live-github.json) record actual file creation, no-op comparison, and independent local/remote edits on the review branch.
+
+This is agent-mediated product-file sync. It does not provide GitHub Issues/Projects sync, a continuous service, or authenticated local receipts.
 
 ## Release history and packaging
 
@@ -64,4 +72,4 @@ The manifest is .codex-plugin/plugin.json and skills are bundled under skills/. 
 
 Tested in this session on Linux with Python 3.12 and Git. Other operating systems, Python versions, actual Codex loading, remote CI, deployment services, and scheduled operation remain untested. Source snapshots reject symlinks and submodules. Evidence is conservative and can become stale after unrelated source changes.
 
-All connected service actions must use real available tools and current user authority. The adapter protocol is specified; service adapters and signed release evidence are not implemented in this version.
+All connected service actions must use real available tools and current user authority. The GitHub product-file adapter is implemented. Other service adapters and signed release evidence remain future work.

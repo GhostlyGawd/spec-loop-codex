@@ -18,7 +18,7 @@ import sys
 import tempfile
 import uuid
 
-VERSION = "0.3.0"
+VERSION = "0.4.0"
 META = ".spec-loop"
 PLUGIN = Path(__file__).resolve().parents[1]
 PROFILE_ORDER = {"quick": 0, "product": 1, "critical": 2}
@@ -664,6 +664,8 @@ def parser():
             command.add_argument("--result", choices=("pass", "fail"), required=True)
     import product
     product.add_parser(sub)
+    import github_sync
+    github_sync.add_parser(sub)
     return p
 
 
@@ -680,15 +682,18 @@ def main():
     import product
     for command in ("product", "roadmap"):
         dispatch[command] = lambda: product.execute(sys.modules[__name__], root, args)
+    import github_sync
+    dispatch["github"] = lambda: github_sync.execute(sys.modules[__name__], root, args)
     try:
         result = dispatch[args.command]()
-        if inside(root, f"{META}/product/state.json").exists() and (args.command in ("new", "run", "record", "checkpoint", "release-seal", "release-observe") or args.command == "product" and args.action in ("init", "apply", "align", "restore")):
+        if inside(root, f"{META}/product/state.json").exists() and (args.command in ("new", "run", "record", "checkpoint", "release-seal", "release-observe") or args.command == "product" and args.action in ("init", "apply", "align", "restore") or args.command == "github" and args.action != "status"):
+            # Refresh derived facts even when a comparison reports conflicts.
             result["roadmap_refresh"] = product.refresh_status(sys.modules[__name__], root)
         print(json.dumps(result, indent=2, ensure_ascii=False))
         if result.get("passed") is False or result.get("result") in ("fail", "invalid", "timeout"):
             return 1
         return 0
-    except (LoopError, OSError, UnicodeError, RecursionError) as exc:
+    except (LoopError, OSError, UnicodeError, RecursionError, ValueError) as exc:
         print(json.dumps({"error": str(exc)}, ensure_ascii=False))
         return 2
 
