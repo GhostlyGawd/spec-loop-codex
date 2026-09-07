@@ -26,3 +26,5 @@ The roadmap is a checked snapshot. A stopped daily job does not update it or ale
 No blocking defect was observed. The initial Markdown view only said Resolve current delivery gaps; the concrete alignment blocker was discoverable in JSON roadmap.changes. Surfacing gate blockers in Markdown would make the next action clearer for a novice using Actions summaries. Feedback was sent to the implementation agent.
 
 Evidence: commands.json contains command arguments, exit codes and exact stdout/stderr for 19 local invocations. reports contains unchanged success receipts and the intentionally failed privacy receipt. All fixtures and observations are synthetic.
+
+Implementation follow-up: the Markdown report now includes distinct gate blockers. The native-mode regression checks that the scope-alignment blocker is visible. The forward tester did not repeat the exercise after this change. Raw commands remain in the disposable session workspace and are not bundled in the plugin.

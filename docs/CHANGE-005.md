@@ -1,6 +1,6 @@
 # CHG-005 — Bounded background product reviews
 
-Status: implemented; 104 local tests and first live push/PR workflows passed. Final receipt-read step validation pending. Date: 7 September 2026.
+Status: implemented; 105 local tests pass. Live push/PR jobs and the in-job receipt reader passed; see the validation record for checked revisions. Date: 7 September 2026.
 
 The user approved the staged build and asked to continue after merging v0.4. Add a GitHub Actions review runner. Keep the product-file adapter's conflict and decision rules intact.
 

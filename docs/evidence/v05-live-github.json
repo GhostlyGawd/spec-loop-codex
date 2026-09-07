@@ -23,5 +23,15 @@
     "Artifact was created according to GitHub metadata and upload logs. Connector returned a ZIP file reference; materializing that signed download URL returned HTTP 403 in this environment. Artifact bytes were not inspected locally.",
     "Default-branch schedule and sustained operation are not tested.",
     "Signals are empty in this project; no real telemetry or users were observed."
-  ]
+  ],
+  "receipt_reader_validation": {
+    "head": "8b0e8e3263bd72cb81a6cc6d72287d1d06f905eb",
+    "push_run": 34167714700,
+    "pr_run": 34167716926,
+    "review_job": 101881971987,
+    "conclusion": "success",
+    "freshness": "current-at-read",
+    "checked_at": "2026-09-07T22:44:59.963223+00:00",
+    "receipt_digest": "ddb7ad1d7002d6b1a8ea3882bd59507539db8992d4c026c11823bef41f3d5717"
+  }
 }

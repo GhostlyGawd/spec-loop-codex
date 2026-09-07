@@ -164,6 +164,16 @@ class ReviewTests(unittest.TestCase):
         with patch.object(runner, 'FILE_LIMIT', 40000):
             self.assertEqual(self.run_review()['status'], 'failed')
 
+    def test_report_budget_counts_the_actual_published_bytes(self):
+        receipt = self.run_review()
+        compact = len(loop.canonical(receipt))
+        pretty = (self.output/'test-1.json').stat().st_size
+        self.assertGreater(pretty, compact)
+        with patch.object(runner, 'REPORT_LIMIT', (compact + pretty)//2):
+            rejected = self.run_review('test-2')
+        self.assertEqual(rejected['status'], 'failed')
+        self.assertEqual(rejected['roadmap'], {})
+
     def test_lock_and_in_project_output_prevent_publication(self):
         with self.assertRaises(loop.LoopError):
             runner.run(self.root, 'docs/review-config.json', self.root/'reports', 'test')

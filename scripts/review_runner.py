@@ -270,7 +270,7 @@ def run(root, config_path, output, run_id):
             if inputs(root, config_path)[1] != identity:
                 raise core.LoopError('Inputs changed during review')
             record.update(status='complete', roadmap=view, signals=signals, findings=findings)
-            if len(core.canonical(record)) > REPORT_LIMIT - 1024:
+            if len((json.dumps(seal(record), ensure_ascii=False, indent=2) + '\n').encode()) > REPORT_LIMIT:
                 raise core.LoopError('Report exceeds byte budget')
         except (core.LoopError, OSError, ValueError, RecursionError, subprocess.SubprocessError):
             record.update(status='failed', roadmap={}, signals=[], findings=[],

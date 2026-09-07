@@ -68,6 +68,7 @@ test_public_review_rejects_private_product_or_signal_data (test_review_runner.Re
 test_reader_detects_expiry_and_changed_source (test_review_runner.ReviewTests.test_reader_detects_expiry_and_changed_source) ... ok
 test_receipt_corruption_future_and_excessive_expiry_are_not_current (test_review_runner.ReviewTests.test_receipt_corruption_future_and_excessive_expiry_are_not_current) ... ok
 test_replay_preserves_age_and_repairs_missing_markdown (test_review_runner.ReviewTests.test_replay_preserves_age_and_repairs_missing_markdown) ... ok
+test_report_budget_counts_the_actual_published_bytes (test_review_runner.ReviewTests.test_report_budget_counts_the_actual_published_bytes) ... ok
 test_reusing_run_id_after_change_preserves_original_receipt (test_review_runner.ReviewTests.test_reusing_run_id_after_change_preserves_original_receipt) ... ok
 test_symlink_input_and_output_are_refused (test_review_runner.ReviewTests.test_symlink_input_and_output_are_refused) ... ok
 test_active_lock_blocks_a_write (test_spec_loop.ContractTests.test_active_lock_blocks_a_write) ... ok
@@ -104,6 +105,6 @@ test_unknown_schema_and_malformed_evidence_fail_closed (test_spec_loop.ContractT
 test_unrelated_draft_does_not_block_valid_change (test_spec_loop.ContractTests.test_unrelated_draft_does_not_block_valid_change) ... ok
 
 ----------------------------------------------------------------------
-Ran 104 tests in 13.705s
+Ran 105 tests in 14.486s
 
 OK
