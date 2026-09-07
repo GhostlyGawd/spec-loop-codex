@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "mode": "exchange",
+  "product_file": "docs/product-roadmap.json",
+  "signals_file": "docs/review-signals.json",
+  "visibility": "public",
+  "max_age_hours": 36
+}

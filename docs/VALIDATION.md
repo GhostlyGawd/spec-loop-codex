@@ -1,3 +1,11 @@
+# v0.5 validation — 7 September 2026
+
+The bounded review worker is implemented on a review branch. Local regression and structural checks passed; live GitHub Actions validation is pending. No default-branch schedule or actual Codex installation is claimed.
+
+The worker reads native gates or exchange planning data, checks optional supplied signals, and writes dated receipts outside the source project. Tests cover unchanged intent, unknown exchange delivery, expiry after missed runs, input conflicts, interrupted publication, failed attempts, disclosure, budgets and CLI status. Fixtures contain no actual user telemetry. Read [CHG-005](CHANGE-005.md) and [the runner guide](../skills/spec-loop/references/review-runner.md) for acceptance and operating boundaries.
+
+Prior release validation follows.
+
 # Validation record
 
 ## Version 0.4.0 — 7 September 2026

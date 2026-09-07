@@ -1,6 +1,6 @@
 ---
 name: loop-product
-description: Manage a Spec Loop product backlog, goals, priorities, capacity, and a locally refreshed roadmap. Use to choose the next product step, capture feedback, review roadmap progress, or connect delivery with observed outcomes.
+description: Manage a Spec Loop product backlog, goals, priorities, capacity, and a refreshed roadmap. Use to choose the next product step, capture feedback, review roadmap progress, or connect delivery with observed outcomes.
 ---
 
 # Product and roadmap
@@ -10,3 +10,5 @@ Read [the product workflow](../spec-loop/references/product.md) and [the shared 
 For a configured GitHub product file, use [the GitHub sync guide](../spec-loop/references/github.md). Read current product intent and recompute roadmap facts before proposing work. Keep current delivery, historical release records, product observations, and sync freshness separate. Apply intent decisions within existing user authority; factual refresh alone does not grant new authority.
 
 Return the useful roadmap view, its checked time, the reason for the next action, and any decision or evidence gap. For a review-only request, refresh derived facts and produce the review without changing goals, priorities, contracts, or observations.
+
+For scheduled reviews or missed-run checks, read [the background review guide](../spec-loop/references/review-runner.md). Check the latest applicable job and validate its receipt against current inputs. An exchange report has unknown delivery; a completed review does not prove external synchronization or authorize a priority change.
