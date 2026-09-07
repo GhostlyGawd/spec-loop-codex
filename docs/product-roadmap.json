@@ -1,47 +1,11 @@
 {
   "schema_version": 1,
   "product": {
-    "strategy": {
-      "audience": "Builders who use AI to develop and maintain products",
-      "problem": "Product intent and delivery evidence become stale across development sessions",
-      "positioning": "Portable product records linked to spec-driven development",
-      "business_model": "No commercial model validated",
-      "constraints": [],
-      "non_goals": [],
-      "review_trigger": "Review after the scoped sync check, merge review, and actual Codex installation"
+    "capacity": {
+      "wip_limit": 1,
+      "available_days": 0,
+      "estimates": []
     },
-    "objectives": [
-      {
-        "id": "OBJ-CONTINUITY",
-        "title": "Keep product intent recoverable",
-        "metric": "A builder can recover goals, current delivery state, and the next decision",
-        "baseline": "Not measured in a real builder pilot",
-        "target": "Demonstrate a complete product-development cycle and then evaluate it with builders",
-        "cohort": "Local technical evaluation first; real builders not yet studied",
-        "window": "Per release and later pilot",
-        "guardrails": [
-          "No silent overwrite of product intent",
-          "No claim of product value from code checks alone"
-        ],
-        "owner": "Project owner"
-      }
-    ],
-    "opportunities": [
-      {
-        "id": "OPP-ROADMAP",
-        "title": "Keep the roadmap linked to implementation and outcomes",
-        "source": "Public Spec Loop system design in this repository",
-        "observed_at": "2026-09-07",
-        "evidence": "observation",
-        "privacy": "public",
-        "status": "researching",
-        "experiment": "Exercise local and GitHub file synchronization, then run a builder pilot",
-        "stop_rule": "Revise if conflicts lose intent or stale data is reported current",
-        "objectives": [
-          "OBJ-CONTINUITY"
-        ]
-      }
-    ],
     "initiatives": [
       {
         "id": "INI-GITHUB",
@@ -59,7 +23,7 @@
         "horizon": "now",
         "status": "active",
         "owner": "Project owner",
-        "priority_reason": "Follow the approved sequence and validate each integration before expanding it",
+        "priority_reason": "Keep the integration bounded to one reviewed product file before adding more adapters",
         "confidence": "low",
         "risk": "low",
         "depends_on": [],
@@ -128,10 +92,46 @@
         "review_trigger": "Review the observed result before the next commitment"
       }
     ],
-    "capacity": {
-      "wip_limit": 1,
-      "available_days": 0,
-      "estimates": []
+    "objectives": [
+      {
+        "id": "OBJ-CONTINUITY",
+        "title": "Keep product intent recoverable",
+        "metric": "A builder can recover goals, current delivery state, and the next decision",
+        "baseline": "Not measured in a real builder pilot",
+        "target": "Demonstrate a complete product-development cycle and then evaluate it with builders",
+        "cohort": "Local technical evaluation first; real builders not yet studied",
+        "window": "Per release and later pilot",
+        "guardrails": [
+          "No silent overwrite of product intent",
+          "No claim of product value from code checks alone"
+        ],
+        "owner": "Project owner"
+      }
+    ],
+    "opportunities": [
+      {
+        "id": "OPP-ROADMAP",
+        "title": "Keep the roadmap linked to implementation and outcomes",
+        "source": "Public Spec Loop system design in this repository",
+        "observed_at": "2026-09-07",
+        "evidence": "observation",
+        "privacy": "public",
+        "status": "researching",
+        "experiment": "Exercise local and GitHub file synchronization, then run a builder pilot",
+        "stop_rule": "Revise if conflicts lose intent or stale data is reported current",
+        "objectives": [
+          "OBJ-CONTINUITY"
+        ]
+      }
+    ],
+    "strategy": {
+      "audience": "Builders who use AI to develop and maintain products",
+      "problem": "Product intent and delivery evidence become stale across development sessions",
+      "positioning": "Portable product records linked to spec-driven development",
+      "business_model": "No commercial model validated",
+      "constraints": [],
+      "non_goals": [],
+      "review_trigger": "Review after the scoped sync check, merge review, and actual Codex installation"
     }
   }
 }
