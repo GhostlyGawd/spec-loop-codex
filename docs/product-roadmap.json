@@ -8,7 +8,7 @@
       "business_model": "No commercial model validated",
       "constraints": [],
       "non_goals": [],
-      "review_trigger": "Review after the scoped GitHub file integration"
+      "review_trigger": "Review after the scoped sync check, merge review, and actual Codex installation"
     },
     "objectives": [
       {
