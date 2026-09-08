@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-08T18:36:45.664334+00:00",
+  "observed_at": "2026-09-08T18:35:49.552870+00:00",
+  "target": {
+    "repository": "GhostlyGawd/spec-loop-codex",
+    "branch": "main",
+    "workflow": ".github/workflows/product-review.yml",
+    "cron": "17 7 * * *",
+    "commit": "88c204afed772f1d68c931b3d1e640b7fd63a273",
+    "tree": "1af34121c158457ba7fcb6a7f3fc8eab11494521",
+    "version": "0.8.0"
+  },
+  "schedule": {
+    "id": 34224621873,
+    "event": "schedule",
+    "head_sha": "550e15e8da293adaa0c24cb7172ed7c25139fc80",
+    "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34224621873",
+    "run_attempt": 1,
+    "status": "passed",
+    "review_job": 102055605172,
+    "artifact_id": 10055147408,
+    "artifact_digest": "sha256:871f571dd374ca4ee10b2281d60fb09342cb6288113c3dcb1b830d18767adaa5",
+    "proof": "job-steps-and-artifact-metadata",
+    "expected_at": "2026-09-08T07:17:00+00:00",
+    "deadline": "2026-09-08T13:17:00+00:00",
+    "created_delay_seconds": 17620,
+    "timing": "within-grace",
+    "overdue": false
+  },
+  "current_commit_review": {
+    "id": 34252354212,
+    "event": "push",
+    "head_sha": "88c204afed772f1d68c931b3d1e640b7fd63a273",
+    "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34252354212",
+    "run_attempt": 2,
+    "status": "passed",
+    "review_job": 102150267761,
+    "artifact_id": 10066550738,
+    "artifact_digest": "sha256:cdd09f778435400c64410633ca1ef8876549377f2eb011eb96a3537040a1209d",
+    "proof": "job-steps-and-artifact-metadata"
+  },
+  "installed_skill": {
+    "status": "current",
+    "installed_version": "0.8.0",
+    "repository_version": "0.8.0",
+    "source_tree": "1af34121c158457ba7fcb6a7f3fc8eab11494521",
+    "payload_digest": "5681b0feb36e9f612257a5e4c624b7a720b426af7b0d822b85637b78acb9c390",
+    "provenance": "unsigned-declared-source; payload checked locally"
+  },
+  "attention": false,
+  "limits": "Observation supplied by collector, not authenticated here. Metadata is not artifact-byte verification. One run does not prove sustained reliability. No writes or repairs."
+}

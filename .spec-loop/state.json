@@ -1,13 +1,15 @@
 {
   "schema_version": 1,
-  "revision": 5,
+  "revision": 6,
   "active_change": "CHG-008",
-  "summary": "Final clean-source release and Work resource export verified; personal bundle links to saved project handoff",
-  "next_action": "Verify the published source and saved Work update; observe watchdog execution, fresh user chat and human feedback",
+  "summary": "Resumed main 88c204a in this user Work conversation; doctor, context and roadmap succeeded; installed v0.8.0 matches. See .spec-loop/artifacts/resume-2026-09-08.md. Product revision 3 and priorities unchanged.",
+  "next_action": "Renew stale CHG-006 acceptance, release and operations evidence under v0.8 in the existing Now initiative; then complete CHG-HOST onboarding and obtain builder feedback.",
   "blockers": [
-    "Fresh user chat, real builder outcome and first watchdog execution remain unobserved"
+    "CHG-006 current acceptance, release and operations evidence is stale.",
+    "CHG-HOST full onboarding and acceptance remain unverified; explicit skill selection and project resume are observed, but builder feedback and release outcomes are missing.",
+    "Sustained schedule timing and first independent watchdog execution remain unverified."
   ],
-  "updated_at": "2026-09-08T16:36:25.454498+00:00",
+  "updated_at": "2026-09-08T18:37:33.987573+00:00",
   "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
   "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
   "events": [
@@ -35,6 +37,11 @@
       "at": "2026-09-08T16:36:25.454498+00:00",
       "change": "CHG-008",
       "summary": "Final clean-source release and Work resource export verified; personal bundle links to saved project handoff"
+    },
+    {
+      "at": "2026-09-08T18:37:33.987573+00:00",
+      "change": "CHG-008",
+      "summary": "Resumed main 88c204a in this user Work conversation; doctor, context and roadmap succeeded; installed v0.8.0 matches. See .spec-loop/artifacts/resume-2026-09-08.md. Product revision 3 and priorities unchanged."
     }
   ]
 }
