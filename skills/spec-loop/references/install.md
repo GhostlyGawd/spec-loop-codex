@@ -16,7 +16,11 @@ For an extracted archive made by `scripts/package.py`, add `--package`. This als
 
 Use a clean extraction for package verification. An added `.git` directory changes that inventory. Generated `__pycache__` directories and `.pyc` files are excluded. Source/copy comparison covers `.codex-plugin`, scripts, skills, schemas, templates, docs and examples; it is not a general-purpose filesystem comparator. Other source files are covered by the package manifest when `--package` is selected.
 
-## Install through the actual host
+## ChatGPT Work
+
+If the user works in ChatGPT Work, use [the Work mode setup](work-mode.md). The personal skill can bundle the same engine and lifecycle guides. Run it in Work without asking the user to switch to Codex. Source use, a saved personal skill, installed plugin selection and user outcomes remain separate observations.
+
+## Optional desktop plugin installation
 
 In the ChatGPT desktop/Codex host that will use the plugin, make the reviewed source folder available, then ask its plugin-creator:
 

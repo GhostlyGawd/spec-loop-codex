@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "CHG-HOST",
-  "title": "Actual Codex loading and builder pilot",
+  "title": "ChatGPT Work loading and builder pilot",
   "phase": "building",
   "risk": "low",
   "intent": {
@@ -20,19 +20,26 @@
       "kind": "user",
       "reference": "docs/CHANGE-006.md",
       "statement": "User approved the installation and native product pilot milestone on 8 September 2026."
+    },
+    {
+      "id": "SRC-WORK",
+      "kind": "user",
+      "reference": "docs/CHANGE-007.md",
+      "statement": "User uses ChatGPT Work and requested compatibility there."
     }
   ],
   "requirements": [
     {
       "id": "REQ-001",
-      "statement": "A fresh installed-host chat discovers Spec Loop and its product skill, resolves bundled resources, and completes project onboarding.",
+      "statement": "A fresh Work chat selects the saved Spec Loop entry, resolves its bundled product workflow and completes project onboarding.",
       "source_ids": [
-        "SRC-APPROVAL"
+        "SRC-APPROVAL",
+        "SRC-WORK"
       ],
       "criteria": [
         {
           "id": "AC-001",
-          "statement": "A fresh installed-host chat discovers Spec Loop and its product skill, resolves bundled resources, and completes project onboarding."
+          "statement": "A fresh Work chat selects the saved Spec Loop entry, resolves its bundled product workflow and completes project onboarding."
         }
       ]
     }
@@ -72,7 +79,7 @@
   "tasks": [
     {
       "id": "TASK-001",
-      "title": "Actual Codex loading and builder pilot",
+      "title": "ChatGPT Work loading and builder pilot",
       "requirement_ids": [
         "REQ-001"
       ],
@@ -123,12 +130,12 @@
       "timeout_seconds": 60
     }
   ],
-  "product_scope": "c19bae3c1a99c1cfccd977754b1cb093a6fff2c65999cbf861bb86a642df9a0b",
+  "product_scope": "fa02bed07d4825267d89da5d2bbf410b6d5f9c3445360727243c9b65727517b2",
   "product_review": {
-    "scope": "c19bae3c1a99c1cfccd977754b1cb093a6fff2c65999cbf861bb86a642df9a0b",
-    "actor": "codex",
-    "reason": "Reviewed scope against the linked native contract; host proof is distinct from file validation.",
-    "authority_ref": "User Approved following the v0.6 plan, 8 September 2026",
-    "at": "2026-09-08T13:41:30.311508+00:00"
+    "scope": "fa02bed07d4825267d89da5d2bbf410b6d5f9c3445360727243c9b65727517b2",
+    "actor": "chatgpt-work",
+    "reason": "Reviewed Work personal-skill entry and bundled product workflow; fresh chat and human acceptance remain separate.",
+    "authority_ref": "User Work mode compatibility request, 8 September 2026",
+    "at": "2026-09-08T15:38:30.922663+00:00"
   }
 }

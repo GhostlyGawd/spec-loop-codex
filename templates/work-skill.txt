@@ -1,0 +1,14 @@
+---
+name: spec-loop
+description: Build and maintain products in ChatGPT Work from linked specs, tasks, roadmap decisions and evidence. Use to start a product, add a feature, review readiness, show a roadmap or resume Spec Loop work.
+---
+
+# Spec Loop
+
+Read [Work mode setup and resume](bundle/skills/spec-loop/references/work-mode.md), then [the main workflow](bundle/skills/spec-loop/SKILL.md). Load only the stage needed for the user's request.
+
+This personal skill contains the Spec Loop plugin resources in `bundle/`. Resolve that folder from this skill's actual location. With a skill resource provider, read these relative resources through that provider and use its returned filesystem root for commands. Do not guess a desktop or cache path.
+
+Run the bundled Python tools through the current Work execution tool. They do not require the Codex app or CLI. Keep product files in the user's project, separate from the installed bundle. Use connected GitHub tools for authorized repository actions. Check current access before selecting other integrations.
+
+Refresh the roadmap and check current evidence on resume. Preserve product intent until the user authorizes a decision. Keep progress, test results, release history, deployment and real user outcomes distinct. A saved skill does not persist an unsaved project or create a background schedule.

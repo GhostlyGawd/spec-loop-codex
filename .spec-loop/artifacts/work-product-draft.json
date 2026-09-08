@@ -1,0 +1,166 @@
+{
+  "capacity": {
+    "wip_limit": 1,
+    "available_days": 0,
+    "estimates": []
+  },
+  "initiatives": [
+    {
+      "id": "INI-GITHUB",
+      "title": "Scoped GitHub product-file sync",
+      "scope": "Compare, merge, write, and verify one reviewed product JSON file through GitHub MCP",
+      "non_goals": [
+        "No unverified deployment or product-value claims"
+      ],
+      "objectives": [
+        "OBJ-CONTINUITY"
+      ],
+      "opportunities": [
+        "OPP-ROADMAP"
+      ],
+      "horizon": "later",
+      "status": "parked",
+      "owner": "Project owner",
+      "priority_reason": "Earlier implementation is available; retain planning while the approved installation pilot is evaluated.",
+      "confidence": "low",
+      "risk": "low",
+      "depends_on": [],
+      "changes": [],
+      "partial_release": "all_required",
+      "date": {
+        "kind": "none",
+        "value": ""
+      },
+      "review_trigger": "Review the observed result before the next commitment"
+    },
+    {
+      "id": "INI-RUNNER",
+      "title": "Continuous product review runner",
+      "scope": "Choose a runtime and validate scheduled reviews, freshness, missed runs, and cost limits",
+      "non_goals": [
+        "No unverified deployment or product-value claims"
+      ],
+      "objectives": [
+        "OBJ-CONTINUITY"
+      ],
+      "opportunities": [
+        "OPP-ROADMAP"
+      ],
+      "horizon": "later",
+      "status": "parked",
+      "owner": "Project owner",
+      "priority_reason": "Earlier implementation is available; retain planning while the approved installation pilot is evaluated.",
+      "confidence": "low",
+      "risk": "low",
+      "depends_on": [],
+      "changes": [],
+      "partial_release": "all_required",
+      "date": {
+        "kind": "none",
+        "value": ""
+      },
+      "review_trigger": "Review the observed result before the next commitment"
+    },
+    {
+      "id": "INI-PILOT",
+      "title": "ChatGPT Work setup and builder pilot",
+      "scope": "Use Spec Loop in ChatGPT Work, save its personal skill, validate loaded resources, resume and builder outcomes",
+      "non_goals": [
+        "No unverified deployment or product-value claims"
+      ],
+      "objectives": [
+        "OBJ-CONTINUITY"
+      ],
+      "opportunities": [
+        "OPP-ROADMAP"
+      ],
+      "horizon": "next",
+      "status": "active",
+      "owner": "Project owner",
+      "priority_reason": "User clarified that they use ChatGPT Work and requested support there on 8 September 2026.",
+      "confidence": "low",
+      "risk": "low",
+      "depends_on": [],
+      "changes": [
+        "CHG-HOST"
+      ],
+      "partial_release": "all_required",
+      "date": {
+        "kind": "none",
+        "value": ""
+      },
+      "review_trigger": "Review the observed result before the next commitment"
+    },
+    {
+      "id": "INI-INSTALL",
+      "title": "Portable installation diagnostics",
+      "scope": "Check source resources, copied payload identity and extracted package inventory without writes",
+      "non_goals": [
+        "No unverified deployment or product-value claims"
+      ],
+      "objectives": [
+        "OBJ-CONTINUITY"
+      ],
+      "opportunities": [
+        "OPP-ROADMAP"
+      ],
+      "horizon": "now",
+      "status": "active",
+      "owner": "Project owner",
+      "priority_reason": "Make the approved installation pilot concrete and diagnosable",
+      "confidence": "low",
+      "risk": "low",
+      "depends_on": [],
+      "changes": [
+        "CHG-006"
+      ],
+      "partial_release": "all_required",
+      "date": {
+        "kind": "none",
+        "value": ""
+      },
+      "review_trigger": "Review the observed result before the next commitment"
+    }
+  ],
+  "objectives": [
+    {
+      "id": "OBJ-CONTINUITY",
+      "title": "Keep product intent recoverable",
+      "metric": "A builder can recover goals, current delivery state, and the next decision",
+      "baseline": "Not measured in a real builder pilot",
+      "target": "Demonstrate a complete product-development cycle and then evaluate it with builders",
+      "cohort": "Local technical evaluation first; real builders not yet studied",
+      "window": "Per release and later pilot",
+      "guardrails": [
+        "No silent overwrite of product intent",
+        "No claim of product value from code checks alone"
+      ],
+      "owner": "Project owner"
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "OPP-ROADMAP",
+      "title": "Keep the roadmap linked to implementation and outcomes",
+      "source": "Public Spec Loop system design in this repository",
+      "observed_at": "2026-09-07",
+      "evidence": "observation",
+      "privacy": "public",
+      "status": "researching",
+      "experiment": "Exercise local and GitHub file synchronization, then run a builder pilot",
+      "stop_rule": "Revise if conflicts lose intent or stale data is reported current",
+      "objectives": [
+        "OBJ-CONTINUITY"
+      ]
+    }
+  ],
+  "strategy": {
+    "audience": "Builders who use AI to develop and maintain products",
+    "problem": "Product intent and delivery evidence become stale across development sessions",
+    "positioning": "Portable product records linked to spec-driven development",
+    "business_model": "No commercial model validated",
+    "constraints": [],
+    "non_goals": [],
+    "review_trigger": "Review after the scoped sync check, merge review, and actual Codex installation"
+  }
+}

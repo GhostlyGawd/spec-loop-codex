@@ -3,7 +3,7 @@ name: Spec Loop product review
 on:
   pull_request:
   push:
-    branches: [main, codex/background-review, codex/installation-pilot]
+    branches: [main, codex/background-review, codex/installation-pilot, codex/work-mode]
   schedule:
     - cron: '17 7 * * *'
   workflow_dispatch:
@@ -72,6 +72,8 @@ jobs:
         run: python3 scripts/install_check.py --root .
       - name: Check native project resume
         run: python3 scripts/spec_loop.py context CHG-006 --max-chars 100000
+      - name: Build the Work skill resource bundle
+        run: python3 scripts/work_bundle.py --root . --output "$RUNNER_TEMP/spec-loop-work-bundle"
       - name: Build and check the source package
         run: |
           python3 scripts/package.py --root . --output "$RUNNER_TEMP/spec-loop-source.tar.gz"

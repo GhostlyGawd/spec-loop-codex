@@ -1,10 +1,18 @@
 # Spec Loop
 
-A Codex plugin for spec driven product development with AI agents.
+A plugin for spec driven product development in ChatGPT Work and Codex.
 
 Use it to move from a user need through product design, architecture, implementation, verification, release, operation, and improvement. Keep specs and evidence with the project so work can resume over time.
 
-Version: 0.6.0. This is a source package and working local reference implementation. Source is available in GhostlyGawd/spec-loop-codex. Actual Codex installation remains untested.
+Version: 0.7.0. This is a source package and working local reference implementation. Source is available in GhostlyGawd/spec-loop-codex. Actual Codex installation remains untested.
+
+## ChatGPT Work mode in 0.7
+
+Use [the Work mode guide](skills/spec-loop/references/work-mode.md) to start or resume in ChatGPT Work. The engine needs Python and Git, not the Codex app or CLI. A self-contained personal `spec-loop` skill can package the same lifecycle resources with the host's skill-creator. Once saved, request “Use Spec Loop to continue my product” or select it with `@` when available.
+
+`scripts/work_bundle.py` copies committed resources into a new bundle directory. It excludes this repository's root product records, CI and untracked files, validates resource paths, and records hashes and source identity. The helper creates files; the host's personal-skill save process performs installation. Native project state must be saved separately to resume after a workspace reset.
+
+The original plugin format remains supported. Public catalog distribution, personal-skill persistence and actual host selection are separate checks; see [validation](docs/VALIDATION.md).
 
 ## Installation and native pilot in 0.6
 
@@ -16,7 +24,7 @@ Spec Loop now uses native product records for its own installation milestone. Sc
 
 - Read [the full system specification](docs/SYSTEM_SPEC.md) for the design, scope, architecture, gates, and roadmap.
 - Read [validation results](docs/VALIDATION.md) for checks that actually ran and remaining limits.
-- Ask Codex to use the main skill at skills/spec-loop/SKILL.md in this extracted package. This is a local evaluation path, not a plugin installation.
+- Ask ChatGPT Work or Codex to use the main skill at skills/spec-loop/SKILL.md in this extracted package. This is a local evaluation path, not a plugin installation.
 - Use [the reading list example](examples/reading-list/README.md) for a small complete contract and runnable code.
 
 Normal requests include “Turn this idea into a small first version,” “Add this feature using the current specs,” “Check whether this change is ready,” and “Help me reduce this product's cost.”
