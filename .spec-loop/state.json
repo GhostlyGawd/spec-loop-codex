@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "revision": 8,
+  "revision": 9,
   "active_change": "CHG-HOST",
-  "summary": "User confirmed this is the new Work chat and that restored goal, status and next task matched expectations. CHG-HOST acceptance, release, operations and single-user outcome checks pass. Prior request for another chat is superseded; priorities unchanged.",
-  "next_action": "Inspect the existing review automation after its first scheduled run on 9 September 2026; retain current priorities pending an explicit product decision.",
+  "summary": "Draft PR #6 contains the verified v0.8 Work pilot and renewed evidence. New-chat confirmation and single-user outcome remain complete. On 8 September the existing review automation is enabled with no recorded run; its configured start is 9 September. Product priorities unchanged.",
+  "next_action": "Review PR #6 and its GitHub checks; inspect the first independent automation execution after its configured start on 9 September 2026 at 08:00 America/Los_Angeles.",
   "blockers": [
-    "First independent review automation execution and sustained timing reliability need future evidence."
+    "First independent automation run is not due yet; sustained timing reliability needs later evidence."
   ],
-  "updated_at": "2026-09-08T20:42:14.033307+00:00",
+  "updated_at": "2026-09-08T23:19:03.704471+00:00",
   "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
   "contract_hash": "0092df36623c9e750779be69c5ffc203b7953e037b38956636e0262d3ff5eda8",
   "events": [
@@ -50,6 +50,11 @@
       "at": "2026-09-08T20:42:14.033307+00:00",
       "change": "CHG-HOST",
       "summary": "User confirmed this is the new Work chat and that restored goal, status and next task matched expectations. CHG-HOST acceptance, release, operations and single-user outcome checks pass. Prior request for another chat is superseded; priorities unchanged."
+    },
+    {
+      "at": "2026-09-08T23:19:03.704471+00:00",
+      "change": "CHG-HOST",
+      "summary": "Draft PR #6 contains the verified v0.8 Work pilot and renewed evidence. New-chat confirmation and single-user outcome remain complete. On 8 September the existing review automation is enabled with no recorded run; its configured start is 9 September. Product priorities unchanged."
     }
   ]
 }
