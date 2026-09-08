@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-aaa95380d94249a892c054f81e57cabc",
+  "change_id": "CHG-006",
+  "check_id": "CHK-RELEASE",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T20:23:57.084698+00:00",
+  "expires_at": "2026-09-15T20:23:57.084698+00:00",
+  "contract_hash": "8dc3aa7c1b72d46600ba02ce7eacd3e226b93221b39bd8691d66c94eb7a72c52",
+  "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
+  "observer": "chatgpt-work",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/renewal-package-2026-09-08.json",
+  "artifact_hash": "decc1d8e3bf2cc26cbd6fe74a29708a215edcfa38a0678ad158bafc6a4324c6d",
+  "notes": "Built v0.8 from exact committed main 88c204a; checked extracted file inventory and hashes; restored its Git bundle. Local package evaluation only; CHG-HOST remains separate.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

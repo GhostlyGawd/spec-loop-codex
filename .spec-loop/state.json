@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "revision": 6,
-  "active_change": "CHG-008",
-  "summary": "Resumed main 88c204a in this user Work conversation; doctor, context and roadmap succeeded; installed v0.8.0 matches. See .spec-loop/artifacts/resume-2026-09-08.md. Product revision 3 and priorities unchanged.",
-  "next_action": "Renew stale CHG-006 acceptance, release and operations evidence under v0.8 in the existing Now initiative; then complete CHG-HOST onboarding and obtain builder feedback.",
+  "revision": 7,
+  "active_change": "CHG-HOST",
+  "summary": "CHG-006 v0.8 acceptance, package and recovery evidence renewed; all release gates pass. Installed tools completed synthetic onboarding and CHG-HOST operations passed. See .spec-loop/artifacts/host-observation.md. Product priorities unchanged.",
+  "next_action": "Complete CHG-HOST onboarding in a new user Work conversation and collect builder feedback; inspect the existing review automation after its first scheduled run on 9 September 2026.",
   "blockers": [
-    "CHG-006 current acceptance, release and operations evidence is stale.",
-    "CHG-HOST full onboarding and acceptance remain unverified; explicit skill selection and project resume are observed, but builder feedback and release outcomes are missing.",
-    "Sustained schedule timing and first independent watchdog execution remain unverified."
+    "CHG-HOST acceptance and host release observations remain incomplete; synthetic onboarding is technical evidence only.",
+    "Real builder feedback and recorded release outcomes remain missing.",
+    "Existing review automation is enabled but has no recorded run; its configured start is 9 September 2026 at 08:00 America/Los_Angeles. Sustained timing remains unverified."
   ],
-  "updated_at": "2026-09-08T18:37:33.987573+00:00",
+  "updated_at": "2026-09-08T20:25:45.876498+00:00",
   "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
-  "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+  "contract_hash": "0092df36623c9e750779be69c5ffc203b7953e037b38956636e0262d3ff5eda8",
   "events": [
     {
       "at": "2026-09-08T13:50:19.611921+00:00",
@@ -42,6 +42,11 @@
       "at": "2026-09-08T18:37:33.987573+00:00",
       "change": "CHG-008",
       "summary": "Resumed main 88c204a in this user Work conversation; doctor, context and roadmap succeeded; installed v0.8.0 matches. See .spec-loop/artifacts/resume-2026-09-08.md. Product revision 3 and priorities unchanged."
+    },
+    {
+      "at": "2026-09-08T20:25:45.876498+00:00",
+      "change": "CHG-HOST",
+      "summary": "CHG-006 v0.8 acceptance, package and recovery evidence renewed; all release gates pass. Installed tools completed synthetic onboarding and CHG-HOST operations passed. See .spec-loop/artifacts/host-observation.md. Product priorities unchanged."
     }
   ]
 }

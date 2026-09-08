@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-ef9b2ac727ae4bc6a8bdb5a086ac0d35",
+  "change_id": "CHG-006",
+  "check_id": "CHK-OPS",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T20:23:58.504770+00:00",
+  "expires_at": "2026-09-15T20:23:58.504770+00:00",
+  "contract_hash": "8dc3aa7c1b72d46600ba02ce7eacd3e226b93221b39bd8691d66c94eb7a72c52",
+  "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
+  "observer": "chatgpt-work",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/renewal-operations-2026-09-08.json",
+  "artifact_hash": "8d05e984bbdf2998530a527433681b11b2b60dd991c16ba1126d76a60405cb45",
+  "notes": "Restored exact source to another folder; installed v0.8 doctor/context/roadmap passed. A source edit made acceptance stale; restoration recovered valid evidence. Product intent stayed byte-identical. Five recovery/version regression tests also passed; history is shallow.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

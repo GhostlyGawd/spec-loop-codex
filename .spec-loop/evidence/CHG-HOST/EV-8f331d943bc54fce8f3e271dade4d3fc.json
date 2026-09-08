@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-8f331d943bc54fce8f3e271dade4d3fc",
+  "change_id": "CHG-HOST",
+  "check_id": "CHK-OPS",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T20:25:07.281207+00:00",
+  "expires_at": "2026-09-15T20:25:07.281207+00:00",
+  "contract_hash": "0092df36623c9e750779be69c5ffc203b7953e037b38956636e0262d3ff5eda8",
+  "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
+  "observer": "chatgpt-work",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/renewal-operations-2026-09-08.json",
+  "artifact_hash": "8d05e984bbdf2998530a527433681b11b2b60dd991c16ba1126d76a60405cb45",
+  "notes": "Installed v0.8 tools resumed the restored project and detected source changes; see recovery receipts and host-observation.md. Technical operations only; host acceptance and human outcomes remain open.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}
