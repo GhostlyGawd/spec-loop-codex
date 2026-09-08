@@ -1,0 +1,77 @@
+{
+  "source_commit": "5272aa26272a6ea668c1b07f9f25e31c9175d61b",
+  "source_hash": "d7705933e47414e5e5d47ee14a1a61aade8d5950ce7b64ed051a1ee93e4408c1",
+  "acceptance": "pass",
+  "context_resume": "pass",
+  "source_change_stales": "pass",
+  "upgrade_v05_to_v06": "pass",
+  "source_archive_sha256": "84fd280484fd00cc1ca7ce6b40113ef676b715d398142e1dc8737ee56932659e",
+  "extracted_package": "pass",
+  "release": "REL-V06-LOCAL",
+  "history_after_source_change": "pass",
+  "human_outcome": "missing",
+  "host_loading": "unverified",
+  "host_gate": {
+    "change": "CHG-HOST",
+    "gate": "verify",
+    "profile": "product",
+    "passed": false,
+    "errors": [
+      "TASK-001: task is todo",
+      "CHK-ACCEPT: missing"
+    ],
+    "checks": {
+      "CHK-ACCEPT": "missing"
+    },
+    "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+  },
+  "roadmap": {
+    "INI-GITHUB": {
+      "candidate": "unverified",
+      "blocking_changes": [],
+      "historical_coverage": "none",
+      "historical_missing_changes": [],
+      "deployment": "unverified",
+      "releases": [],
+      "blocking_initiatives": [],
+      "plan_ready": false
+    },
+    "INI-RUNNER": {
+      "candidate": "unverified",
+      "blocking_changes": [],
+      "historical_coverage": "none",
+      "historical_missing_changes": [],
+      "deployment": "unverified",
+      "releases": [],
+      "blocking_initiatives": [],
+      "plan_ready": false
+    },
+    "INI-PILOT": {
+      "candidate": "unverified",
+      "blocking_changes": [
+        "CHG-HOST"
+      ],
+      "historical_coverage": "none",
+      "historical_missing_changes": [
+        "CHG-HOST"
+      ],
+      "deployment": "unverified",
+      "releases": [],
+      "blocking_initiatives": [],
+      "plan_ready": false
+    },
+    "INI-INSTALL": {
+      "candidate": "release-ready",
+      "blocking_changes": [],
+      "historical_coverage": "complete",
+      "historical_missing_changes": [],
+      "deployment": "unverified",
+      "releases": [
+        "REL-V06-LOCAL"
+      ],
+      "blocking_initiatives": [],
+      "plan_ready": true
+    }
+  },
+  "cli_operations": 19
+}

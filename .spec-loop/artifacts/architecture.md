@@ -1,0 +1,3 @@
+# Diagnostics architecture
+
+The standalone checker reads bounded files, parses engine syntax without executing it, validates relative resource links and produces a stable payload inventory. Explicit copy comparison normalizes only the Codex cachebuster and generated Python caches. Extracted packages use a complete unsigned hash manifest. No network, marketplace edits or credential reads occur. The native product state has separate contracts for portable diagnostics and actual host loading. Existing gates derive delivery evidence; a source change or engine upgrade invalidates current evidence. Historical release records retain their frozen evidence. Tests operate on disposable copies.

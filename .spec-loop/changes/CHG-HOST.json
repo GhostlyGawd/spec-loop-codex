@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "id": "CHG-HOST",
+  "title": "Actual Codex loading and builder pilot",
+  "phase": "building",
+  "risk": "low",
+  "intent": {
+    "user": "Builder installing Spec Loop",
+    "problem": "A valid source folder does not establish which copy the host loads",
+    "outcome": "Observe Spec Loop skill loading and a complete builder task",
+    "non_goals": [
+      "No automatic marketplace edits",
+      "No authenticated host claim from file comparison",
+      "No invented human outcomes"
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-APPROVAL",
+      "kind": "user",
+      "reference": "docs/CHANGE-006.md",
+      "statement": "User approved the installation and native product pilot milestone on 8 September 2026."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "A fresh installed-host chat discovers Spec Loop and its product skill, resolves bundled resources, and completes project onboarding.",
+      "source_ids": [
+        "SRC-APPROVAL"
+      ],
+      "criteria": [
+        {
+          "id": "AC-001",
+          "statement": "A fresh installed-host chat discovers Spec Loop and its product skill, resolves bundled resources, and completes project onboarding."
+        }
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "ASM-SCOPE",
+      "statement": "A local source-package release is useful before completing the separate host trial.",
+      "impact": "low",
+      "status": "accepted",
+      "basis": "Keep technical delivery and host/user evidence separate."
+    }
+  ],
+  "depends_on": [],
+  "artifacts": [
+    {
+      "id": "ART-DESIGN",
+      "kind": "design",
+      "path": ".spec-loop/artifacts/design.md"
+    },
+    {
+      "id": "ART-ARCHITECTURE",
+      "kind": "architecture",
+      "path": ".spec-loop/artifacts/architecture.md"
+    },
+    {
+      "id": "ART-RELEASE",
+      "kind": "release",
+      "path": ".spec-loop/artifacts/release.md"
+    },
+    {
+      "id": "ART-OPERATIONS",
+      "kind": "operations",
+      "path": ".spec-loop/artifacts/operations.md"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Actual Codex loading and builder pilot",
+      "requirement_ids": [
+        "REQ-001"
+      ],
+      "depends_on": [],
+      "status": "todo",
+      "write_scope": [
+        ".spec-loop/artifacts/host-observation.md"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "CHK-ACCEPT",
+      "kind": "manual",
+      "purpose": "acceptance",
+      "covers": [
+        "AC-001"
+      ],
+      "argv": [],
+      "procedure": "Observe actual host discovery, loaded copy and onboarding. Record host/version and evidence attachment.",
+      "timeout_seconds": 60
+    },
+    {
+      "id": "CHK-RELEASE",
+      "kind": "manual",
+      "purpose": "release",
+      "covers": [],
+      "argv": [],
+      "procedure": "Review the actual package build and extracted resource checks; record scope and digest. Host milestone also needs actual installation evidence.",
+      "timeout_seconds": 60
+    },
+    {
+      "id": "CHK-OPS",
+      "kind": "manual",
+      "purpose": "operations",
+      "covers": [],
+      "argv": [],
+      "procedure": "Exercise context resume, source-change invalidation and upgrade recovery in an isolated native project.",
+      "timeout_seconds": 60
+    },
+    {
+      "id": "CHK-OUTCOME",
+      "kind": "manual",
+      "purpose": "outcome",
+      "covers": [],
+      "argv": [],
+      "procedure": "Observe a real builder install and resume a task. Keep open when no human has participated.",
+      "timeout_seconds": 60
+    }
+  ],
+  "product_scope": "c19bae3c1a99c1cfccd977754b1cb093a6fff2c65999cbf861bb86a642df9a0b",
+  "product_review": {
+    "scope": "c19bae3c1a99c1cfccd977754b1cb093a6fff2c65999cbf861bb86a642df9a0b",
+    "actor": "codex",
+    "reason": "Reviewed scope against the linked native contract; host proof is distinct from file validation.",
+    "authority_ref": "User Approved following the v0.6 plan, 8 September 2026",
+    "at": "2026-09-08T13:41:30.311508+00:00"
+  }
+}

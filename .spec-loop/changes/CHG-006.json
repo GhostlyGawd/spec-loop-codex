@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "id": "CHG-006",
+  "title": "Portable installation diagnostics",
+  "phase": "building",
+  "risk": "low",
+  "intent": {
+    "user": "Builder installing Spec Loop",
+    "problem": "A valid source folder does not establish which copy the host loads",
+    "outcome": "Diagnose source, package and installed-copy differences without changing files",
+    "non_goals": [
+      "No automatic marketplace edits",
+      "No authenticated host claim from file comparison",
+      "No invented human outcomes"
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-APPROVAL",
+      "kind": "user",
+      "reference": "docs/CHANGE-006.md",
+      "statement": "User approved the installation and native product pilot milestone on 8 September 2026."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "Source and copied resources can be checked without executing inspected code or mutating files.",
+      "source_ids": [
+        "SRC-APPROVAL"
+      ],
+      "criteria": [
+        {
+          "id": "AC-001",
+          "statement": "Source and copied resources can be checked without executing inspected code or mutating files."
+        }
+      ]
+    },
+    {
+      "id": "REQ-002",
+      "statement": "Missing, modified, invalid or excessive payloads fail with a diagnostic.",
+      "source_ids": [
+        "SRC-APPROVAL"
+      ],
+      "criteria": [
+        {
+          "id": "AC-002",
+          "statement": "Missing, modified, invalid or excessive payloads fail with a diagnostic."
+        }
+      ]
+    },
+    {
+      "id": "REQ-003",
+      "statement": "Extracted package inventory and byte hashes can be checked against its manifest.",
+      "source_ids": [
+        "SRC-APPROVAL"
+      ],
+      "criteria": [
+        {
+          "id": "AC-003",
+          "statement": "Extracted package inventory and byte hashes can be checked against its manifest."
+        }
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "ASM-SCOPE",
+      "statement": "A local source-package release is useful before completing the separate host trial.",
+      "impact": "low",
+      "status": "accepted",
+      "basis": "Keep technical delivery and host/user evidence separate."
+    }
+  ],
+  "depends_on": [],
+  "artifacts": [
+    {
+      "id": "ART-DESIGN",
+      "kind": "design",
+      "path": ".spec-loop/artifacts/design.md"
+    },
+    {
+      "id": "ART-ARCHITECTURE",
+      "kind": "architecture",
+      "path": ".spec-loop/artifacts/architecture.md"
+    },
+    {
+      "id": "ART-RELEASE",
+      "kind": "release",
+      "path": ".spec-loop/artifacts/release.md"
+    },
+    {
+      "id": "ART-OPERATIONS",
+      "kind": "operations",
+      "path": ".spec-loop/artifacts/operations.md"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Portable installation diagnostics",
+      "requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "depends_on": [],
+      "status": "done",
+      "write_scope": [
+        "scripts/install_check.py",
+        "tests/test_install_check.py",
+        "docs/HOST_ACCEPTANCE.md"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "CHK-ACCEPT",
+      "kind": "automated",
+      "purpose": "acceptance",
+      "covers": [
+        "AC-001",
+        "AC-002",
+        "AC-003"
+      ],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_install_check.py",
+        "-v"
+      ],
+      "procedure": "",
+      "timeout_seconds": 60
+    },
+    {
+      "id": "CHK-RELEASE",
+      "kind": "manual",
+      "purpose": "release",
+      "covers": [],
+      "argv": [],
+      "procedure": "Review the actual package build and extracted resource checks; record scope and digest. Host milestone also needs actual installation evidence.",
+      "timeout_seconds": 60
+    },
+    {
+      "id": "CHK-OPS",
+      "kind": "manual",
+      "purpose": "operations",
+      "covers": [],
+      "argv": [],
+      "procedure": "Exercise context resume, source-change invalidation and upgrade recovery in an isolated native project.",
+      "timeout_seconds": 60
+    },
+    {
+      "id": "CHK-OUTCOME",
+      "kind": "manual",
+      "purpose": "outcome",
+      "covers": [],
+      "argv": [],
+      "procedure": "Observe a real builder install and resume a task. Keep open when no human has participated.",
+      "timeout_seconds": 60
+    }
+  ],
+  "product_scope": "f7386d5227edfeff393e73224b17eab962eaa786bd9d4c3634458bcc1e83f124",
+  "product_review": {
+    "scope": "f7386d5227edfeff393e73224b17eab962eaa786bd9d4c3634458bcc1e83f124",
+    "actor": "codex",
+    "reason": "Reviewed scope against the linked native contract; host proof is distinct from file validation.",
+    "authority_ref": "User Approved following the v0.6 plan, 8 September 2026",
+    "at": "2026-09-08T13:41:30.305978+00:00"
+  }
+}

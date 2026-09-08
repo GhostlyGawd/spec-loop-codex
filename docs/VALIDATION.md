@@ -1,3 +1,13 @@
+# v0.6 validation — 8 September 2026
+
+All 116 local tests pass (105 prior tests and 11 installation cases). Plugin and all 11 skills pass their validators. The source diagnostic passes and identifies host_loading as unverified. An independent offline agent found the changed product.py in a purported resolved copy and did not claim an installation. See [the exercise](evaluation/installation-exercise.md).
+
+The native product pilot completed 19 CLI operations on actual plugin source. CHG-006 covers local diagnostics; CHG-HOST remains open for actual host loading and builder observations. Local acceptance, context resume, source invalidation, v0.5-to-v0.6 evidence recovery, archive extraction checks, local release sealing and historical inspection passed. The host and human gates correctly remained open. Native artifacts retain exact source identities and results. Live PR CI results are reported on the PR after execution. No Codex CLI or local-plugin install action is exposed in this workspace. A copied directory or direct skill read does not substitute for loading the plugin in a host.
+
+A clean-checkout test exposed an omitted initial native resume-state file. It is now committed and CI explicitly runs the native context command. The source checker also passes from outside the plugin directory.
+
+Prior release validation follows.
+
 # v0.5 validation — 7 September 2026
 
 The bounded review worker is implemented on a review branch. All 105 local tests, all 11 skills, the plugin manifest and local Markdown links passed. Independent offline use passed 19 CLI invocations. Actual push and PR Actions runs passed both review and regression jobs. No default-branch schedule or actual Codex installation is claimed.

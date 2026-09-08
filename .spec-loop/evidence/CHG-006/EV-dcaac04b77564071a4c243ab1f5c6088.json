@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-dcaac04b77564071a4c243ab1f5c6088",
+  "change_id": "CHG-006",
+  "check_id": "CHK-RELEASE",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T13:50:20.840526+00:00",
+  "expires_at": "2026-09-15T13:50:20.840526+00:00",
+  "contract_hash": "beafd3b8d25fddae8aad082d2846c2a8845b98ab4e72dc06d024b64d93ea2060",
+  "source_hash": "d7705933e47414e5e5d47ee14a1a61aade8d5950ce7b64ed051a1ee93e4408c1",
+  "observer": "codex-local-pilot",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/pilot-release.json",
+  "artifact_hash": "cb6ddf63b240dee3ffc625e46416f9f7ac5f55a0c95010a2576354729fcdd44c",
+  "notes": "Actual source packaging and extracted diagnostic check passed; scope is local source evaluation.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

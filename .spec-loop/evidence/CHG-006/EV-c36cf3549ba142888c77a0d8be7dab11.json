@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EV-c36cf3549ba142888c77a0d8be7dab11",
+  "change_id": "CHG-006",
+  "check_id": "CHK-ACCEPT",
+  "kind": "automated",
+  "result": "pass",
+  "observed_at": "2026-09-08T13:50:17.791494+00:00",
+  "expires_at": "2026-09-15T13:50:17.791494+00:00",
+  "contract_hash": "beafd3b8d25fddae8aad082d2846c2a8845b98ab4e72dc06d024b64d93ea2060",
+  "source_hash": "d7705933e47414e5e5d47ee14a1a61aade8d5950ce7b64ed051a1ee93e4408c1",
+  "observer": "codex-local-pilot",
+  "argv": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_install_check.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "output_hash": "5cd3f879f4375629051daad0bcc2450307d010159085f9a3045064a093f867e4",
+  "output_bytes": 1600,
+  "artifact": "",
+  "artifact_hash": "",
+  "notes": "",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

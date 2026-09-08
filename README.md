@@ -4,7 +4,13 @@ A Codex plugin for spec driven product development with AI agents.
 
 Use it to move from a user need through product design, architecture, implementation, verification, release, operation, and improvement. Keep specs and evidence with the project so work can resume over time.
 
-Version: 0.5.0. This is a source package and working local reference implementation. Source is available in GhostlyGawd/spec-loop-codex. Actual Codex installation remains untested.
+Version: 0.6.0. This is a source package and working local reference implementation. Source is available in GhostlyGawd/spec-loop-codex. Actual Codex installation remains untested.
+
+## Installation and native pilot in 0.6
+
+Use [the installation guide](skills/spec-loop/references/install.md) to check source resources, verify an extracted source archive, and compare an explicitly identified installed copy. Run `python3 scripts/install_check.py --root /path/to/spec-loop`. Host loading remains unverified until an actual host selects and runs the skills.
+
+Spec Loop now uses native product records for its own installation milestone. Scheduled reports derive evidence for CHG-006 and keep CHG-HOST open. [The pilot record](docs/PILOT.md) separates the source-package release from actual host and builder acceptance. This repository is plugin source, not a registered marketplace catalog; use the host's plugin-creator to connect a personal local marketplace.
 
 ## Start here
 
@@ -53,7 +59,7 @@ Roadmap refresh occurs on invocation. A configured product file can also sync th
 
 The adapter compares local intent with one configured GitHub JSON file, merges independent edits, reports conflicts, and prepares an exact MCP file request. It verifies read-back before applying inbound intent or updating the last common version. A durable pending operation supports timeout and local-crash recovery. Public transfers require review and reject internal/restricted opportunity records.
 
-Read [the GitHub guide](skills/spec-loop/references/github.md) for configure, plan, confirm, status, and cancel. [The public product roadmap record](docs/product-roadmap.json) contains the project's intended sequence; it is not release or outcome evidence. [Live check results](docs/evidence/v04-live-github.json) record actual file creation, no-op comparison, and independent local/remote edits on the review branch.
+Read [the GitHub guide](skills/spec-loop/references/github.md) for configure, plan, confirm, status, and cancel. [The public product roadmap record](docs/product-roadmap.json) is a snapshot of recorded native product intent; delivery evidence comes from the native contracts and records. [Live check results](docs/evidence/v04-live-github.json) record actual file creation, no-op comparison, and independent local/remote edits on the review branch.
 
 This is agent-mediated product-file sync. It does not provide GitHub Issues/Projects sync, a continuous service, or authenticated local receipts.
 
@@ -61,7 +67,7 @@ This is agent-mediated product-file sync. It does not provide GitHub Issues/Proj
 
 The optional GitHub Actions workflow reviews committed product inputs daily at 07:17 UTC and on manual, push and PR events. Each review publishes a JSON receipt and readable roadmap report in Actions. Native projects derive current gates and evidence; exchange-only projects show delivery as unknown. Reviewed feedback/telemetry records can flag negative results and stale observations without changing priorities.
 
-Read [the runner guide](skills/spec-loop/references/review-runner.md) for setup, input limits, receipt validation and missed-run recovery. A receipt reader checks present inputs and a default 36-hour expiry. Workflow execution has time/concurrency bounds and no model calls. The default-branch schedule must be activated and observed before claiming continuous operation. Reports do not rewrite the committed planning file or perform unattended bidirectional sync.
+Read [the runner guide](skills/spec-loop/references/review-runner.md) for setup, input limits, receipt validation and missed-run recovery. A receipt reader checks present inputs and a default 36-hour expiry. Workflow execution has time/concurrency bounds and no model calls. One default-branch schedule event passed on 8 September 2026, almost five hours after its nominal time. Sustained operation remains unverified. Reports do not rewrite the committed planning file or perform unattended bidirectional sync.
 
 ## Release history and packaging
 

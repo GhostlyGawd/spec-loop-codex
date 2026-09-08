@@ -1,6 +1,6 @@
 # Spec Loop — system specification
 
-Version 0.5.0 · 7 September 2026 · Design and reference implementation
+Version 0.6.0 · 7 September 2026 · Design and reference implementation
 
 Spec Loop is a Codex plugin for people who use AI to create software. It turns an idea into a product through small, testable changes. It keeps the reason for each change, the product design, the implementation, and the evidence together. The same process supports the first prototype, an existing product, a production incident, and later growth.
 
@@ -270,7 +270,7 @@ The runner records command arguments, exit code, output digest and byte count, t
 
 The plugin uses supported skill packaging and loads detailed references only when needed. Plugins can bundle skills, and skills can carry scripts and references. [OpenAI plugin guide](https://learn.chatgpt.com/docs/plugins), [OpenAI skill guide](https://learn.chatgpt.com/docs/build-skills)
 
-| Layer | Responsibility | Included in 0.5.0 |
+| Layer | Responsibility | Included in 0.6.0 |
 | --- | --- | --- |
 | Plugin manifest | Name, version, description, skill discovery | Yes; checked by the supplied plugin validator |
 | Main skill | Route a request and resume work | Yes |
@@ -296,7 +296,7 @@ Use a read-only discovery call before an ambiguous write. Check optimistic concu
 
 ### Installation and distribution boundary
 
-This deliverable is plugin source, with preserved Git history and a local test path. Source has been uploaded to the user-selected GhostlyGawd/spec-loop-codex repository; the approved v0.4 integration is merged and v0.5 is prepared on a review branch. It has not been installed in the user's account, published to a marketplace, or tested through a live Codex installation in this session. The environment has no Codex CLI binary. Follow the current plugin publishing guide when choosing a distribution destination; do not infer public publication from a request to design the plugin.
+This deliverable is plugin source, with preserved Git history and a local test path. Source has been uploaded to the user-selected GhostlyGawd/spec-loop-codex repository; v0.5 is merged and v0.6 installation diagnostics are prepared on a review branch. It has not been installed in the user's account, published to a marketplace, or tested through a live Codex installation in this session. The environment has no Codex CLI binary. Follow the current plugin publishing guide when choosing a distribution destination; do not infer public publication from a request to design the plugin.
 
 For local evaluation, an agent can read the main skill from the extracted package and use the included Python tool on an isolated project. This does not require a marketplace or credentials. Publication needs the chosen owner, destination, distribution terms, and an actual host installation test.
 
@@ -461,3 +461,9 @@ GitHub MCP live checks on the selected repository exercised create, read-back, n
 Each run writes an atomic JSON receipt and a Markdown view outside the project. Source, commit, config, product and signal hashes bind the review. Inputs are checked again before publication. Stable run IDs are immutable; replays keep their original age. Distinct attempts preserve failure history. Exclusive output locks prevent competing writers. Receipts are unsigned and require a current-input/age check on read. A missed schedule cannot keep an old report current beyond its expiry.
 
 The workflow uses read-only contents permission, pinned actions, no persisted checkout credentials, a five-minute timeout and 14-day artifacts. The worker has a 60-second deadline and explicit input/report budgets. No model or external service calls occur. GitHub account billing, an independent missed-run monitor, telemetry collection and automatic intent changes are separate capabilities. Scheduled Actions can be delayed or disabled; a live push/PR test does not establish sustained daily operation. Read the [operating guide](../skills/spec-loop/references/review-runner.md) for exact setup and recovery.
+
+## 17. Installation and native pilot in 0.6
+
+[CHG-006](CHANGE-006.md) defines portable installation diagnostics and the internal product pilot. The read-only checker validates resource identity and an explicitly provided copied payload, including generated-cache exclusions and Codex version suffix normalization. It verifies an extracted package inventory but does not install a host or execute inspected code. These checks produce a payload digest and useful failures while keeping host_loading unverified.
+
+This repository now holds native product intent and distinct contracts for the diagnostics release and actual host loading. Existing gates and release history provide the delivery facts. Human outcomes remain missing until observed. The product pilot uses the real plugin code; it is internal technical use, not a builder trial. The first v0.5 scheduled job was observed on 8 September at 12:10 UTC for a 07:17 UTC schedule. That establishes one successful timed event and a substantial timing delay; sustained operation retains a separate gate.

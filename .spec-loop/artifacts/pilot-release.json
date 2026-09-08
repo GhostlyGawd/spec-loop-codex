@@ -1,0 +1,48 @@
+{
+  "action": "Built a committed source archive and verified all extracted inventory hashes; evaluated the diagnostics module locally",
+  "archive": {
+    "archive": "/workspace/scratch/c574d7af1897/pilot-v06/verified/spec-loop-source.tar.gz",
+    "source_commit": "5272aa26272a6ea668c1b07f9f25e31c9175d61b",
+    "source_files": 131,
+    "sha256": "84fd280484fd00cc1ca7ce6b40113ef676b715d398142e1dc8737ee56932659e",
+    "verified": true
+  },
+  "extracted_check": {
+    "passed": true,
+    "source": {
+      "name": "spec-loop",
+      "version": "0.6.0",
+      "engine_version": "0.6.0",
+      "skills": [
+        "loop-build",
+        "loop-design",
+        "loop-discover",
+        "loop-evolve",
+        "loop-operate",
+        "loop-plan",
+        "loop-product",
+        "loop-release",
+        "loop-specify",
+        "loop-verify",
+        "spec-loop"
+      ],
+      "payload_digest": "12dac69caf8da8abc5f3da24a3bd41e5944e1b3b831502d85857f5b429ac7b18"
+    },
+    "host_loading": "unverified",
+    "codex_cli_available": false,
+    "mutations": false,
+    "installed_copy": {
+      "status": "not-supplied"
+    },
+    "package": {
+      "verified": true,
+      "source_commit": "5272aa26272a6ea668c1b07f9f25e31c9175d61b",
+      "files": 132,
+      "trust": "Unsigned inventory; compare the archive digest with a trusted release."
+    }
+  },
+  "target": "local-diagnostics-evaluation",
+  "artifact": "scripts/install_check.py",
+  "authority": "User approved v0.6 implementation and local pilot",
+  "limits": "No host installation, marketplace publication, remote deployment or human outcome. Archive exists in the local pilot directory; CI supplies a separate downloadable source archive."
+}

@@ -20,10 +20,10 @@
         "opportunities": [
           "OPP-ROADMAP"
         ],
-        "horizon": "now",
-        "status": "active",
+        "horizon": "later",
+        "status": "parked",
         "owner": "Project owner",
-        "priority_reason": "Keep the integration bounded to one reviewed product file before adding more adapters",
+        "priority_reason": "Earlier implementation is available; retain planning while the approved installation pilot is evaluated.",
         "confidence": "low",
         "risk": "low",
         "depends_on": [],
@@ -48,10 +48,10 @@
         "opportunities": [
           "OPP-ROADMAP"
         ],
-        "horizon": "next",
-        "status": "active",
+        "horizon": "later",
+        "status": "parked",
         "owner": "Project owner",
-        "priority_reason": "Follow the approved sequence and validate each integration before expanding it",
+        "priority_reason": "Earlier implementation is available; retain planning while the approved installation pilot is evaluated.",
         "confidence": "low",
         "risk": "low",
         "depends_on": [],
@@ -76,14 +76,46 @@
         "opportunities": [
           "OPP-ROADMAP"
         ],
-        "horizon": "later",
+        "horizon": "next",
         "status": "active",
         "owner": "Project owner",
-        "priority_reason": "Follow the approved sequence and validate each integration before expanding it",
+        "priority_reason": "Actual host loading and builder observations follow the portable diagnostics release.",
         "confidence": "low",
         "risk": "low",
         "depends_on": [],
-        "changes": [],
+        "changes": [
+          "CHG-HOST"
+        ],
+        "partial_release": "all_required",
+        "date": {
+          "kind": "none",
+          "value": ""
+        },
+        "review_trigger": "Review the observed result before the next commitment"
+      },
+      {
+        "id": "INI-INSTALL",
+        "title": "Portable installation diagnostics",
+        "scope": "Check source resources, copied payload identity and extracted package inventory without writes",
+        "non_goals": [
+          "No unverified deployment or product-value claims"
+        ],
+        "objectives": [
+          "OBJ-CONTINUITY"
+        ],
+        "opportunities": [
+          "OPP-ROADMAP"
+        ],
+        "horizon": "now",
+        "status": "active",
+        "owner": "Project owner",
+        "priority_reason": "Make the approved installation pilot concrete and diagnosable",
+        "confidence": "low",
+        "risk": "low",
+        "depends_on": [],
+        "changes": [
+          "CHG-006"
+        ],
         "partial_release": "all_required",
         "date": {
           "kind": "none",

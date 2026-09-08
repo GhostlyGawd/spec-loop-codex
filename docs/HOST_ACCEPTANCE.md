@@ -1,6 +1,12 @@
 # Host acceptance and local evaluation
 
-Status: local tools tested; actual Codex installation remains untested. The current environment has no Codex CLI binary. That does not determine which plugins a Work host can load.
+Status: v0.6 installation diagnostics and native source pilot are implemented; actual Codex installation remains untested. The current environment has no Codex CLI binary. That does not determine which plugins a Work host can load.
+
+## Installation diagnostic
+
+Read [the installation guide](../skills/spec-loop/references/install.md). Run `python3 scripts/install_check.py --root /path/to/spec-loop` from any working directory. For an extracted source archive, add `--package`. Supply `--installed-root /resolved/host/copy` only when that path is actually known. File equality never completes the host-loading gate.
+
+The native product records in this repository separate CHG-006 (portable diagnostics) from CHG-HOST (actual installation and builder outcomes). Keep the latter open until the host cases below are observed. [The pilot record](PILOT.md) states what was exercised and what remains missing.
 
 ## Read-only preflight
 
@@ -33,14 +39,14 @@ After actual installation, record the host, version, plugin source/version, inst
 | Access boundary | Missing service access remains explicit; no deployment or permission is invented |
 | Version update | The new package is loaded and old current-tree evidence is reported stale where expected |
 
-All of these host cases remain open in this delivery. Do not substitute a schema check for an installation test.
+All actual host cases remain open in this delivery. Do not substitute a schema check for an installation test.
 
 ## Package and upgrade
 
 After committing the intended source, run:
 
 ```bash
-python3 scripts/package.py --root . --output /outside-the-project/spec-loop-0.4.0.tar.gz
+python3 scripts/package.py --root . --output /outside-the-project/spec-loop-0.6.0.tar.gz
 ```
 
 The command refuses tracked changes and existing output. It packages the commit, excludes untracked temporary files, preserves Git history in a bundle, and checks every archive entry. Fixed archive metadata makes repeated packaging of the same commit byte-identical in the tested environment. Different Git or compression versions are not covered by that test.
@@ -55,6 +61,6 @@ Product backup/restore preserves intent/history only and restores as a new revis
 
 ## GitHub adapter acceptance
 
-A live file sequence was exercised through GitHub MCP in GhostlyGawd/spec-loop-codex on codex/github-product-sync. It established file create/read-back, a no-write comparison, SHA-bound update, and preservation of independent local/remote planning fields. This does not test host skill installation, background jobs, GitHub Issues/Projects, remote CI, or organization-wide permission differences.
+A live file sequence was exercised through GitHub MCP in GhostlyGawd/spec-loop-codex on codex/github-product-sync. It established file create/read-back, a no-write comparison, SHA-bound update, and preservation of independent local/remote planning fields. Those v0.4 checks did not test host skill installation or other adapters. v0.5 later passed remote CI and one actual scheduled review; host loading, Issues/Projects and organization-wide permission differences remain untested.
 
 The installed skill must resolve the GitHub guide and snapshot schema, discover the actual connector, and preserve missing access as a failure. GitHub branch names with slashes can require the branch collection route in this connector. Unknown local sync state is rejected. Product and prior release formats remain supported.
