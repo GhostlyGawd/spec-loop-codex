@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 2,
+  "revision": 3,
   "body": {
     "capacity": {
       "wip_limit": 1,
@@ -85,7 +85,8 @@
         "risk": "low",
         "depends_on": [],
         "changes": [
-          "CHG-HOST"
+          "CHG-HOST",
+          "CHG-008"
         ],
         "partial_release": "all_required",
         "date": {
@@ -164,7 +165,7 @@
       "business_model": "No commercial model validated",
       "constraints": [],
       "non_goals": [],
-      "review_trigger": "Review after the scoped sync check, merge review, and actual Codex installation"
+      "review_trigger": "Review after the ChatGPT Work technical cycle and real builder feedback"
     }
   },
   "decisions": [
@@ -248,7 +249,32 @@
           "after_json": "[{\"changes\": [], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"later\", \"id\": \"INI-GITHUB\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"Earlier implementation is available; retain planning while the approved installation pilot is evaluated.\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Compare, merge, write, and verify one reviewed product JSON file through GitHub MCP\", \"status\": \"parked\", \"title\": \"Scoped GitHub product-file sync\"}, {\"changes\": [], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"later\", \"id\": \"INI-RUNNER\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"Earlier implementation is available; retain planning while the approved installation pilot is evaluated.\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Choose a runtime and validate scheduled reviews, freshness, missed runs, and cost limits\", \"status\": \"parked\", \"title\": \"Continuous product review runner\"}, {\"changes\": [\"CHG-HOST\"], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"next\", \"id\": \"INI-PILOT\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"User clarified that they use ChatGPT Work and requested support there on 8 September 2026.\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Use Spec Loop in ChatGPT Work, save its personal skill, validate loaded resources, resume and builder outcomes\", \"status\": \"active\", \"title\": \"ChatGPT Work setup and builder pilot\"}, {\"changes\": [\"CHG-006\"], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"now\", \"id\": \"INI-INSTALL\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"Make the approved installation pilot concrete and diagnosable\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Check source resources, copied payload identity and extracted package inventory without writes\", \"status\": \"active\", \"title\": \"Portable installation diagnostics\"}]"
         }
       ]
+    },
+    {
+      "revision": 3,
+      "at": "2026-09-08T16:29:18.169644+00:00",
+      "actor": "chatgpt-work",
+      "authority_ref": "User: work through each of the four steps one by one, 8 September 2026",
+      "reason": "Link the bounded review-health feature to the approved Work pilot; preserve roadmap order and missing human evidence.",
+      "before": "e8751fd1562d567b9e37958f52b71f68fb3a6bcd864d89f973c1a640ce1352d9",
+      "after": "6ea707ac2a58b7a3437b0a30bfd2fe81af42f6b36626407e9209e547ffb58381",
+      "changed_sections": [
+        "initiatives",
+        "strategy"
+      ],
+      "changes": [
+        {
+          "section": "initiatives",
+          "before_json": "[{\"changes\": [], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"later\", \"id\": \"INI-GITHUB\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"Earlier implementation is available; retain planning while the approved installation pilot is evaluated.\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Compare, merge, write, and verify one reviewed product JSON file through GitHub MCP\", \"status\": \"parked\", \"title\": \"Scoped GitHub product-file sync\"}, {\"changes\": [], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"later\", \"id\": \"INI-RUNNER\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"Earlier implementation is available; retain planning while the approved installation pilot is evaluated.\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Choose a runtime and validate scheduled reviews, freshness, missed runs, and cost limits\", \"status\": \"parked\", \"title\": \"Continuous product review runner\"}, {\"changes\": [\"CHG-HOST\"], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"next\", \"id\": \"INI-PILOT\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"User clarified that they use ChatGPT Work and requested support there on 8 September 2026.\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Use Spec Loop in ChatGPT Work, save its personal skill, validate loaded resources, resume and builder outcomes\", \"status\": \"active\", \"title\": \"ChatGPT Work setup and builder pilot\"}, {\"changes\": [\"CHG-006\"], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"now\", \"id\": \"INI-INSTALL\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"Make the approved installation pilot concrete and diagnosable\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Check source resources, copied payload identity and extracted package inventory without writes\", \"status\": \"active\", \"title\": \"Portable installation diagnostics\"}]",
+          "after_json": "[{\"changes\": [], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"later\", \"id\": \"INI-GITHUB\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"Earlier implementation is available; retain planning while the approved installation pilot is evaluated.\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Compare, merge, write, and verify one reviewed product JSON file through GitHub MCP\", \"status\": \"parked\", \"title\": \"Scoped GitHub product-file sync\"}, {\"changes\": [], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"later\", \"id\": \"INI-RUNNER\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"Earlier implementation is available; retain planning while the approved installation pilot is evaluated.\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Choose a runtime and validate scheduled reviews, freshness, missed runs, and cost limits\", \"status\": \"parked\", \"title\": \"Continuous product review runner\"}, {\"changes\": [\"CHG-HOST\", \"CHG-008\"], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"next\", \"id\": \"INI-PILOT\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"User clarified that they use ChatGPT Work and requested support there on 8 September 2026.\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Use Spec Loop in ChatGPT Work, save its personal skill, validate loaded resources, resume and builder outcomes\", \"status\": \"active\", \"title\": \"ChatGPT Work setup and builder pilot\"}, {\"changes\": [\"CHG-006\"], \"confidence\": \"low\", \"date\": {\"kind\": \"none\", \"value\": \"\"}, \"depends_on\": [], \"horizon\": \"now\", \"id\": \"INI-INSTALL\", \"non_goals\": [\"No unverified deployment or product-value claims\"], \"objectives\": [\"OBJ-CONTINUITY\"], \"opportunities\": [\"OPP-ROADMAP\"], \"owner\": \"Project owner\", \"partial_release\": \"all_required\", \"priority_reason\": \"Make the approved installation pilot concrete and diagnosable\", \"review_trigger\": \"Review the observed result before the next commitment\", \"risk\": \"low\", \"scope\": \"Check source resources, copied payload identity and extracted package inventory without writes\", \"status\": \"active\", \"title\": \"Portable installation diagnostics\"}]"
+        },
+        {
+          "section": "strategy",
+          "before_json": "{\"audience\": \"Builders who use AI to develop and maintain products\", \"business_model\": \"No commercial model validated\", \"constraints\": [], \"non_goals\": [], \"positioning\": \"Portable product records linked to spec-driven development\", \"problem\": \"Product intent and delivery evidence become stale across development sessions\", \"review_trigger\": \"Review after the scoped sync check, merge review, and actual Codex installation\"}",
+          "after_json": "{\"audience\": \"Builders who use AI to develop and maintain products\", \"business_model\": \"No commercial model validated\", \"constraints\": [], \"non_goals\": [], \"positioning\": \"Portable product records linked to spec-driven development\", \"problem\": \"Product intent and delivery evidence become stale across development sessions\", \"review_trigger\": \"Review after the ChatGPT Work technical cycle and real builder feedback\"}"
+        }
+      ]
     }
   ],
-  "digest": "cc20cfddf94c30aa367374fa4fe286493a183ffbf16a422f2e292e0ad5e2598d"
+  "digest": "8d741ae90b881fde74da0ec42a5e4425003f5fc0eecab6b101400b6e01b84f60"
 }

@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "id": "REL-V08-LOCAL",
+  "sealed_at": "2026-09-08T16:32:15.202112+00:00",
+  "engine_version": "0.8.0",
+  "change_id": "CHG-008",
+  "target": "local-review-health-evaluation",
+  "observer": "chatgpt-work",
+  "authority_ref": "User approved working through the real feature cycle",
+  "source_hash": "36411e1942e0fc2999565e0f4852d896df0ddd4e879d6778fa4cbf3fe8ceaaf7",
+  "project": {
+    "schema_version": 1,
+    "name": "Spec Loop product",
+    "profile": "product",
+    "constraints": [
+      {
+        "statement": "Internal use of actual plugin source; host loading and human value require separate observations.",
+        "source": "docs/CHANGE-006.md"
+      }
+    ],
+    "evidence_ttl_hours": 168,
+    "context_max_chars": 100000
+  },
+  "changes": [
+    {
+      "contract": {
+        "schema_version": 1,
+        "id": "CHG-008",
+        "title": "Read-only review health and Work handoff",
+        "phase": "building",
+        "risk": "low",
+        "intent": {
+          "user": "Builder maintaining a product in ChatGPT Work",
+          "problem": "A green push review can hide a missing schedule or stale installed copy",
+          "outcome": "See current evidence and recover product work without silent changes",
+          "non_goals": [
+            "No remote repairs or automatic skill overwrite",
+            "No unattended intent sync",
+            "No invented human outcomes"
+          ]
+        },
+        "sources": [
+          {
+            "id": "SRC-APPROVAL",
+            "kind": "user",
+            "reference": "docs/CHANGE-008.md",
+            "statement": "User asked to work through each of the four proposed steps one by one."
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-001",
+            "statement": "Distinguish scheduled execution from push/manual and current-main review with complete fresh target-bound evidence.",
+            "source_ids": [
+              "SRC-APPROVAL"
+            ],
+            "criteria": [
+              {
+                "id": "AC-001",
+                "statement": "Distinguish scheduled execution from push/manual and current-main review with complete fresh target-bound evidence."
+              }
+            ]
+          },
+          {
+            "id": "REQ-002",
+            "statement": "Require review job, receipt-validation step and artifact metadata; preserve waiting, missed, failed and unverified states.",
+            "source_ids": [
+              "SRC-APPROVAL"
+            ],
+            "criteria": [
+              {
+                "id": "AC-002",
+                "statement": "Require review job, receipt-validation step and artifact metadata; preserve waiting, missed, failed and unverified states."
+              }
+            ]
+          },
+          {
+            "id": "REQ-003",
+            "statement": "Check explicit installed bundle identity and versions without writes; preserve recoverable project intent.",
+            "source_ids": [
+              "SRC-APPROVAL"
+            ],
+            "criteria": [
+              {
+                "id": "AC-003",
+                "statement": "Check explicit installed bundle identity and versions without writes; preserve recoverable project intent."
+              }
+            ]
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "ASM-SCOPE",
+            "statement": "Spec Loop itself is the product for this bounded technical feature cycle.",
+            "impact": "low",
+            "status": "accepted",
+            "basis": "User approved sequential work; no separate application was supplied. Human pilot remains separate."
+          }
+        ],
+        "depends_on": [],
+        "artifacts": [
+          {
+            "id": "ART-DESIGN",
+            "kind": "design",
+            "path": "docs/CHANGE-008.md"
+          },
+          {
+            "id": "ART-ARCHITECTURE",
+            "kind": "architecture",
+            "path": "docs/REVIEW_HEALTH.md"
+          },
+          {
+            "id": "ART-RELEASE",
+            "kind": "release",
+            "path": ".spec-loop/artifacts/health-release.md"
+          },
+          {
+            "id": "ART-OPERATIONS",
+            "kind": "operations",
+            "path": ".spec-loop/artifacts/health-operations.md"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "TASK-001",
+            "title": "Read-only review health and Work handoff",
+            "requirement_ids": [
+              "REQ-001",
+              "REQ-002",
+              "REQ-003"
+            ],
+            "depends_on": [],
+            "status": "done",
+            "write_scope": [
+              "scripts/review_health.py",
+              "tests/test_review_health.py",
+              "docs/review-health-policy.json",
+              "docs/REVIEW_HEALTH.md",
+              "WORK_STATE.md"
+            ]
+          }
+        ],
+        "checks": [
+          {
+            "id": "CHK-ACCEPT",
+            "kind": "automated",
+            "purpose": "acceptance",
+            "covers": [
+              "AC-001",
+              "AC-002",
+              "AC-003"
+            ],
+            "argv": [
+              "python3",
+              "-m",
+              "unittest",
+              "discover",
+              "-s",
+              "tests",
+              "-p",
+              "test_review_health.py",
+              "-v"
+            ],
+            "procedure": "",
+            "timeout_seconds": 60
+          },
+          {
+            "id": "CHK-RELEASE",
+            "kind": "manual",
+            "purpose": "release",
+            "covers": [],
+            "argv": [],
+            "procedure": "Inspect source package and Work bundle exports; record actual local module release scope and artifact hash.",
+            "timeout_seconds": 60
+          },
+          {
+            "id": "CHK-OPS",
+            "kind": "manual",
+            "purpose": "operations",
+            "covers": [],
+            "argv": [],
+            "procedure": "Run against live GitHub MCP observations and the explicit installed bundle; resume native context. Record technical results and missing human outcome.",
+            "timeout_seconds": 60
+          },
+          {
+            "id": "CHK-OUTCOME",
+            "kind": "manual",
+            "purpose": "outcome",
+            "covers": [],
+            "argv": [],
+            "procedure": "Observe a real builder use review health in a new Work conversation and provide feedback. Keep open without human participation.",
+            "timeout_seconds": 60
+          }
+        ],
+        "product_scope": "fa02bed07d4825267d89da5d2bbf410b6d5f9c3445360727243c9b65727517b2",
+        "product_review": {
+          "scope": "fa02bed07d4825267d89da5d2bbf410b6d5f9c3445360727243c9b65727517b2",
+          "actor": "chatgpt-work",
+          "reason": "Review health is a bounded technical feature in the Work pilot, not human acceptance.",
+          "authority_ref": "User approved sequential next steps",
+          "at": "2026-09-08T16:29:18.460440+00:00"
+        }
+      },
+      "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+      "evidence": [
+        {
+          "schema_version": 1,
+          "id": "EV-a5bd7842663e4f659d88f9283df19f5e",
+          "change_id": "CHG-008",
+          "check_id": "CHK-ACCEPT",
+          "kind": "automated",
+          "result": "pass",
+          "observed_at": "2026-09-08T16:31:52.917358+00:00",
+          "expires_at": "2026-09-15T16:31:52.917358+00:00",
+          "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+          "source_hash": "36411e1942e0fc2999565e0f4852d896df0ddd4e879d6778fa4cbf3fe8ceaaf7",
+          "observer": "chatgpt-work",
+          "argv": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_review_health.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "output_hash": "5e69b10d542a14459c3463dba97caad462e39942c5f3efa5c5592f5c5d0314f5",
+          "output_bytes": 1475,
+          "artifact": "",
+          "artifact_hash": "",
+          "notes": "",
+          "environment": "Linux x86_64; Python 3.12.13",
+          "trust": "local-untrusted"
+        },
+        {
+          "schema_version": 1,
+          "id": "EV-c7f16162df214cb7805aa3969e535de5",
+          "change_id": "CHG-008",
+          "check_id": "CHK-RELEASE",
+          "kind": "manual",
+          "result": "pass",
+          "observed_at": "2026-09-08T16:32:14.116014+00:00",
+          "expires_at": "2026-09-15T16:32:14.116014+00:00",
+          "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+          "source_hash": "36411e1942e0fc2999565e0f4852d896df0ddd4e879d6778fa4cbf3fe8ceaaf7",
+          "observer": "chatgpt-work",
+          "argv": [],
+          "exit_code": -1,
+          "output_hash": "",
+          "output_bytes": 0,
+          "artifact": ".spec-loop/artifacts/health-package-check.json",
+          "artifact_hash": "bf3007a32e8ed8b140005925bc2b8d0f8fe92a4a650a5931c82edd52d0d9e2d7",
+          "notes": "Built committed source package and Work bundle; extracted package verified 166 files. Local technical module release only; no deployment or fresh user-chat acceptance.",
+          "environment": "Linux x86_64; Python 3.12.13",
+          "trust": "local-untrusted"
+        },
+        {
+          "schema_version": 1,
+          "id": "EV-d2f03516eb6e474ba904899069052305",
+          "change_id": "CHG-008",
+          "check_id": "CHK-OPS",
+          "kind": "manual",
+          "result": "pass",
+          "observed_at": "2026-09-08T16:32:14.604696+00:00",
+          "expires_at": "2026-09-15T16:32:14.604696+00:00",
+          "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+          "source_hash": "36411e1942e0fc2999565e0f4852d896df0ddd4e879d6778fa4cbf3fe8ceaaf7",
+          "observer": "chatgpt-work",
+          "argv": [],
+          "exit_code": -1,
+          "output_hash": "",
+          "output_bytes": 0,
+          "artifact": ".spec-loop/artifacts/health-result.json",
+          "artifact_hash": "e2ad81bdd4b28e3d7890845b3493bf5eb854f584143913f734530cfaf9e2f24a",
+          "notes": "Live MCP report at 16:27 UTC separated actual schedule, current main push and installed bundle. Native context resumed. Evidence is historical after its freshness window; human outcome remains missing.",
+          "environment": "Linux x86_64; Python 3.12.13",
+          "trust": "local-untrusted"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/CHANGE-008.md",
+      "sha256": "02d0b4ac92cf9ce421e879f4623269024525aa73b3f1627e450a881c50bcf2cf",
+      "content_base64": "IyBDSEFOR0UtMDA4OiBSZXZpZXcgaGVhbHRoIGFuZCByZWNvdmVyYWJsZSBXb3JrIGhhbmRvZmYKCiMjIE5lZWQgYW5kIGF1dGhvcml0eQoKVGhlIHVzZXIgYXNrZWQgdG8gd29yayB0aHJvdWdoIHRoZSBtZXJnZSwgcmVjb3ZlcnksIHJlYWwgZmVhdHVyZSBhbmQgdW5hdHRlbmRlZC1yZXZpZXcgc3RlcHMgaW4gb3JkZXIuIFNwZWMgTG9vcCBpdHNlbGYgaXMgdGhlIHByb2R1Y3QgZm9yIHRoaXMgYm91bmRlZCB0ZWNobmljYWwgY3ljbGUuIFRoZSBmaXJzdCBzY2hlZHVsZWQgcmV2aWV3IHdhcyBjcmVhdGVkIDRoNTNtNDBzIGFmdGVyIHRoZSBleHBlY3RlZCB0aW1lLiBBIGNsZWFuIGRlbGVnYXRlZCByZWNvdmVyeSByZXN0b3JlZCB0aGUgZXhhY3QgdjAuNyBjb21taXQsIGJ1dCBmb3VuZCBubyBjb21taXR0ZWQgV09SS19TVEFURS5tZC4gVGhlc2UgYXJlIHRlY2huaWNhbCBvYnNlcnZhdGlvbnM7IG5vIGh1bWFuIGJ1aWxkZXIgb3V0Y29tZSBoYXMgYmVlbiBjb2xsZWN0ZWQuCgojIyBEZXNpZ24gYW5kIGFjY2VwdGFuY2UKClByZXNlbnQgdGhyZWUgaW5kZXBlbmRlbnQgcmVzdWx0czogc2NoZWR1bGVkIGV4ZWN1dGlvbiwgcmV2aWV3IG9mIGN1cnJlbnQgbWFpbiwgYW5kIGluc3RhbGxlZCBza2lsbCBwcm92ZW5hbmNlLiBTaG93IHRoZSBhY3R1YWwgcnVuIGxpbmsgYW5kIGNoZWNrZWQgY29tbWl0LiBBIHJlY2VudCBtZXJnZSBuZWVkIG5vdCBoYXZlIGEgc2NoZWR1bGVkIGV2ZW50IHlldCwgc28gaXRzIHB1c2ggcmV2aWV3IGlzIHNob3duIHNlcGFyYXRlbHkuIEtlZXAgdGhlIGN1cnJlbnQgcHJvZHVjdCByb2FkbWFwIGFuZCBpdHMgbWlzc2luZyBodW1hbiBldmlkZW5jZSB2aXNpYmxlLgoKMS4gUHVzaC9tYW51YWwgZXZlbnRzLCBvbGRlciBzdWNjZXNzLCB3cm9uZyB0YXJnZXQsIGluY29tcGxldGUgcGFnZXMgYW5kIHN0YWxlIG9ic2VydmF0aW9ucyBjYW5ub3QgcHJvdmUgYSBjdXJyZW50IHNjaGVkdWxlZCBwYXNzLgoyLiBBIHBhc3MgbmVlZHMgdGhlIGN1cnJlbnQgYXR0ZW1wdCdzIHJldmlldyBqb2IsIHJlY2VpcHQtdmFsaWRhdGlvbiBzdGVwIGFuZCBub25leHBpcmVkIGFydGlmYWN0IG1ldGFkYXRhLiBXYWl0aW5nLCBtaXNzZWQsIGZhaWxlZCBhbmQgdW52ZXJpZmllZCByZW1haW4gZGlzdGluY3QuCjMuIEFuIGV4cGxpY2l0IGluc3RhbGxlZCBidW5kbGUgaXMgY2hlY2tlZCBsb2NhbGx5LCB0aGVuIGl0cyB2ZXJzaW9uIGFuZCBkZWNsYXJlZCBzb3VyY2UgdHJlZSBhcmUgY29tcGFyZWQuIE5vIGF1dG9tYXRpYyBvdmVyd3JpdGUuCjQuIFRoZSByZXBvcnQgcGVyZm9ybXMgbm8gcmVtb3RlIGFjdGlvbnMgb3IgcHJvamVjdCB3cml0ZXMuIFJlc3VtZSBjYW4gZmluZCBhIGNvbW1pdHRlZCBoYW5kb2ZmLiBPcmlnaW5hbCBwcm9kdWN0IHByaW9yaXRpZXMgYW5kIGhpc3RvcmljYWwgZXZpZGVuY2UgcmVtYWluIGludGFjdC4KCiMjIEFyY2hpdGVjdHVyZSBhbmQgYm91bmRhcmllcwoKVXNlIGEgc21hbGwgc3RhbmRhcmQtbGlicmFyeSBvYnNlcnZlciBvdmVyIGEgYm91bmRlZCBKU09OIHNuYXBzaG90IGNvbGxlY3RlZCBieSBHaXRIdWIgTUNQLiBJdCBoYXMgbm8gY3JlZGVudGlhbHMsIG5ldHdvcmsgY2xpZW50LCBzY2hlZHVsZSB3cml0ZXIgb3IgZGlzcGF0Y2ggY2FwYWJpbGl0eS4gVGhlIGNvbGxlY3RvciBvd25zIGNvbXBsZXRlbmVzcywgZnJlc2ggcmVhZC1iYWNrIGFuZCB0YXJnZXQgYXV0aGVudGljaXR5OyB0aGUgcmVwb3J0IGlzIG5vdCBhIHNpZ25lZCBhdHRlc3RhdGlvbi4gVmVyc2lvbiAxIHN1cHBvcnRzIG9uZSBkYWlseSBVVEMgY3JvbiBvbmx5LiBTaXggaG91cnMgb2YgZ3JhY2UgaXMgYW4gZXhwbGljaXQgcHJvdmlzaW9uYWwgYWxlcnQgdGhyZXNob2xkIGluZm9ybWVkIGJ5IHRoZSBvYnNlcnZlZCBkZWxheSwgbm90IGEgR2l0SHViIFNMQS4gUmV2aWV3IGFmdGVyIG1vcmUgb2JzZXJ2YXRpb25zLiBNYXhpbXVtIHNuYXBzaG90IGFnZSBpcyAxNSBtaW51dGVzLgoKU2VlIFt0aGUgY29sbGVjdGlvbiBhbmQgb3BlcmF0aW9uIGd1aWRlXShSRVZJRVdfSEVBTFRILm1kKS4gTG9jYWwgYWNjZXB0YW5jZSBjb3ZlcnMgYWR2ZXJzYXJpYWwgZXZpZGVuY2UgY2FzZXMuIFRoZSByZWxlYXNlIHRhcmdldCBpcyBhIGxvY2FsIHRlY2huaWNhbCBtb2R1bGUsIGZvbGxvd2VkIGJ5IGEgcmV2aWV3ZWQgc291cmNlIFBSIGFuZCBXb3JrIGJ1bmRsZSB1cGRhdGUuIFJvbGwgYmFjayBieSBzZWxlY3RpbmcgdGhlIHByaW9yIHNvdXJjZS9idW5kbGU7IHByZXNlcnZlIHJlY29yZHMuIE5vIHByb2R1Y3Rpb24gZGVwbG95bWVudCBvciBodW1hbiB2YWx1ZSBpcyBpbXBsaWVkLgoKIyMgRmVlZGJhY2sKClRoZSBpbmRlcGVuZGVudCB2MC43IHJlY292ZXJ5IGZvdW5kIG1pc3NpbmcgaGFuZG9mZiBhbmQgc3RhbGUgY2hlY2twb2ludC9ldmlkZW5jZS4gVGhpcyBjaGFuZ2UgYWRkcyB0aGUgaGFuZG9mZiBhbmQgcHJlc2VydmVzIHN0YWxlIGhpc3RvcmljYWwgcmVjb3Jkcy4gVGhlIGxpdmUgaGVhbHRoIG9ic2VydmF0aW9uIGRpc3Rpbmd1aXNoZXMgdG9kYXkncyB2MC41IHNjaGVkdWxlIGZyb20gdjAuNyBtYWluJ3MgcHVzaCBhbmQgY29tcGFyZXMgdGhlIGFjdHVhbCBpbnN0YWxsZWQgdjAuNyBidW5kbGUuIEEgbmV3IHVzZXIgV29yayBjaGF0LCBidWlsZGVyIGZlZWRiYWNrIGFuZCBzdXN0YWluZWQgdW5hdHRlbmRlZCByZWxpYWJpbGl0eSByZW1haW4gb3Blbi4K"
+    },
+    {
+      "path": "docs/REVIEW_HEALTH.md",
+      "sha256": "ce947f73bcbca12668195083fdacdff81f174e824ad06e4d81be0a8012984511",
+      "content_base64": "IyBSZXZpZXcgaGVhbHRoCgpVc2UgdGhpcyByZWFkLW9ubHkgY2hlY2sgd2hlbiBhIGJ1aWxkZXIgYXNrcyB3aGV0aGVyIHByb2R1Y3QgcmV2aWV3cyByYW4gb3Igd2hldGhlciB0aGUgV29yayBza2lsbCBpcyBjdXJyZW50LiBUaGUgYWdlbnQgY29sbGVjdHMgZXZpZGVuY2UgYW5kIHJ1bnMgdGhlIGNvbW1hbmQ7IHRoZSBidWlsZGVyIGRvZXMgbm90IG5lZWQgYSB0ZXJtaW5hbC4KCmBgYHNoCnB5dGhvbjMgc2NyaXB0cy9yZXZpZXdfaGVhbHRoLnB5IC0tc25hcHNob3QgL3BhdGgvb2JzZXJ2YXRpb24uanNvbiAtLXBvbGljeSBkb2NzL3Jldmlldy1oZWFsdGgtcG9saWN5Lmpzb24gLS1pbnN0YWxsZWQtYnVuZGxlIC9hY3R1YWwvc2tpbGwvYnVuZGxlCmBgYAoKRXhpdCAwIG1lYW5zIG5vIGF0dGVudGlvbiBjb25kaXRpb24gaW4gdGhlIGNoZWNrZWQgZGltZW5zaW9uczsgYW4gb21pdHRlZCBpbnN0YWxsZWQgYnVuZGxlIGlzIGV4cGxpY2l0bHkgbm90IGNoZWNrZWQuIEV4aXQgMSBtZWFucyBhdHRlbnRpb24gaXMgbmVlZGVkLiBFeGl0IDIgbWVhbnMgdGhlIG9ic2VydmF0aW9uIGNhbm5vdCBiZSBldmFsdWF0ZWQuIFRoZSBzY3JpcHQgcHJpbnRzIEpTT04gYW5kIG5ldmVyIGZldGNoZXMsIGRpc3BhdGNoZXMsIHN5bmNzLCBpbnN0YWxscyBvciByZXBhaXJzLgoKIyMgQ29sbGVjdCB0aHJvdWdoIEdpdEh1YiBNQ1AKClJlYWQgdGhlIGNvbmZpZ3VyZWQgcmVwb3NpdG9yeSdzIGRlZmF1bHQgYnJhbmNoIGFuZCBjdXJyZW50IGNvbW1pdC90cmVlLCBtYW5pZmVzdCB2ZXJzaW9uLCBhbmQgZXhhY3QgY29tbWl0dGVkIHdvcmtmbG93LiBDb25maXJtIGl0cyBvbmx5IHNjaGVkdWxlIGlzIHRoZSBwb2xpY3kncyBkYWlseSBVVEMgY3JvbiB3aXRoIG5vIHRpbWV6b25lIG92ZXJyaWRlLiBJZiBub3QsIHN0b3Agd2l0aCBhIGNvbmZpZ3VyYXRpb24gbWlzbWF0Y2g7IGRvIG5vdCBjb3B5IHBvbGljeSB2YWx1ZXMgaW50byBhbiBvYnNlcnZhdGlvbiB3aXRob3V0IHJlYWRpbmcgdGhlIHdvcmtmbG93LgoKQ29sbGVjdCB0aGUgY29tcGxldGUgbWFpbi1icmFuY2ggcnVuIGludmVudG9yeSB1c2luZyBgL3JlcG9zL09XTkVSL1JFUE8vYWN0aW9ucy9ydW5zP2JyYW5jaD1tYWluJnBlcl9wYWdlPTEwMGAgYW5kIGV2ZXJ5IHBhZ2UuIERvIG5vdCBmaWx0ZXIgdG8gc3VjY2Vzc2Z1bCBldmVudHMuIFJldGFpbiB0aGUgQVBJIHRvdGFsX2NvdW50LCBhbGwgdW5pcXVlIHJ1biBJRHMsIGV2ZW50LCBjcmVhdGVkX2F0LCBoZWFkX3NoYSwgaGVhZF9icmFuY2gsIHBhdGgsIGh0bWxfdXJsLCBydW5fYXR0ZW1wdCwgc3RhdHVzLCBjb25jbHVzaW9uIGFuZCByZXBvc2l0b3J5LmZ1bGxfbmFtZS4gU2V0IHJ1bnMuc2NvcGUgdG8gdGhlIGFjdHVhbCBxdWVyaWVkIHJlcG9zaXRvcnkgYW5kIGJyYW5jaC4gRm9yIGxhcmdlIGhpc3RvcmllcywgdmVyc2lvbiAxIGludGVudGlvbmFsbHkgcmVwb3J0cyB1bnZlcmlmaWVkIGlmIHRoZSBib3VuZGVkIGNvbXBsZXRlIGludmVudG9yeSBjYW5ub3QgYmUgY29sbGVjdGVkLiBEbyBub3QgZmFsc2VseSBzZXQgdG90YWxfY291bnQgdG8gdGhlIHBhZ2UgbGVuZ3RoLgoKRm9yIHRoZSBsYXRlc3Qgc2NoZWR1bGUgY3JlYXRlZCBpbiB0aGUgY3VycmVudCBkYWlseSBzbG90IGFuZCBsYXRlc3QgcHVzaC9zY2hlZHVsZS9tYW51YWwgcnVuIG9uIGN1cnJlbnQgbWFpbiwgY29sbGVjdCBjb21wbGV0ZSBqb2JzIGFuZCBhcnRpZmFjdHMgaW52ZW50b3JpZXMuIFN0b3JlIGVhY2ggdW5kZXIgZGV0YWlscyBrZXllZCBieSBydW4gSUQsIHdpdGggam9icyBhbmQgYXJ0aWZhY3RzIEFQSSByZXNwb25zZSBlbnZlbG9wZXMuIFByZXNlcnZlIGpvYiBhdHRlbXB0LCBjb21taXQsIHJldmlldyBzdGVwcywgYXJ0aWZhY3QgZXhwaXJ5IGFuZCB3b3JrZmxvd19ydW4gaWRlbnRpdHkuIFJlLXJlYWQgdGhlIHJ1biBpZGVudGl0aWVzIGFuZCBicmFuY2ggYWZ0ZXIgY29sbGVjdGlvbjsgcmV0cnkgaWYgdGhlIGNvbW1pdCBvciBsYXRlc3QgYXR0ZW1wdCBjaGFuZ2VkLiBTZXQgb2JzZXJ2ZWRfYXQgdG8gY29sbGVjdGlvbiBzdGFydCBpbiBVVEMuIEZpbmlzaCB3aXRoaW4gdGhlIHBvbGljeSdzIG1heGltdW0gYWdlLiBBbiBBUEkgZXJyb3IsIGRlbmllZCBwYXRoIG9yIGluY29tcGxldGUgcGFnZSBpcyB1bnZlcmlmaWVkLCBub3QgbWlzc2luZyBvciBzdWNjZXNzLiBEbyBub3QgYnlwYXNzIGNvbm5lY3RvciByZXN0cmljdGlvbnMuCgpUaGUgc25hcHNob3QgZW52ZWxvcGUgaXMgc2NoZW1hX3ZlcnNpb24gMSwgb2JzZXJ2ZWRfYXQsIHRhcmdldCwgcnVucyBhbmQgZGV0YWlscy4gVGFyZ2V0IGNvbnRhaW5zIHJlcG9zaXRvcnksIGJyYW5jaCwgd29ya2Zsb3csIGNyb24sIGNvbW1pdCwgdHJlZSBhbmQgdmVyc2lvbiBmcm9tIHRoZSBhY3R1YWwgcmVhZHMuIFRoZSBzYXZlZCB0ZWNobmljYWwgb2JzZXJ2YXRpb24gaW4gYC5zcGVjLWxvb3AvYXJ0aWZhY3RzL2hlYWx0aC1vYnNlcnZhdGlvbi5qc29uYCBpbGx1c3RyYXRlcyB0aGUgZm9ybWF0OyBpdCBpcyBoaXN0b3JpY2FsIGV2aWRlbmNlIGFuZCBtdXN0IG5vdCBiZSByZWxhYmVsZWQgZnJlc2guIEpvYnMgYW5kIGFydGlmYWN0IG1ldGFkYXRhIGFyZSBldmlkZW5jZSBvZiBleGVjdXRpb24gYW5kIHVwbG9hZCwgbm90IGRvd25sb2FkZWQgYXJ0aWZhY3QtYnl0ZSB2ZXJpZmljYXRpb24uCgojIyBJbnRlcnByZXQKClNjaGVkdWxlIHN0YXR1cyBpcyB3YWl0aW5nIGJlZm9yZSB0aGUgZ3JhY2UgZGVhZGxpbmUsIG1pc3NlZCBhZnRlciB0aGUgZGVhZGxpbmUgd2l0aG91dCBhIG1hdGNoaW5nIGV2ZW50LCBxdWV1ZWQvaW5fcHJvZ3Jlc3Mgd2hpbGUgYWN0aXZlLCBmYWlsZWQgZm9yIGEgY29tcGxldGVkIHVuc3VjY2Vzc2Z1bCBydW4sIHVudmVyaWZpZWQgZm9yIGluY29tcGxldGUgcHJvb2YsIG9yIHBhc3NlZC4gY3JlYXRlZF9kZWxheV9zZWNvbmRzIGNvbXBhcmVzIEFQSSBjcmVhdGlvbiB3aXRoIHRoZSBub21pbmFsIHNsb3QuIEl0IGRvZXMgbm90IGVzdGFibGlzaCBHaXRIdWIncyBkZWxheSBjYXVzZSBvciBzY2hlZHVsZXIgYXR0cmlidXRpb24gYWNyb3NzIGRhdGVzLiBBIHJ1biBjcmVhdGVkIGluIGEgbGF0ZXIgZGFpbHkgc2xvdCBjYW5ub3QgcHJvdmUgdGhhdCBhbiBlYXJsaWVyIHNsb3QgZXhlY3V0ZWQuIEEgcGFzc2VkIHJ1biBjcmVhdGVkIGFmdGVyIGdyYWNlIHJlbWFpbnMgYW4gYXR0ZW50aW9uIGNvbmRpdGlvbi4gT25lIHBhc3MgbmV2ZXIgcHJvdmVzIHN1c3RhaW5lZCByZWxpYWJpbGl0eS4KCkN1cnJlbnQtY29tbWl0IHJldmlldyBpcyBzZXBhcmF0ZTogYSBzY2hlZHVsZWQgcmV2aWV3IG9mIGFuIGVhcmxpZXIgbWFpbiBjYW4gcGFzcyB3aGlsZSB0aGUgbGF0ZXN0IG1haW4gcmV2aWV3IGlzIG1pc3Npbmcgb3IgZmFpbGVkLiBJbnN0YWxsZWQgc3RhdHVzIGNhbiBiZSBjdXJyZW50LCB1cGRhdGUtYXZhaWxhYmxlLCBpbnN0YWxsZWQtYWhlYWQsIHNvdXJjZS1kaWZmZXJzLCBub3QtY2hlY2tlZCBvciB1bnZlcmlmaWVkLiBMb2NhbCBwYXlsb2FkIGNoZWNrcyBjYW5ub3QgYXV0aGVudGljYXRlIHVuc2lnbmVkIHNvdXJjZSBkZWNsYXJhdGlvbnMuIFVzZSB0cnVzdGVkIHNhdmVkIHByb3ZlbmFuY2UgYW5kIHRoZSBzdXBwb3J0ZWQgc2tpbGwgdXBkYXRlIGZsb3c7IG5ldmVyIG92ZXJ3cml0ZSB0aGUgaW5zdGFsbGVkIGNvcHkgZnJvbSBhIGJhY2tncm91bmQgdGFzay4KCiMjIFVuYXR0ZW5kZWQgY2hlY2tzIGFuZCBzYWZlIHN5bmMKCkEgc2VwYXJhdGVseSBjb25maWd1cmVkIENoYXRHUFQgdGFzayBtYXkgY29sbGVjdCB0aGVzZSByZWFkLW9ubHkgb2JzZXJ2YXRpb25zIGFuZCBhbGVydCB0aGUgb3duZXIgb24gbWlzc2luZywgZmFpbGVkLCBvdmVyZHVlLCBsYXRlIG9yIHVudmVyaWZpZWQgcmV2aWV3cy4gQSB0YXNrIG11c3QgYmUgYWN0dWFsbHkgY3JlYXRlZCBhbmQgcmVhZCBiYWNrIGJlZm9yZSBzYXlpbmcgaXQgaXMgZW5hYmxlZC4gSXRzIGZpcnN0IGZ1dHVyZSBleGVjdXRpb24gYW5kIHN1c3RhaW5lZCByZWxpYWJpbGl0eSByZXF1aXJlIGxhdGVyIGV2aWRlbmNlLiBLZWVwIHRoZSBHaXRIdWIgc2NoZWR1bGUgdW5jaGFuZ2VkLiBXaXRoIG5vIHNjaGVkdWxpbmcgY2FwYWJpbGl0eSwgbGVhdmUgdGhpcyBhcyBhbiBvbi1kZW1hbmQgY2hlY2sgYW5kIHN0YXRlIHRoYXQgbGltaXRhdGlvbi4KClJvYWRtYXAgcmVmcmVzaCBhdXRvbWF0aWNhbGx5IHJlY29tcHV0ZXMgZGVsaXZlcnkgZmFjdHMgb24gcmVzdW1lIGFuZCBuYXRpdmUgd3JpdGVzLiBSZW1vdGUgaW50ZW50IHN5bmMgc3RheXMgYWdlbnQtbWVkaWF0ZWQ6IGZldGNoIGZyZXNoIHRhcmdldC1ib3VuZCBzbmFwc2hvdHMsIHByZXNlcnZlIHRocmVlLXdheSBjb25mbGljdHMsIGFwcGx5IG9ubHkgYXV0aG9yaXplZCBkZWNpc2lvbnMsIGFuZCBjb25maXJtIHJlYWQtYmFjayBiZWZvcmUgYWR2YW5jaW5nIHRoZSBiYXNlbGluZS4gQSB3YXRjaGRvZyBkb2VzIG5vdCBtdXRhdGUgaW50ZW50LCBzeW5jIGJhc2VsaW5lcywgY29kZSwgcGVybWlzc2lvbnMgb3Igc2NoZWR1bGVzLiBUaGUgb2xkZXIgZGVtb25zdHJhdGlvbiBhZGFwdGVyIHBvaW50cyBhdCBhIGRpZmZlcmVudCBicmFuY2g7IGRvIG5vdCBzaWxlbnRseSByZXRhcmdldCBpdC4KCkdpdEh1YiBkb2N1bWVudHMgcG9zc2libGUgc2NoZWR1bGUgZGVsYXkgYW5kIGRyb3BwZWQgcXVldWVkIGpvYnMgaW4gW3dvcmtmbG93IHRyb3VibGVzaG9vdGluZ10oaHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vYWN0aW9ucy9ob3ctdG9zL3Ryb3VibGVzaG9vdC13b3JrZmxvd3MpLiBUaGF0IGdlbmVyYWwgcG9zc2liaWxpdHkgZG9lcyBub3QgZGlhZ25vc2UgdGhpcyByZXBvc2l0b3J5J3Mgb2JzZXJ2ZWQgZGVsYXkuCg=="
+    },
+    {
+      "path": ".spec-loop/artifacts/health-release.md",
+      "sha256": "70ae2d3e7fd23d8d9dcc9e102dc25c91e32818ec5767bf3bd4b74cebe5a773b6",
+      "content_base64": "IyBMb2NhbCBoZWFsdGggbW9kdWxlIHJlbGVhc2UKClNlYWwgc2NyaXB0cy9yZXZpZXdfaGVhbHRoLnB5IG9ubHkgYWZ0ZXIgbmF0aXZlIGFjY2VwdGFuY2UsIHBhY2thZ2UgaW5zcGVjdGlvbiBhbmQgb3BlcmF0aW9ucyBjaGVja3MuIFRoaXMgaXMgYSBsb2NhbCB0ZWNobmljYWwgZXZhbHVhdGlvbiwgbm90IGRlcGxveW1lbnQsIGluc3RhbGxlZC1ob3N0IGFjY2VwdGFuY2Ugb3IgaHVtYW4gb3V0Y29tZS4gUHVibGlzaCBzb3VyY2UgYW5kIG5hdGl2ZSBldmlkZW5jZSB0b2dldGhlciB0aHJvdWdoIGEgcmV2aWV3ZWQgUFIuIFByZXNlcnZlIHByZXZpb3VzIGJ1bmRsZXMgZm9yIHJlY292ZXJ5Lgo="
+    },
+    {
+      "path": ".spec-loop/artifacts/health-operations.md",
+      "sha256": "fe593efc0db5a4d2d0420c977c2747f24c73a3cbffd18daa9bb9e634e39ab05e",
+      "content_base64": "IyBIZWFsdGggb3BlcmF0aW9ucwoKQ29sbGVjdCBjb21wbGV0ZSBmcmVzaCBHaXRIdWIgb2JzZXJ2YXRpb25zIHdpdGggcmVhZC1iYWNrLiBQcmVzZXJ2ZSBmYWlsZWQgYW5kIHVua25vd24gcmVzdWx0cy4gSW5zcGVjdCBpbnN0YWxsZWQgcmVzb3VyY2VzIG9ubHkgYXQgYW4gZXhwbGljaXQgcmVzb2x2ZWQgcGF0aC4gVXNlIHRoZSBkb2N1bWVudGVkIHNpeC1ob3VyIGdyYWNlIGFuZCAxNS1taW51dGUgb2JzZXJ2YXRpb24gYWdlIHdpdGhvdXQgcmV3cml0aW5nIHRoZSBHaXRIdWIgc2NoZWR1bGUuIE5hdGl2ZSByb2FkbWFwIHJlZnJlc2ggcHJlc2VydmVzIHByaW9yaXRpZXMuIEEgc2VwYXJhdGVseSBjb25maXJtZWQgd2F0Y2hkb2cgYWxlcnRzIHRoZSBvd25lciBvbmx5OyBpdCBjYW5ub3QgY2hhbmdlIGNvZGUsIGludGVudCwgc2tpbGwsIHBlcm1pc3Npb25zIG9yIHN5bmMgYmFzZWxpbmVzLiBGaXJzdCB1bmF0dGVuZGVkIGV4ZWN1dGlvbiByZW1haW5zIHVudmVyaWZpZWQgdW50aWwgb2JzZXJ2ZWQuCg=="
+    },
+    {
+      "path": ".spec-loop/artifacts/health-package-check.json",
+      "sha256": "bf3007a32e8ed8b140005925bc2b8d0f8fe92a4a650a5931c82edd52d0d9e2d7",
+      "content_base64": "ewogICJwYXNzZWQiOiB0cnVlLAogICJzb3VyY2UiOiB7CiAgICAibmFtZSI6ICJzcGVjLWxvb3AiLAogICAgInZlcnNpb24iOiAiMC44LjAiLAogICAgImVuZ2luZV92ZXJzaW9uIjogIjAuOC4wIiwKICAgICJza2lsbHMiOiBbCiAgICAgICJsb29wLWJ1aWxkIiwKICAgICAgImxvb3AtZGVzaWduIiwKICAgICAgImxvb3AtZGlzY292ZXIiLAogICAgICAibG9vcC1ldm9sdmUiLAogICAgICAibG9vcC1vcGVyYXRlIiwKICAgICAgImxvb3AtcGxhbiIsCiAgICAgICJsb29wLXByb2R1Y3QiLAogICAgICAibG9vcC1yZWxlYXNlIiwKICAgICAgImxvb3Atc3BlY2lmeSIsCiAgICAgICJsb29wLXZlcmlmeSIsCiAgICAgICJzcGVjLWxvb3AiCiAgICBdLAogICAgInBheWxvYWRfZGlnZXN0IjogIjcwMzkxYjcwMjBiMWFlNmVhYzhhY2NlYzcyOTQ5MzQ0NGY4ZWU2MjBhZWM5NTA5NWE0NTUxNzU0YWM1NmNmYTIiCiAgfSwKICAiaG9zdF9sb2FkaW5nIjogInVudmVyaWZpZWQiLAogICJjb2RleF9jbGlfYXZhaWxhYmxlIjogZmFsc2UsCiAgIm11dGF0aW9ucyI6IGZhbHNlLAogICJpbnN0YWxsZWRfY29weSI6IHsKICAgICJzdGF0dXMiOiAibm90LXN1cHBsaWVkIgogIH0sCiAgInBhY2thZ2UiOiB7CiAgICAidmVyaWZpZWQiOiB0cnVlLAogICAgInNvdXJjZV9jb21taXQiOiAiZjNiMzZhMDcyYTA2ZTJhZDdiZWZiZTVkZGI1NWM3NmQwYTIwYzgxMyIsCiAgICAiZmlsZXMiOiAxNjYsCiAgICAidHJ1c3QiOiAiVW5zaWduZWQgaW52ZW50b3J5OyBjb21wYXJlIHRoZSBhcmNoaXZlIGRpZ2VzdCB3aXRoIGEgdHJ1c3RlZCByZWxlYXNlLiIKICB9Cn0K"
+    },
+    {
+      "path": ".spec-loop/artifacts/health-result.json",
+      "sha256": "e2ad81bdd4b28e3d7890845b3493bf5eb854f584143913f734530cfaf9e2f24a",
+      "content_base64": "ewogICJzY2hlbWFfdmVyc2lvbiI6IDEsCiAgImNoZWNrZWRfYXQiOiAiMjAyNi0wOS0wOFQxNjoyNzoxMi42NDUwNDcrMDA6MDAiLAogICJvYnNlcnZlZF9hdCI6ICIyMDI2LTA5LTA4VDE2OjI3OjEyLjAxMFoiLAogICJ0YXJnZXQiOiB7CiAgICAicmVwb3NpdG9yeSI6ICJHaG9zdGx5R2F3ZC9zcGVjLWxvb3AtY29kZXgiLAogICAgImJyYW5jaCI6ICJtYWluIiwKICAgICJ3b3JrZmxvdyI6ICIuZ2l0aHViL3dvcmtmbG93cy9wcm9kdWN0LXJldmlldy55bWwiLAogICAgImNyb24iOiAiMTcgNyAqICogKiIsCiAgICAiY29tbWl0IjogIjc0Yjk3NTM1Yjk0NDI0MjI2NzU3ZWY4YzUyNjM2NzJiYjkxMWMxMmQiLAogICAgInRyZWUiOiAiMWVlZjgxYTdiNWE0MTczZWUyYjZkZGMwNTliODUyMDU0NzdhMzQ0MSIsCiAgICAidmVyc2lvbiI6ICIwLjcuMCIKICB9LAogICJzY2hlZHVsZSI6IHsKICAgICJpZCI6IDM0MjI0NjIxODczLAogICAgImV2ZW50IjogInNjaGVkdWxlIiwKICAgICJoZWFkX3NoYSI6ICI1NTBlMTVlOGRhMjkzYWRhYTBjMjRjYjcxNzJlZDdjMjUxMzlmYzgwIiwKICAgICJodG1sX3VybCI6ICJodHRwczovL2dpdGh1Yi5jb20vR2hvc3RseUdhd2Qvc3BlYy1sb29wLWNvZGV4L2FjdGlvbnMvcnVucy8zNDIyNDYyMTg3MyIsCiAgICAicnVuX2F0dGVtcHQiOiAxLAogICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgInJldmlld19qb2IiOiAxMDIwNTU2MDUxNzIsCiAgICAiYXJ0aWZhY3RfaWQiOiAxMDA1NTE0NzQwOCwKICAgICJhcnRpZmFjdF9kaWdlc3QiOiAic2hhMjU2Ojg3MWY1NzFkZDM3NGNhNGVlMTBiMjI4MWQ2MGZiMDkzNDJjYjYyODgxMTNjM2RjYjFiODMwZDE4NzY3YWRhYTUiLAogICAgInByb29mIjogImpvYi1zdGVwcy1hbmQtYXJ0aWZhY3QtbWV0YWRhdGEiLAogICAgImV4cGVjdGVkX2F0IjogIjIwMjYtMDktMDhUMDc6MTc6MDArMDA6MDAiLAogICAgImRlYWRsaW5lIjogIjIwMjYtMDktMDhUMTM6MTc6MDArMDA6MDAiLAogICAgImNyZWF0ZWRfZGVsYXlfc2Vjb25kcyI6IDE3NjIwLAogICAgInRpbWluZyI6ICJ3aXRoaW4tZ3JhY2UiLAogICAgIm92ZXJkdWUiOiBmYWxzZQogIH0sCiAgImN1cnJlbnRfY29tbWl0X3JldmlldyI6IHsKICAgICJpZCI6IDM0MjQ5NDcxNTgyLAogICAgImV2ZW50IjogInB1c2giLAogICAgImhlYWRfc2hhIjogIjc0Yjk3NTM1Yjk0NDI0MjI2NzU3ZWY4YzUyNjM2NzJiYjkxMWMxMmQiLAogICAgImh0bWxfdXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9HaG9zdGx5R2F3ZC9zcGVjLWxvb3AtY29kZXgvYWN0aW9ucy9ydW5zLzM0MjQ5NDcxNTgyIiwKICAgICJydW5fYXR0ZW1wdCI6IDEsCiAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAicmV2aWV3X2pvYiI6IDEwMjEzOTg5MzAyMSwKICAgICJhcnRpZmFjdF9pZCI6IDEwMDY1MzczMTgzLAogICAgImFydGlmYWN0X2RpZ2VzdCI6ICJzaGEyNTY6MTQzODY1MGQ3NGE5NmExZDJiYWE0ZDVlNDc2NDgyNDRiMDU0ZjhmZWJjYzQ4YmU1OGQ5NTY2NTUwMGVjZjdmNSIsCiAgICAicHJvb2YiOiAiam9iLXN0ZXBzLWFuZC1hcnRpZmFjdC1tZXRhZGF0YSIKICB9LAogICJpbnN0YWxsZWRfc2tpbGwiOiB7CiAgICAic3RhdHVzIjogImN1cnJlbnQiLAogICAgImluc3RhbGxlZF92ZXJzaW9uIjogIjAuNy4wIiwKICAgICJyZXBvc2l0b3J5X3ZlcnNpb24iOiAiMC43LjAiLAogICAgInNvdXJjZV90cmVlIjogIjFlZWY4MWE3YjVhNDE3M2VlMmI2ZGRjMDU5Yjg1MjA1NDc3YTM0NDEiLAogICAgInBheWxvYWRfZGlnZXN0IjogImJhZWM5ZDhhMDg0MDNjYjg3YmJlM2FiZWQ1ZmM0ZDQzNTNiZDcyYzUxNzE1ZDAxOTlmYzNlZmZjZjU5NTYyOTAiLAogICAgInByb3ZlbmFuY2UiOiAidW5zaWduZWQtZGVjbGFyZWQtc291cmNlOyBwYXlsb2FkIGNoZWNrZWQgbG9jYWxseSIKICB9LAogICJhdHRlbnRpb24iOiBmYWxzZSwKICAibGltaXRzIjogIk9ic2VydmF0aW9uIHN1cHBsaWVkIGJ5IGNvbGxlY3Rvciwgbm90IGF1dGhlbnRpY2F0ZWQgaGVyZS4gTWV0YWRhdGEgaXMgbm90IGFydGlmYWN0LWJ5dGUgdmVyaWZpY2F0aW9uLiBPbmUgcnVuIGRvZXMgbm90IHByb3ZlIHN1c3RhaW5lZCByZWxpYWJpbGl0eS4gTm8gd3JpdGVzIG9yIHJlcGFpcnMuIgp9Cg=="
+    },
+    {
+      "path": ".spec-loop/artifacts/health-package.json",
+      "sha256": "01ab26e73b8a4e6c2b4ec05da08bf3aa05444bcdaad9e7233e9710695c03e7d6",
+      "content_base64": "ewogICJhcmNoaXZlIjogIi93b3Jrc3BhY2Uvc2NyYXRjaC9jNTc0ZDdhZjE4OTcvdjA4LXNvdXJjZS50YXIuZ3oiLAogICJzb3VyY2VfY29tbWl0IjogImYzYjM2YTA3MmEwNmUyYWQ3YmVmYmU1ZGRiNTVjNzZkMGEyMGM4MTMiLAogICJzb3VyY2VfZmlsZXMiOiAxNjUsCiAgInNoYTI1NiI6ICI3MjRmNzZjOWVkZTUwZGUzM2I5MTc4ZjFlOTBjMTJkNTk1ZTllNmYwZTBkMzNmM2JlYWZkYzlhZDVmZDY1NWMzIiwKICAidmVyaWZpZWQiOiB0cnVlCn0K"
+    }
+  ],
+  "receipt_path": ".spec-loop/artifacts/health-package.json",
+  "artifact": {
+    "path": "scripts/review_health.py",
+    "sha256": "6f05b3e5566ce96e1bc099d67050856a16fcb0a3d55d81c793df9fc65ad385ae",
+    "size_bytes": 9794
+  },
+  "trust": "local-untrusted",
+  "digest": "a19297dff9a8f653c1443010d3e473089fc55a7f2a81aec9a2fc20a629ac942b"
+}

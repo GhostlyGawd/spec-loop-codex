@@ -1,13 +1,15 @@
 {
   "schema_version": 1,
-  "revision": 2,
-  "active_change": "CHG-HOST",
-  "summary": "User selected ChatGPT Work; Work entry, bundled resources and 121 regression tests are ready",
-  "next_action": "Save the Work skill and validate its resources; observe fresh-chat selection and real builder outcomes separately",
-  "blockers": [],
-  "updated_at": "2026-09-08T15:42:23.976288+00:00",
-  "source_hash": "1767f63d7a3a6307997405be1f9799e556d32e37e5712a62c887c70356d233a8",
-  "contract_hash": "ebfa8378f3d34935f86cfb9ff0e135c68ab3635fab617916ee0acf0164901776",
+  "revision": 5,
+  "active_change": "CHG-008",
+  "summary": "Final clean-source release and Work resource export verified; personal bundle links to saved project handoff",
+  "next_action": "Verify the published source and saved Work update; observe watchdog execution, fresh user chat and human feedback",
+  "blockers": [
+    "Fresh user chat, real builder outcome and first watchdog execution remain unobserved"
+  ],
+  "updated_at": "2026-09-08T16:36:25.454498+00:00",
+  "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
+  "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
   "events": [
     {
       "at": "2026-09-08T13:50:19.611921+00:00",
@@ -18,6 +20,21 @@
       "at": "2026-09-08T15:42:23.976288+00:00",
       "change": "CHG-HOST",
       "summary": "User selected ChatGPT Work; Work entry, bundled resources and 121 regression tests are ready"
+    },
+    {
+      "at": "2026-09-08T16:32:15.671973+00:00",
+      "change": "CHG-008",
+      "summary": "Review health acceptance, package verification and live observation passed; local module release sealed"
+    },
+    {
+      "at": "2026-09-08T16:33:33.669650+00:00",
+      "change": "CHG-008",
+      "summary": "Clean saved-source acceptance and local module release verified; temporary test files caused earlier snapshot drift"
+    },
+    {
+      "at": "2026-09-08T16:36:25.454498+00:00",
+      "change": "CHG-008",
+      "summary": "Final clean-source release and Work resource export verified; personal bundle links to saved project handoff"
     }
   ]
 }

@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-09-08T16:27:12.010Z",
+  "target": {
+    "repository": "GhostlyGawd/spec-loop-codex",
+    "branch": "main",
+    "workflow": ".github/workflows/product-review.yml",
+    "cron": "17 7 * * *",
+    "commit": "74b97535b94424226757ef8c5263672bb911c12d",
+    "tree": "1eef81a7b5a4173ee2b6ddc059b85205477a3441",
+    "version": "0.7.0"
+  },
+  "runs": {
+    "total_count": 4,
+    "scope": {
+      "repository": "GhostlyGawd/spec-loop-codex",
+      "branch": "main"
+    },
+    "workflow_runs": [
+      {
+        "id": 34249471582,
+        "event": "push",
+        "head_sha": "74b97535b94424226757ef8c5263672bb911c12d",
+        "head_branch": "main",
+        "path": ".github/workflows/product-review.yml",
+        "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34249471582",
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-09-08T16:10:56Z",
+        "repository": {
+          "full_name": "GhostlyGawd/spec-loop-codex"
+        }
+      },
+      {
+        "id": 34236572820,
+        "event": "push",
+        "head_sha": "c33a7ccd10cedcf2fcebc9834a787eb8e54b6208",
+        "head_branch": "main",
+        "path": ".github/workflows/product-review.yml",
+        "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34236572820",
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-09-08T14:10:32Z",
+        "repository": {
+          "full_name": "GhostlyGawd/spec-loop-codex"
+        }
+      },
+      {
+        "id": 34224621873,
+        "event": "schedule",
+        "head_sha": "550e15e8da293adaa0c24cb7172ed7c25139fc80",
+        "head_branch": "main",
+        "path": ".github/workflows/product-review.yml",
+        "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34224621873",
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-09-08T12:10:40Z",
+        "repository": {
+          "full_name": "GhostlyGawd/spec-loop-codex"
+        }
+      },
+      {
+        "id": 34168043807,
+        "event": "push",
+        "head_sha": "550e15e8da293adaa0c24cb7172ed7c25139fc80",
+        "head_branch": "main",
+        "path": ".github/workflows/product-review.yml",
+        "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34168043807",
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-09-07T22:50:44Z",
+        "repository": {
+          "full_name": "GhostlyGawd/spec-loop-codex"
+        }
+      }
+    ]
+  },
+  "details": {
+    "34249471582": {
+      "jobs": {
+        "jobs": [
+          {
+            "check_run_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/check-runs/102139893021",
+            "completed_at": "2026-09-08T16:11:05Z",
+            "conclusion": "success",
+            "created_at": "2026-09-08T16:10:57Z",
+            "head_branch": "main",
+            "head_sha": "74b97535b94424226757ef8c5263672bb911c12d",
+            "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34249471582/job/102139893021",
+            "id": 102139893021,
+            "labels": [
+              "ubuntu-24.04"
+            ],
+            "name": "review",
+            "node_id": "CR_kwDOURbqsM8AAAAXyAMVHQ",
+            "run_attempt": 1,
+            "run_id": 34249471582,
+            "run_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/runs/34249471582",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000009100,
+            "runner_name": "GitHub Actions 1000009100",
+            "started_at": "2026-09-08T16:10:59Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T16:11:00Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T16:11:00Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:01Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+                "number": 2,
+                "started_at": "2026-09-08T16:11:00Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:02Z",
+                "conclusion": "success",
+                "name": "Review committed product inputs",
+                "number": 3,
+                "started_at": "2026-09-08T16:11:01Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:02Z",
+                "conclusion": "success",
+                "name": "Validate the published receipt against this checkout",
+                "number": 4,
+                "started_at": "2026-09-08T16:11:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:02Z",
+                "conclusion": "success",
+                "name": "Publish review summary",
+                "number": 5,
+                "started_at": "2026-09-08T16:11:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:03Z",
+                "conclusion": "success",
+                "name": "Run actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f",
+                "number": 6,
+                "started_at": "2026-09-08T16:11:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:03Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+                "number": 12,
+                "started_at": "2026-09-08T16:11:03Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:03Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "started_at": "2026-09-08T16:11:03Z",
+                "status": "completed"
+              }
+            ],
+            "url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/jobs/102139893021",
+            "workflow_name": "Spec Loop product review"
+          },
+          {
+            "check_run_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/check-runs/102139893459",
+            "completed_at": "2026-09-08T16:11:36Z",
+            "conclusion": "success",
+            "created_at": "2026-09-08T16:10:57Z",
+            "head_branch": "main",
+            "head_sha": "74b97535b94424226757ef8c5263672bb911c12d",
+            "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34249471582/job/102139893459",
+            "id": 102139893459,
+            "labels": [
+              "ubuntu-24.04"
+            ],
+            "name": "tests",
+            "node_id": "CR_kwDOURbqsM8AAAAXyAMW0w",
+            "run_attempt": 1,
+            "run_id": 34249471582,
+            "run_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/runs/34249471582",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000009101,
+            "runner_name": "GitHub Actions 1000009101",
+            "started_at": "2026-09-08T16:11:00Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T16:11:03Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T16:11:01Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:04Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+                "number": 2,
+                "started_at": "2026-09-08T16:11:03Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:32Z",
+                "conclusion": "success",
+                "name": "Run regression tests",
+                "number": 3,
+                "started_at": "2026-09-08T16:11:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:32Z",
+                "conclusion": "success",
+                "name": "Check source resources",
+                "number": 4,
+                "started_at": "2026-09-08T16:11:32Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:32Z",
+                "conclusion": "success",
+                "name": "Check native project resume",
+                "number": 5,
+                "started_at": "2026-09-08T16:11:32Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:32Z",
+                "conclusion": "success",
+                "name": "Build the Work skill resource bundle",
+                "number": 6,
+                "started_at": "2026-09-08T16:11:32Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:33Z",
+                "conclusion": "success",
+                "name": "Build and check the source package",
+                "number": 7,
+                "started_at": "2026-09-08T16:11:32Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:34Z",
+                "conclusion": "success",
+                "name": "Run actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f",
+                "number": 8,
+                "started_at": "2026-09-08T16:11:33Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:34Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+                "number": 16,
+                "started_at": "2026-09-08T16:11:34Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T16:11:34Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 17,
+                "started_at": "2026-09-08T16:11:34Z",
+                "status": "completed"
+              }
+            ],
+            "url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/jobs/102139893459",
+            "workflow_name": "Spec Loop product review"
+          }
+        ],
+        "total_count": 2
+      },
+      "artifacts": {
+        "artifacts": [
+          {
+            "archive_download_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/artifacts/10065393792/zip",
+            "created_at": "2026-09-08T16:11:34Z",
+            "digest": "sha256:46a641b441b8cfd611fa811d30977926808a545d265b9677f7e30dc544e75a64",
+            "expired": false,
+            "expires_at": "2026-09-22T16:11:33Z",
+            "id": 10065393792,
+            "name": "spec-loop-source-74b97535b94424226757ef8c5263672bb911c12d",
+            "node_id": "MDg6QXJ0aWZhY3QxMDA2NTM5Mzc5Mg==",
+            "size_in_bytes": 419453,
+            "updated_at": "2026-09-08T16:11:34Z",
+            "url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/artifacts/10065393792",
+            "workflow_run": {
+              "head_branch": "main",
+              "head_repository_id": 1360456368,
+              "head_sha": "74b97535b94424226757ef8c5263672bb911c12d",
+              "id": 34249471582,
+              "repository_id": 1360456368
+            }
+          },
+          {
+            "archive_download_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/artifacts/10065373183/zip",
+            "created_at": "2026-09-08T16:11:03Z",
+            "digest": "sha256:1438650d74a96a1d2baa4d5e47648244b054f8febcc48be58d95665500ecf7f5",
+            "expired": false,
+            "expires_at": "2026-09-22T16:11:02Z",
+            "id": 10065373183,
+            "name": "product-review-34249471582-1",
+            "node_id": "MDg6QXJ0aWZhY3QxMDA2NTM3MzE4Mw==",
+            "size_in_bytes": 4158,
+            "updated_at": "2026-09-08T16:11:03Z",
+            "url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/artifacts/10065373183",
+            "workflow_run": {
+              "head_branch": "main",
+              "head_repository_id": 1360456368,
+              "head_sha": "74b97535b94424226757ef8c5263672bb911c12d",
+              "id": 34249471582,
+              "repository_id": 1360456368
+            }
+          }
+        ],
+        "total_count": 2
+      }
+    },
+    "34224621873": {
+      "jobs": {
+        "jobs": [
+          {
+            "check_run_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/check-runs/102055605172",
+            "completed_at": "2026-09-08T12:10:50Z",
+            "conclusion": "success",
+            "created_at": "2026-09-08T12:10:41Z",
+            "head_branch": "main",
+            "head_sha": "550e15e8da293adaa0c24cb7172ed7c25139fc80",
+            "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34224621873/job/102055605172",
+            "id": 102055605172,
+            "labels": [
+              "ubuntu-24.04"
+            ],
+            "name": "review",
+            "node_id": "CR_kwDOURbqsM8AAAAXwvzztA",
+            "run_attempt": 1,
+            "run_id": 34224621873,
+            "run_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/runs/34224621873",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions",
+            "runner_id": 1000009062,
+            "runner_name": "GitHub Actions 1000009062",
+            "started_at": "2026-09-08T12:10:44Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T12:10:46Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T12:10:44Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T12:10:47Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+                "number": 2,
+                "started_at": "2026-09-08T12:10:46Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T12:10:47Z",
+                "conclusion": "success",
+                "name": "Review committed product inputs",
+                "number": 3,
+                "started_at": "2026-09-08T12:10:47Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T12:10:47Z",
+                "conclusion": "success",
+                "name": "Validate the published receipt against this checkout",
+                "number": 4,
+                "started_at": "2026-09-08T12:10:47Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T12:10:47Z",
+                "conclusion": "success",
+                "name": "Publish review summary",
+                "number": 5,
+                "started_at": "2026-09-08T12:10:47Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T12:10:48Z",
+                "conclusion": "success",
+                "name": "Run actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f",
+                "number": 6,
+                "started_at": "2026-09-08T12:10:47Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T12:10:49Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+                "number": 12,
+                "started_at": "2026-09-08T12:10:48Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T12:10:49Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "started_at": "2026-09-08T12:10:49Z",
+                "status": "completed"
+              }
+            ],
+            "url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/jobs/102055605172",
+            "workflow_name": "Spec Loop product review"
+          },
+          {
+            "check_run_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/check-runs/102055607055",
+            "completed_at": "2026-09-08T12:10:41Z",
+            "conclusion": "skipped",
+            "created_at": "2026-09-08T12:10:41Z",
+            "head_branch": "main",
+            "head_sha": "550e15e8da293adaa0c24cb7172ed7c25139fc80",
+            "html_url": "https://github.com/GhostlyGawd/spec-loop-codex/actions/runs/34224621873/job/102055607055",
+            "id": 102055607055,
+            "labels": [
+              "ubuntu-24.04"
+            ],
+            "name": "tests",
+            "node_id": "CR_kwDOURbqsM8AAAAXwvz7Dw",
+            "run_attempt": 1,
+            "run_id": 34224621873,
+            "run_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/runs/34224621873",
+            "runner_group_id": null,
+            "runner_group_name": null,
+            "runner_id": null,
+            "runner_name": null,
+            "started_at": "2026-09-08T12:10:41Z",
+            "status": "completed",
+            "steps": [],
+            "url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/jobs/102055607055",
+            "workflow_name": "Spec Loop product review"
+          }
+        ],
+        "total_count": 2
+      },
+      "artifacts": {
+        "artifacts": [
+          {
+            "archive_download_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/artifacts/10055147408/zip",
+            "created_at": "2026-09-08T12:10:48Z",
+            "digest": "sha256:871f571dd374ca4ee10b2281d60fb09342cb6288113c3dcb1b830d18767adaa5",
+            "expired": false,
+            "expires_at": "2026-09-22T12:10:48Z",
+            "id": 10055147408,
+            "name": "product-review-34224621873-1",
+            "node_id": "MDg6QXJ0aWZhY3QxMDA1NTE0NzQwOA==",
+            "size_in_bytes": 2753,
+            "updated_at": "2026-09-08T12:10:48Z",
+            "url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/artifacts/10055147408",
+            "workflow_run": {
+              "head_branch": "main",
+              "head_repository_id": 1360456368,
+              "head_sha": "550e15e8da293adaa0c24cb7172ed7c25139fc80",
+              "id": 34224621873,
+              "repository_id": 1360456368
+            }
+          }
+        ],
+        "total_count": 1
+      }
+    }
+  },
+  "collector": {
+    "method": "GitHub MCP read-only",
+    "workflow_source": "name: Spec Loop product review\n\non:\n  pull_request:\n  push:\n    branches: [main, codex/background-review, codex/installation-pilot, codex/work-mode]\n  schedule:\n    - cron: '17 7 * * *'\n  workflow_dispatch:\n\npermissions:\n  contents: read\n\nconcurrency:\n  group: product-review-${{ github.ref }}\n  cancel-in-progress: false\n\njobs:\n  review:\n    runs-on: ubuntu-24.04\n    timeout-minutes: 5\n    steps:\n      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6\n        with:\n          persist-credentials: false\n      - name: Review committed product inputs\n        env:\n          REVIEW_RUN_ID: review-${{ github.run_id }}-${{ github.run_attempt }}\n        run: >-\n          python3 scripts/review_runner.py run\n          --output \"$RUNNER_TEMP/spec-loop-review\"\n          --run-id \"$REVIEW_RUN_ID\"\n      - name: Validate the published receipt against this checkout\n        env:\n          REVIEW_RUN_ID: review-${{ github.run_id }}-${{ github.run_attempt }}\n        run: >-\n          python3 scripts/review_runner.py status\n          --receipt \"$RUNNER_TEMP/spec-loop-review/$REVIEW_RUN_ID.json\"\n      - name: Publish review summary\n        if: always()\n        run: |\n          python3 - <<'PY'\n          import os\n          from pathlib import Path\n          folder = Path(os.environ['RUNNER_TEMP']) / 'spec-loop-review'\n          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as stream:\n              reports = sorted(folder.glob('*.md'))\n              if not reports:\n                  stream.write('Product review is unavailable. Inspect the failed or cancelled job.\\n')\n              for report in reports:\n                  stream.write(report.read_text())\n          PY\n      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6\n        if: always()\n        with:\n          name: product-review-${{ github.run_id }}-${{ github.run_attempt }}\n          path: ${{ runner.temp }}/spec-loop-review/\n          if-no-files-found: warn\n          retention-days: 14\n\n  tests:\n    if: github.event_name != 'schedule'\n    runs-on: ubuntu-24.04\n    timeout-minutes: 5\n    steps:\n      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6\n        with:\n          persist-credentials: false\n      - name: Run regression tests\n        run: python3 -m unittest discover -s tests -v\n      - name: Check source resources\n        run: python3 scripts/install_check.py --root .\n      - name: Check native project resume\n        run: python3 scripts/spec_loop.py context CHG-006 --max-chars 100000\n      - name: Build the Work skill resource bundle\n        run: python3 scripts/work_bundle.py --root . --output \"$RUNNER_TEMP/spec-loop-work-bundle\"\n      - name: Build and check the source package\n        run: |\n          python3 scripts/package.py --root . --output \"$RUNNER_TEMP/spec-loop-source.tar.gz\"\n          python3 - <<'PY'\n          import os\n          from pathlib import Path\n          import tarfile\n          import subprocess\n          folder = Path(os.environ['RUNNER_TEMP']) / 'spec-loop-extracted'\n          folder.mkdir()\n          with tarfile.open(Path(os.environ['RUNNER_TEMP']) / 'spec-loop-source.tar.gz') as archive:\n              archive.extractall(folder, filter='data')\n          source = folder / 'spec-loop'\n          subprocess.run(['python3', str(source / 'scripts/install_check.py'), '--root', str(source), '--package'], check=True)\n          PY\n      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6\n        with:\n          name: spec-loop-source-${{ github.sha }}\n          path: ${{ runner.temp }}/spec-loop-source.tar.gz\n          if-no-files-found: error\n          retention-days: 14\n",
+    "run_inventory_url": "https://api.github.com/repos/GhostlyGawd/spec-loop-codex/actions/runs?branch=main&per_page=100",
+    "note": "All four main-branch runs returned; exact committed workflow read. Job and artifact inventories complete."
+  }
+}

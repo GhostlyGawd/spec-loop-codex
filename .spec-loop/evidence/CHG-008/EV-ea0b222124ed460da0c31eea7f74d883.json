@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-ea0b222124ed460da0c31eea7f74d883",
+  "change_id": "CHG-008",
+  "check_id": "CHK-RELEASE",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T16:36:24.547250+00:00",
+  "expires_at": "2026-09-15T16:36:24.547250+00:00",
+  "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+  "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
+  "observer": "chatgpt-work-final-source",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/health-final-package-check.json",
+  "artifact_hash": "746df10c41656c8f637bd9dd411f4e77894804a8c8dd53dc771c1e5246fe8d1f",
+  "notes": "Final committed package extracted and verified; Work resources exported. Handoff link targets GitHub because project state is intentionally excluded from personal bundles.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

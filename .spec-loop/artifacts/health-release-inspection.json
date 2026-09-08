@@ -1,0 +1,18 @@
+{
+  "release": "REL-V08-LOCAL",
+  "passed": true,
+  "digest": "a19297dff9a8f653c1443010d3e473089fc55a7f2a81aec9a2fc20a629ac942b",
+  "sealed_at": "2026-09-08T16:32:15.202112+00:00",
+  "engine_version": "0.8.0",
+  "target": "local-review-health-evaluation",
+  "artifact": {
+    "path": "scripts/review_health.py",
+    "sha256": "6f05b3e5566ce96e1bc099d67050856a16fcb0a3d55d81c793df9fc65ad385ae",
+    "size_bytes": 9794
+  },
+  "changes": [
+    "CHG-008"
+  ],
+  "basis": "Frozen evidence at seal time; current source files were not checked.",
+  "trust": "local-untrusted"
+}

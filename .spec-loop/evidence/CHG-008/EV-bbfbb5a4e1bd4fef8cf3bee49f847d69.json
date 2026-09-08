@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-bbfbb5a4e1bd4fef8cf3bee49f847d69",
+  "change_id": "CHG-008",
+  "check_id": "CHK-OPS",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T16:33:33.074339+00:00",
+  "expires_at": "2026-09-15T16:33:33.074339+00:00",
+  "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+  "source_hash": "50b7554a36c6b69d5bf59f6cf37375bbb8fedd364d84599a89cfc23c0b0949b7",
+  "observer": "chatgpt-work-clean-checkout",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/health-clean-resume.json",
+  "artifact_hash": "34f24ac7971c8ba8d2c90ca9a905b53df34176e03a81087a48065f05dd3c2990",
+  "notes": "Clean saved source resumed. Prior local test folders changed the original snapshot; old local release remains historical. Fresh acceptance here uses the saved source. Live report remains dated 16:27 UTC; no human outcome.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "source": {
+    "name": "spec-loop",
+    "version": "0.8.0",
+    "engine_version": "0.8.0",
+    "skills": [
+      "loop-build",
+      "loop-design",
+      "loop-discover",
+      "loop-evolve",
+      "loop-operate",
+      "loop-plan",
+      "loop-product",
+      "loop-release",
+      "loop-specify",
+      "loop-verify",
+      "spec-loop"
+    ],
+    "payload_digest": "70391b7020b1ae6eac8accec729493444f8ee620aec95095a4551754ac56cfa2"
+  },
+  "host_loading": "unverified",
+  "codex_cli_available": false,
+  "mutations": false,
+  "installed_copy": {
+    "status": "not-supplied"
+  },
+  "package": {
+    "verified": true,
+    "source_commit": "f3b36a072a06e2ad7befbe5ddb55c76d0a20c813",
+    "files": 166,
+    "trust": "Unsigned inventory; compare the archive digest with a trusted release."
+  }
+}

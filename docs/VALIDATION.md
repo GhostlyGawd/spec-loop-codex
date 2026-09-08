@@ -165,3 +165,7 @@ The package is suitable for local evaluation and a controlled first pilot. The f
 - This validates Work command execution and resource use. The personal-skill save result is recorded in the conversation after its actual read-back. A fresh Work conversation must still demonstrate automatic selection. No human builder outcome, deployment or universal-directory publication is claimed. Codex desktop loading remains an optional separate test.
 
 - The initial personal-skill save rejected multiple nested SKILL.md entries. The Work export now uses one installed entry and GUIDE.md lifecycle resources with adjusted local links. Explicit --work-bundle checks validate this layout; default plugin checks still require SKILL.md. Source plugins retain all eleven skill entries.
+
+## v0.8 technical cycle
+
+The full local suite passed 131 tests on 8 September 2026. Ten health tests cover event separation, complete/fresh observations, latest failure, receipt/job/artifact identity, expiry, timing, installed drift and read-only CLI behavior. The final focused health run also passed after tightening malformed-input handling and making the stale CLI test independent of wall clock. Live MCP observations distinguish the actual scheduled v0.5 run from the v0.7 main push and actual installed bundle. Evidence is saved under .spec-loop/artifacts. Independent recovery passed exact snapshot identity and installed resource commands; a fresh user chat and human outcome remain open.

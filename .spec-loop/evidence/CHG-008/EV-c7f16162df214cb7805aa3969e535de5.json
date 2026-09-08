@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-c7f16162df214cb7805aa3969e535de5",
+  "change_id": "CHG-008",
+  "check_id": "CHK-RELEASE",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T16:32:14.116014+00:00",
+  "expires_at": "2026-09-15T16:32:14.116014+00:00",
+  "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+  "source_hash": "36411e1942e0fc2999565e0f4852d896df0ddd4e879d6778fa4cbf3fe8ceaaf7",
+  "observer": "chatgpt-work",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/health-package-check.json",
+  "artifact_hash": "bf3007a32e8ed8b140005925bc2b8d0f8fe92a4a650a5931c82edd52d0d9e2d7",
+  "notes": "Built committed source package and Work bundle; extracted package verified 166 files. Local technical module release only; no deployment or fresh user-chat acceptance.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}
