@@ -1,16 +1,19 @@
 ---
 name: spec-loop
-description: Build and maintain software from linked product specs, tasks, and evidence. Use for an end to end Spec Loop workflow, a new product, an existing project with missing specs, or resuming Spec Loop work.
+description: Build and maintain software in ChatGPT Work and Codex from linked product specs, tasks, and evidence. Use for an end to end Spec Loop workflow, a new product, an existing project with missing specs, or resuming Spec Loop work.
 ---
 
 # Spec Loop
 
 Turn the user's outcome into a small change that can be checked and maintained.
 
+In ChatGPT Work, first read [the Work mode guide](references/work-mode.md). No Codex app or CLI is required for native tools.
+
 Read [the operating protocol](references/protocol.md). Read only the stage guide needed for the next useful action. Resolve all bundled paths from this skill's location, not the project working directory.
 
 | Need | Guide |
 | --- | --- |
+| Work mode setup, missing tools, or resume after a workspace reset | [ChatGPT Work](references/work-mode.md) |
 | Install, compare a loaded copy, or validate an upgrade | [Installation](references/install.md) |
 | Compare or sync product intent with a GitHub file | [GitHub sync](references/github.md) |
 | Manage goals, priorities, capacity, or a current roadmap | [Product workflow](references/product.md) |

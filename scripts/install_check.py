@@ -60,7 +60,7 @@ def version(value):
     return value.split('+')[0]
 
 
-def inspect(root):
+def inspect(root, work_bundle=False):
     root = root.absolute()
     if any(p.is_symlink() for p in [root, *root.parents]):
         raise Invalid('Plugin root cannot use symlinks')
@@ -68,7 +68,9 @@ def inspect(root):
     if not isinstance(manifest, dict) or manifest.get('name') != 'spec-loop' or manifest.get('skills') != './skills/':
         raise Invalid('Expected the Spec Loop manifest and ./skills/ entrypoint')
     base_version = version(manifest.get('version'))
+    skill_file = 'GUIDE.md' if work_bundle else 'SKILL.md'
     for relative in REQUIRED:
+        relative = relative.replace('/SKILL.md', '/' + skill_file)
         content(safe(root, relative))
     tree = ast.parse(content(safe(root, 'scripts/spec_loop.py')))
     versions = [node.value.value for node in tree.body if isinstance(node, ast.Assign)
@@ -119,7 +121,7 @@ def inspect(root):
     for folder in sorted((root/'skills').iterdir()):
         if not folder.is_dir() or folder.name == '__pycache__':
             continue
-        text = content(safe(root, f'skills/{folder.name}/SKILL.md')).decode()
+        text = content(safe(root, f'skills/{folder.name}/{skill_file}')).decode()
         front = re.match(r'\A---\r?\n(.*?)\r?\n---(?:\r?\n|\Z)', text, re.S)
         if not front:
             raise Invalid('Missing skill frontmatter: ' + folder.name)
@@ -170,8 +172,10 @@ def verify_package(root):
             'trust': 'Unsigned inventory; compare the archive digest with a trusted release.'}
 
 
-def check(root, installed=None, package=False, expected_digest=None):
-    source = inspect(root)
+def check(root, installed=None, package=False, expected_digest=None, work_bundle=False):
+    if package and work_bundle:
+        raise Invalid('A Work resource bundle is not a source archive package')
+    source = inspect(root, work_bundle=work_bundle)
     if expected_digest and source['payload_digest'] != expected_digest:
         raise Invalid('Source payload differs from the expected digest')
     result = {'passed': True, 'source': {k:v for k,v in source.items() if k != 'files'},
@@ -180,7 +184,7 @@ def check(root, installed=None, package=False, expected_digest=None):
     if package:
         result['package'] = verify_package(root)
     if installed:
-        other = inspect(installed)
+        other = inspect(installed, work_bundle=work_bundle)
         a, b = source['files'], other['files']
         missing, extra = sorted(a.keys()-b.keys()), sorted(b.keys()-a.keys())
         changed = sorted(k for k in a.keys() & b.keys() if a[k] != b[k])
@@ -198,9 +202,10 @@ def main():
     parser.add_argument('--installed-root', type=Path)
     parser.add_argument('--package', action='store_true', help='Validate an extracted source archive inventory')
     parser.add_argument('--expected-digest')
+    parser.add_argument('--work-bundle', action='store_true', help='Check the single-entry Work layout with GUIDE.md resources')
     args = parser.parse_args()
     try:
-        result = check(args.root, args.installed_root, args.package, args.expected_digest)
+        result = check(args.root, args.installed_root, args.package, args.expected_digest, args.work_bundle)
         print(json.dumps(result, indent=2))
         return 0 if result['passed'] else 1
     except (Invalid, OSError, ValueError, SyntaxError, UnicodeError, RecursionError, TypeError) as exc:

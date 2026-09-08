@@ -1,18 +1,23 @@
 {
   "schema_version": 1,
-  "revision": 1,
-  "active_change": "CHG-006",
-  "summary": "Installation diagnostics acceptance passed in the native pilot",
-  "next_action": "Review the source package and local release evidence; actual host loading remains open",
+  "revision": 2,
+  "active_change": "CHG-HOST",
+  "summary": "User selected ChatGPT Work; Work entry, bundled resources and 121 regression tests are ready",
+  "next_action": "Save the Work skill and validate its resources; observe fresh-chat selection and real builder outcomes separately",
   "blockers": [],
-  "updated_at": "2026-09-08T13:50:19.611921+00:00",
-  "source_hash": "d7705933e47414e5e5d47ee14a1a61aade8d5950ce7b64ed051a1ee93e4408c1",
-  "contract_hash": "beafd3b8d25fddae8aad082d2846c2a8845b98ab4e72dc06d024b64d93ea2060",
+  "updated_at": "2026-09-08T15:42:23.976288+00:00",
+  "source_hash": "1767f63d7a3a6307997405be1f9799e556d32e37e5712a62c887c70356d233a8",
+  "contract_hash": "ebfa8378f3d34935f86cfb9ff0e135c68ab3635fab617916ee0acf0164901776",
   "events": [
     {
       "at": "2026-09-08T13:50:19.611921+00:00",
       "change": "CHG-006",
       "summary": "Installation diagnostics acceptance passed in the native pilot"
+    },
+    {
+      "at": "2026-09-08T15:42:23.976288+00:00",
+      "change": "CHG-HOST",
+      "summary": "User selected ChatGPT Work; Work entry, bundled resources and 121 regression tests are ready"
     }
   ]
 }

@@ -65,8 +65,8 @@
       },
       {
         "id": "INI-PILOT",
-        "title": "Codex installation and builder pilot",
-        "scope": "Validate actual plugin loading, repeated use, upgrade recovery, and builder outcomes",
+        "title": "ChatGPT Work setup and builder pilot",
+        "scope": "Use Spec Loop in ChatGPT Work, save its personal skill, validate loaded resources, resume and builder outcomes",
         "non_goals": [
           "No unverified deployment or product-value claims"
         ],
@@ -79,7 +79,7 @@
         "horizon": "next",
         "status": "active",
         "owner": "Project owner",
-        "priority_reason": "Actual host loading and builder observations follow the portable diagnostics release.",
+        "priority_reason": "User clarified that they use ChatGPT Work and requested support there on 8 September 2026.",
         "confidence": "low",
         "risk": "low",
         "depends_on": [],

@@ -1,6 +1,6 @@
 # Host acceptance and local evaluation
 
-Status: v0.6 installation diagnostics and native source pilot are implemented; actual Codex installation remains untested. The current environment has no Codex CLI binary. That does not determine which plugins a Work host can load.
+Status: v0.7 adds ChatGPT Work setup and a self-contained personal-skill bundle. Actual Codex installation remains untested. The current environment has no Codex CLI binary. That does not determine which plugins a Work host can load.
 
 ## Installation diagnostic
 
@@ -21,6 +21,10 @@ The output checks the Python version, Git, the correct repository root, supporte
 ## Local workflow evaluation
 
 Copy examples/reading-list, including .spec-loop, to a disposable directory. Initialize Git in that copy. Ask Codex to read the extracted main skill. Run doctor, ready, the inspected acceptance check, and verify. Run and record the real local release observations before sealing a local demonstration. Leave human outcome checks open when no person participated.
+
+## ChatGPT Work acceptance
+
+Read [the Work mode guide](../skills/spec-loop/references/work-mode.md). Work is a supported target; no Codex desktop handoff is required. Record saved personal-skill resources, actual commands in the Work runtime, and fresh-chat automatic selection as separate results. Use the local example and product workflow below from the saved bundle. Restore a saved project to a new directory and check freshness before resume. Keep real human product outcomes open.
 
 ## Actual host installation gate
 

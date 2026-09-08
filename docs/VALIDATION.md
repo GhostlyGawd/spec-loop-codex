@@ -154,3 +154,14 @@ Raw results are in evidence/fixed-example-gates.json and evidence/fixed-example-
 - Real builder trials, long running maintenance, retirement exercises, and comparative best in class benchmarks remain open.
 
 The package is suitable for local evaluation and a controlled first pilot. The full system design includes the path to stronger service integration and release controls; those future capabilities are not claimed as implemented.
+
+## v0.7 ChatGPT Work compatibility
+
+- All 121 regression tests passed in the Work runtime: the prior 116 plus five Work-bundle tests. The five focused tests passed again after adding source-tree provenance. [Captured suite output](evidence/v07-tests.txt).
+- The plugin manifest, main skill and source resources passed their validators. Codex CLI was absent; it is not required by the engine.
+- Work bundles use committed, bounded resources, preserve relative paths, exclude root native project/CI records and untracked files, and record commit/tree and hashes. Tests cover portability, overwrite/dirty-source refusal, symlinks, budgets, failed-export cleanup and changed-bundle detection.
+- The isolated Work skill trial exercised the real bundled CLI: product init/apply/align, acceptance, roadmap, checkpoint, full-project save/restore and fresh checks. Changing app.py made verification stale; rerunning the check restored verification. Product intent remained unchanged. [Trial record](evaluation/work-mode-exercise.md).
+- During source review, the public roadmap snapshot was corrected to retain its schema_version/product envelope. Its product body was checked against native intent. No sync target or priority order changed.
+- This validates Work command execution and resource use. The personal-skill save result is recorded in the conversation after its actual read-back. A fresh Work conversation must still demonstrate automatic selection. No human builder outcome, deployment or universal-directory publication is claimed. Codex desktop loading remains an optional separate test.
+
+- The initial personal-skill save rejected multiple nested SKILL.md entries. The Work export now uses one installed entry and GUIDE.md lifecycle resources with adjusted local links. Explicit --work-bundle checks validate this layout; default plugin checks still require SKILL.md. Source plugins retain all eleven skill entries.

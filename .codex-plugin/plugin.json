@@ -1,6 +1,6 @@
 {
   "name": "spec-loop",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Build and improve products from linked specs and current evidence.",
   "author": {
     "name": "Spec Loop project"
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Spec Loop",
     "shortDescription": "Turn ideas into products with specs and evidence.",
-    "longDescription": "Guide product research, design, planning, implementation, verification, release, operations, and change. Keep decisions and evidence with the project.",
+    "longDescription": "Guide product research, design, planning, implementation, verification, release and maintenance in ChatGPT Work and Codex. Keep decisions and evidence with the project.",
     "developerName": "Spec Loop project",
     "category": "Productivity",
     "capabilities": [],
