@@ -1,0 +1,38 @@
+{
+  "skill": "spec-loop",
+  "selection_basis": "Matched the installed catalog description to the requested saved Spec Loop product recovery, resume, native roadmap and evidence limits; no skill name/path was supplied as the loading mechanism by the task.",
+  "entry_package": "e0/remote-skills/skill-6aa02e9a0cf48191b6aa837ac2c619af",
+  "entry_resource": "skill://flora-skills/root/.codex/skills/remote-skills/skill-6aa02e9a0cf48191b6aa837ac2c619af/SKILL.md",
+  "loading_mechanism": "skills.read resource provider",
+  "provider_returned_filesystem_root": "/root/.codex/skills/remote-skills/skill-6aa02e9a0cf48191b6aa837ac2c619af",
+  "resources_loaded": [
+    "SKILL.md",
+    "bundle/skills/spec-loop/references/work-mode.md",
+    "bundle/skills/spec-loop/GUIDE.md",
+    "bundle/skills/spec-loop/references/protocol.md",
+    "bundle/skills/spec-loop/references/product.md",
+    "bundle/skills/spec-loop/references/tool.md"
+  ],
+  "installed_manifest_claims": {
+    "name": "spec-loop",
+    "version": "0.7.0",
+    "source_commit": "785d4b419a0d794449e0631418ab17bc8e1d1d08",
+    "source_tree": "1eef81a7b5a4173ee2b6ddc059b85205477a3441",
+    "payload_digest": "baec9d8a08403cb87bbe3abed5fc4d4353bd72c51715d0199fc3effcf5956290",
+    "scope": "Committed plugin resources. Excludes root project state, CI and untracked files.",
+    "layout": "work-guides-v1",
+    "host_loading": "unverified",
+    "installation": "not-performed"
+  },
+  "resource_tool_sha256": "ff6ff404e5cf4a236cd4a9a4c975fac60431f7f49d20f2943a5669694298c0a4",
+  "session_type": "Independent delegated agent session in the current user conversation; not a new user chat.",
+  "fresh_user_chat_automatic_selection": "Not established",
+  "real_builder_outcome": "Not established",
+  "reads_excluded": [
+    "Existing local project checkouts",
+    "Prior local logs",
+    "Other conversations"
+  ],
+  "remote_reads": "GitHub MCP only; pinned commit/tree/blob GET operations",
+  "historical_log_handling": "Repository log artifacts recovered as opaque bytes for full snapshot identity; not used as new executed evidence."
+}

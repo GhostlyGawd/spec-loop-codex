@@ -18,7 +18,7 @@ import sys
 import tempfile
 import uuid
 
-VERSION = "0.7.0"
+VERSION = "0.8.0"
 META = ".spec-loop"
 PLUGIN = Path(__file__).resolve().parents[1]
 PROFILE_ORDER = {"quick": 0, "product": 1, "critical": 2}

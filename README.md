@@ -4,7 +4,11 @@ A plugin for spec driven product development in ChatGPT Work and Codex.
 
 Use it to move from a user need through product design, architecture, implementation, verification, release, operation, and improvement. Keep specs and evidence with the project so work can resume over time.
 
-Version: 0.7.0. This is a source package and working local reference implementation. Source is available in GhostlyGawd/spec-loop-codex. Actual Codex installation remains untested.
+Version: 0.8.0. This is a source package and working local reference implementation. Source is available in GhostlyGawd/spec-loop-codex. Actual Codex installation remains untested.
+
+## Review health in 0.8
+
+Read-only schedule, current-commit review and installed Work version checks now share an evidence report. See [review health](docs/REVIEW_HEALTH.md) and the saved [project handoff](WORK_STATE.md). A health check does not create a watchdog or enable unattended sync.
 
 ## ChatGPT Work mode in 0.7
 

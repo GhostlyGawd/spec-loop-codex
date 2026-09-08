@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "recovery_status": "complete_selected_commit_snapshot",
+  "repository": "GhostlyGawd/spec-loop-codex",
+  "commit": "74b97535b94424226757ef8c5263672bb911c12d",
+  "tree": "1eef81a7b5a4173ee2b6ddc059b85205477a3441",
+  "restored_project": "/workspace/scratch/c574d7af1897/recovery-v07/project",
+  "files_recovered": 149,
+  "bytes_recovered": 789870,
+  "blob_tree_commit_identities_verified": true,
+  "parent_history_recovered": false,
+  "missing_from_selected_tree": [
+    "WORK_STATE.md",
+    "AGENTS.md"
+  ],
+  "recovery_blockers": [],
+  "handoff_limits": [
+    "WORK_STATE.md absent",
+    "Native checkpoint stale"
+  ],
+  "read_transport": "GitHub MCP only",
+  "native_checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "/root/.codex/skills/remote-skills/skill-6aa02e9a0cf48191b6aa837ac2c619af/bundle/scripts/spec_loop.py",
+        "--root",
+        "/workspace/scratch/c574d7af1897/recovery-v07/project",
+        "doctor"
+      ],
+      "started_at": "2026-09-08T16:17:39.334608+00:00",
+      "finished_at": "2026-09-08T16:17:39.407045+00:00",
+      "exit_code": 0,
+      "stdout_file": "doctor.json",
+      "stderr": "",
+      "application_checks_executed": false
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "/root/.codex/skills/remote-skills/skill-6aa02e9a0cf48191b6aa837ac2c619af/bundle/scripts/spec_loop.py",
+        "--root",
+        "/workspace/scratch/c574d7af1897/recovery-v07/project",
+        "context",
+        "CHG-HOST"
+      ],
+      "started_at": "2026-09-08T16:17:39.407097+00:00",
+      "finished_at": "2026-09-08T16:17:39.623834+00:00",
+      "exit_code": 0,
+      "stdout_file": "context-CHG-HOST.json",
+      "stderr": "",
+      "application_checks_executed": false
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "/root/.codex/skills/remote-skills/skill-6aa02e9a0cf48191b6aa837ac2c619af/bundle/scripts/spec_loop.py",
+        "--root",
+        "/workspace/scratch/c574d7af1897/recovery-v07/project",
+        "roadmap",
+        "show"
+      ],
+      "started_at": "2026-09-08T16:17:39.623874+00:00",
+      "finished_at": "2026-09-08T16:17:39.809436+00:00",
+      "exit_code": 0,
+      "stdout_file": "roadmap.json",
+      "stderr": "",
+      "application_checks_executed": false
+    }
+  ],
+  "doctor_passed": true,
+  "checkpoint_stale": true,
+  "roadmap_checked_at": "2026-09-08T16:17:39.801118+00:00",
+  "roadmap_freshness": "current-at-check",
+  "product_revision": 2,
+  "product_digest": "cc20cfddf94c30aa367374fa4fe286493a183ffbf16a422f2e292e0ad5e2598d",
+  "product_intent_preserved": true,
+  "snapshot_mismatches_after_commands": [],
+  "derived_files_added": [
+    ".spec-loop/product/roadmap.json"
+  ],
+  "roadmap": [
+    {
+      "id": "INI-GITHUB",
+      "horizon": "later",
+      "status": "parked",
+      "title": "Scoped GitHub product-file sync",
+      "delivery": {
+        "candidate": "unverified",
+        "blocking_changes": [],
+        "historical_coverage": "none",
+        "historical_missing_changes": [],
+        "deployment": "unverified",
+        "releases": [],
+        "blocking_initiatives": [],
+        "plan_ready": false
+      },
+      "next_decision": "Review intent and define the first change"
+    },
+    {
+      "id": "INI-RUNNER",
+      "horizon": "later",
+      "status": "parked",
+      "title": "Continuous product review runner",
+      "delivery": {
+        "candidate": "unverified",
+        "blocking_changes": [],
+        "historical_coverage": "none",
+        "historical_missing_changes": [],
+        "deployment": "unverified",
+        "releases": [],
+        "blocking_initiatives": [],
+        "plan_ready": false
+      },
+      "next_decision": "Review intent and define the first change"
+    },
+    {
+      "id": "INI-PILOT",
+      "horizon": "next",
+      "status": "active",
+      "title": "ChatGPT Work setup and builder pilot",
+      "delivery": {
+        "candidate": "unverified",
+        "blocking_changes": [
+          "CHG-HOST"
+        ],
+        "historical_coverage": "none",
+        "historical_missing_changes": [
+          "CHG-HOST"
+        ],
+        "deployment": "unverified",
+        "releases": [],
+        "blocking_initiatives": [],
+        "plan_ready": false
+      },
+      "next_decision": "Resolve current delivery gaps"
+    },
+    {
+      "id": "INI-INSTALL",
+      "horizon": "now",
+      "status": "active",
+      "title": "Portable installation diagnostics",
+      "delivery": {
+        "candidate": "unverified",
+        "blocking_changes": [
+          "CHG-006"
+        ],
+        "historical_coverage": "complete",
+        "historical_missing_changes": [],
+        "deployment": "unverified",
+        "releases": [
+          "REL-V06-LOCAL"
+        ],
+        "blocking_initiatives": [],
+        "plan_ready": false
+      },
+      "next_decision": "Collect missing outcome evidence for the identified release"
+    }
+  ],
+  "gate_results": {
+    "CHG-006": {
+      "ready": {
+        "change": "CHG-006",
+        "gate": "ready",
+        "profile": "product",
+        "passed": true,
+        "errors": [],
+        "checks": {},
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      },
+      "verify": {
+        "change": "CHG-006",
+        "gate": "verify",
+        "profile": "product",
+        "passed": false,
+        "errors": [
+          "CHK-ACCEPT: stale"
+        ],
+        "checks": {
+          "CHK-ACCEPT": "stale"
+        },
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      },
+      "release": {
+        "change": "CHG-006",
+        "gate": "release",
+        "profile": "product",
+        "passed": false,
+        "errors": [
+          "CHK-ACCEPT: stale",
+          "CHK-RELEASE: stale",
+          "CHK-OPS: stale"
+        ],
+        "checks": {
+          "CHK-ACCEPT": "stale",
+          "CHK-RELEASE": "stale",
+          "CHK-OPS": "stale"
+        },
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      },
+      "contract_hash": "2324c7ff161ff836929c51d6cd97fa1263117006532793f11f57506e5bf51dfb",
+      "tasks_reported": {
+        "todo": 0,
+        "doing": 0,
+        "blocked": 0,
+        "done": 1
+      }
+    },
+    "CHG-HOST": {
+      "ready": {
+        "change": "CHG-HOST",
+        "gate": "ready",
+        "profile": "product",
+        "passed": true,
+        "errors": [],
+        "checks": {},
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      },
+      "verify": {
+        "change": "CHG-HOST",
+        "gate": "verify",
+        "profile": "product",
+        "passed": false,
+        "errors": [
+          "TASK-001: task is todo",
+          "CHK-ACCEPT: missing"
+        ],
+        "checks": {
+          "CHK-ACCEPT": "missing"
+        },
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      },
+      "release": {
+        "change": "CHG-HOST",
+        "gate": "release",
+        "profile": "product",
+        "passed": false,
+        "errors": [
+          "TASK-001: task is todo",
+          "CHK-ACCEPT: missing",
+          "CHK-RELEASE: missing",
+          "CHK-OPS: missing"
+        ],
+        "checks": {
+          "CHK-ACCEPT": "missing",
+          "CHK-RELEASE": "missing",
+          "CHK-OPS": "missing"
+        },
+        "trust": "Local evidence only. A gate report does not grant permission or prove product value."
+      },
+      "contract_hash": "ebfa8378f3d34935f86cfb9ff0e135c68ab3635fab617916ee0acf0164901776",
+      "tasks_reported": {
+        "todo": 1,
+        "doing": 0,
+        "blocked": 0,
+        "done": 0
+      }
+    }
+  },
+  "historical_releases": [
+    {
+      "id": "REL-V06-LOCAL",
+      "sealed_at": "2026-09-08T13:50:21.149809+00:00",
+      "changes": [
+        "CHG-006"
+      ],
+      "target_reported": "local-diagnostics-evaluation",
+      "artifact": {
+        "path": "scripts/install_check.py",
+        "sha256": "18c0a451e87638aecc13d49b0995ced8c46a77a3903fbb17e60f42bd80658e72",
+        "size_bytes": 9992
+      },
+      "trust": "local-untrusted",
+      "deployment": "unverified",
+      "outcomes": {
+        "release": "REL-V06-LOCAL",
+        "passed": false,
+        "checks": {
+          "CHK-OUTCOME": "missing"
+        },
+        "errors": [],
+        "trust": "Historical local observations. Observer identity, cohort, causality, and target are not independently verified."
+      }
+    }
+  ],
+  "capacity": {
+    "wip_limit": 1,
+    "available_days": 0,
+    "estimates": [],
+    "active_now": 1,
+    "unique_now_changes": [
+      "CHG-006"
+    ],
+    "estimated_days": {
+      "low": 0,
+      "high": 0
+    },
+    "unknown_estimates": [
+      "CHG-006"
+    ],
+    "wip_exceeded": false,
+    "effort_exceeds_capacity": false
+  },
+  "sync": {
+    "mode": "local-on-invocation",
+    "external": "not-configured"
+  },
+  "session_type": "Independent delegated agent session within the existing user conversation",
+  "new_user_chat": false,
+  "fresh_chat_acceptance_satisfied": false,
+  "real_builder_outcome_established": false,
+  "application_tests_executed": false,
+  "installs_performed": false,
+  "deployments_performed": false,
+  "remote_writes_performed": false,
+  "schedules_created_or_verified": false,
+  "existing_checkouts_read": false,
+  "other_conversations_read": false,
+  "prior_local_logs_read": false,
+  "next_useful_action": "Observe a genuinely new user Work chat selecting the saved skill without an explicit skill path and completing onboarding/resume and a real builder task. Keep selection, resource identity, technical execution and human outcomes separate.",
+  "skill_selection_file": "skill-selection.json",
+  "report_file": "REPORT.md"
+}

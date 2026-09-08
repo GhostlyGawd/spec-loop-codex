@@ -1,0 +1,12 @@
+{
+  "original_files_rechecked": 149,
+  "mismatches": [],
+  "derived_files_added": [
+    ".spec-loop/product/roadmap.json"
+  ],
+  "expected_derived_file": ".spec-loop/product/roadmap.json",
+  "intent_preserved_byte_for_byte": true,
+  "checkpoint_preserved_byte_for_byte": true,
+  "git_status": "",
+  "report_files_outside_project": true
+}

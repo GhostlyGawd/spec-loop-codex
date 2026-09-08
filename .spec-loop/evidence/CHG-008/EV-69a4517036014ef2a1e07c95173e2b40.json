@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EV-69a4517036014ef2a1e07c95173e2b40",
+  "change_id": "CHG-008",
+  "check_id": "CHK-ACCEPT",
+  "kind": "automated",
+  "result": "pass",
+  "observed_at": "2026-09-08T16:33:32.005403+00:00",
+  "expires_at": "2026-09-15T16:33:32.005403+00:00",
+  "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+  "source_hash": "50b7554a36c6b69d5bf59f6cf37375bbb8fedd364d84599a89cfc23c0b0949b7",
+  "observer": "chatgpt-work-clean-checkout",
+  "argv": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_review_health.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "output_hash": "5e69b10d542a14459c3463dba97caad462e39942c5f3efa5c5592f5c5d0314f5",
+  "output_bytes": 1475,
+  "artifact": "",
+  "artifact_hash": "",
+  "notes": "",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

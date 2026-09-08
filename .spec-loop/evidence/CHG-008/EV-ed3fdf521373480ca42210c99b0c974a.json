@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-ed3fdf521373480ca42210c99b0c974a",
+  "change_id": "CHG-008",
+  "check_id": "CHK-RELEASE",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T16:33:32.793806+00:00",
+  "expires_at": "2026-09-15T16:33:32.793806+00:00",
+  "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+  "source_hash": "50b7554a36c6b69d5bf59f6cf37375bbb8fedd364d84599a89cfc23c0b0949b7",
+  "observer": "chatgpt-work-clean-checkout",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/health-package-check.json",
+  "artifact_hash": "bf3007a32e8ed8b140005925bc2b8d0f8fe92a4a650a5931c82edd52d0d9e2d7",
+  "notes": "The extracted f3b36a0 package and Work bundle passed; this clean d42eb9e checkout has identical non-native source. Release scope is the local health module; native evidence additions are separate.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

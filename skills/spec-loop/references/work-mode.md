@@ -49,3 +49,7 @@ The personal package has one SKILL.md entry; its lifecycle workflows use GUIDE.m
 Validate three separate results: (1) the saved entry and resources, (2) actual commands from those resources in Work, and (3) automatic selection in a fresh Work conversation. Only mark each result complete when observed. A direct resource read proves neither automatic selection nor a human product outcome.
 
 OpenAI documents the shared format and Work support in [Build plugins](https://learn.chatgpt.com/docs/build-plugins) and [Use plugins](https://learn.chatgpt.com/docs/plugins), checked 8 September 2026. Account installation controls and source availability vary; use the capabilities actually exposed in the current session.
+
+## Review and version health
+
+For review status or a possibly stale installed copy, use [review health](../../../docs/REVIEW_HEALTH.md). Collect current GitHub evidence; do not reuse an old snapshot as fresh. Keep schedule, current-main review and installed version results separate. A background review never edits product priorities or replaces this skill.
