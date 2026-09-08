@@ -1,0 +1,8 @@
+{
+  "kind": "actual-local-operations",
+  "project": "Spec Loop diagnostics",
+  "context_initiative": "INI-INSTALL",
+  "source_edit": "acceptance became stale; restoring original bytes restored validity",
+  "upgrade": "Actual v0.5 engine evidence was stale under v0.6; rerunning acceptance with v0.6 passed",
+  "scope": "Source/native workflow only; no host loading, deployment or human trial."
+}

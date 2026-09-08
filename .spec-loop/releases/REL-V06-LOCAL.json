@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "id": "REL-V06-LOCAL",
+  "sealed_at": "2026-09-08T13:50:21.149809+00:00",
+  "engine_version": "0.6.0",
+  "change_id": "CHG-006",
+  "target": "local-diagnostics-evaluation",
+  "observer": "codex-local-pilot",
+  "authority_ref": "User approved v0.6 implementation and local pilot",
+  "source_hash": "d7705933e47414e5e5d47ee14a1a61aade8d5950ce7b64ed051a1ee93e4408c1",
+  "project": {
+    "schema_version": 1,
+    "name": "Spec Loop product",
+    "profile": "product",
+    "constraints": [
+      {
+        "statement": "Internal use of actual plugin source; host loading and human value require separate observations.",
+        "source": "docs/CHANGE-006.md"
+      }
+    ],
+    "evidence_ttl_hours": 168,
+    "context_max_chars": 100000
+  },
+  "changes": [
+    {
+      "contract": {
+        "schema_version": 1,
+        "id": "CHG-006",
+        "title": "Portable installation diagnostics",
+        "phase": "building",
+        "risk": "low",
+        "intent": {
+          "user": "Builder installing Spec Loop",
+          "problem": "A valid source folder does not establish which copy the host loads",
+          "outcome": "Diagnose source, package and installed-copy differences without changing files",
+          "non_goals": [
+            "No automatic marketplace edits",
+            "No authenticated host claim from file comparison",
+            "No invented human outcomes"
+          ]
+        },
+        "sources": [
+          {
+            "id": "SRC-APPROVAL",
+            "kind": "user",
+            "reference": "docs/CHANGE-006.md",
+            "statement": "User approved the installation and native product pilot milestone on 8 September 2026."
+          }
+        ],
+        "requirements": [
+          {
+            "id": "REQ-001",
+            "statement": "Source and copied resources can be checked without executing inspected code or mutating files.",
+            "source_ids": [
+              "SRC-APPROVAL"
+            ],
+            "criteria": [
+              {
+                "id": "AC-001",
+                "statement": "Source and copied resources can be checked without executing inspected code or mutating files."
+              }
+            ]
+          },
+          {
+            "id": "REQ-002",
+            "statement": "Missing, modified, invalid or excessive payloads fail with a diagnostic.",
+            "source_ids": [
+              "SRC-APPROVAL"
+            ],
+            "criteria": [
+              {
+                "id": "AC-002",
+                "statement": "Missing, modified, invalid or excessive payloads fail with a diagnostic."
+              }
+            ]
+          },
+          {
+            "id": "REQ-003",
+            "statement": "Extracted package inventory and byte hashes can be checked against its manifest.",
+            "source_ids": [
+              "SRC-APPROVAL"
+            ],
+            "criteria": [
+              {
+                "id": "AC-003",
+                "statement": "Extracted package inventory and byte hashes can be checked against its manifest."
+              }
+            ]
+          }
+        ],
+        "assumptions": [
+          {
+            "id": "ASM-SCOPE",
+            "statement": "A local source-package release is useful before completing the separate host trial.",
+            "impact": "low",
+            "status": "accepted",
+            "basis": "Keep technical delivery and host/user evidence separate."
+          }
+        ],
+        "depends_on": [],
+        "artifacts": [
+          {
+            "id": "ART-DESIGN",
+            "kind": "design",
+            "path": ".spec-loop/artifacts/design.md"
+          },
+          {
+            "id": "ART-ARCHITECTURE",
+            "kind": "architecture",
+            "path": ".spec-loop/artifacts/architecture.md"
+          },
+          {
+            "id": "ART-RELEASE",
+            "kind": "release",
+            "path": ".spec-loop/artifacts/release.md"
+          },
+          {
+            "id": "ART-OPERATIONS",
+            "kind": "operations",
+            "path": ".spec-loop/artifacts/operations.md"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "TASK-001",
+            "title": "Portable installation diagnostics",
+            "requirement_ids": [
+              "REQ-001",
+              "REQ-002",
+              "REQ-003"
+            ],
+            "depends_on": [],
+            "status": "done",
+            "write_scope": [
+              "scripts/install_check.py",
+              "tests/test_install_check.py",
+              "docs/HOST_ACCEPTANCE.md"
+            ]
+          }
+        ],
+        "checks": [
+          {
+            "id": "CHK-ACCEPT",
+            "kind": "automated",
+            "purpose": "acceptance",
+            "covers": [
+              "AC-001",
+              "AC-002",
+              "AC-003"
+            ],
+            "argv": [
+              "python3",
+              "-m",
+              "unittest",
+              "discover",
+              "-s",
+              "tests",
+              "-p",
+              "test_install_check.py",
+              "-v"
+            ],
+            "procedure": "",
+            "timeout_seconds": 60
+          },
+          {
+            "id": "CHK-RELEASE",
+            "kind": "manual",
+            "purpose": "release",
+            "covers": [],
+            "argv": [],
+            "procedure": "Review the actual package build and extracted resource checks; record scope and digest. Host milestone also needs actual installation evidence.",
+            "timeout_seconds": 60
+          },
+          {
+            "id": "CHK-OPS",
+            "kind": "manual",
+            "purpose": "operations",
+            "covers": [],
+            "argv": [],
+            "procedure": "Exercise context resume, source-change invalidation and upgrade recovery in an isolated native project.",
+            "timeout_seconds": 60
+          },
+          {
+            "id": "CHK-OUTCOME",
+            "kind": "manual",
+            "purpose": "outcome",
+            "covers": [],
+            "argv": [],
+            "procedure": "Observe a real builder install and resume a task. Keep open when no human has participated.",
+            "timeout_seconds": 60
+          }
+        ],
+        "product_scope": "f7386d5227edfeff393e73224b17eab962eaa786bd9d4c3634458bcc1e83f124",
+        "product_review": {
+          "scope": "f7386d5227edfeff393e73224b17eab962eaa786bd9d4c3634458bcc1e83f124",
+          "actor": "codex",
+          "reason": "Reviewed scope against the linked native contract; host proof is distinct from file validation.",
+          "authority_ref": "User Approved following the v0.6 plan, 8 September 2026",
+          "at": "2026-09-08T13:41:30.305978+00:00"
+        }
+      },
+      "contract_hash": "beafd3b8d25fddae8aad082d2846c2a8845b98ab4e72dc06d024b64d93ea2060",
+      "evidence": [
+        {
+          "schema_version": 1,
+          "id": "EV-c36cf3549ba142888c77a0d8be7dab11",
+          "change_id": "CHG-006",
+          "check_id": "CHK-ACCEPT",
+          "kind": "automated",
+          "result": "pass",
+          "observed_at": "2026-09-08T13:50:17.791494+00:00",
+          "expires_at": "2026-09-15T13:50:17.791494+00:00",
+          "contract_hash": "beafd3b8d25fddae8aad082d2846c2a8845b98ab4e72dc06d024b64d93ea2060",
+          "source_hash": "d7705933e47414e5e5d47ee14a1a61aade8d5950ce7b64ed051a1ee93e4408c1",
+          "observer": "codex-local-pilot",
+          "argv": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_install_check.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "output_hash": "5cd3f879f4375629051daad0bcc2450307d010159085f9a3045064a093f867e4",
+          "output_bytes": 1600,
+          "artifact": "",
+          "artifact_hash": "",
+          "notes": "",
+          "environment": "Linux x86_64; Python 3.12.13",
+          "trust": "local-untrusted"
+        },
+        {
+          "schema_version": 1,
+          "id": "EV-dcaac04b77564071a4c243ab1f5c6088",
+          "change_id": "CHG-006",
+          "check_id": "CHK-RELEASE",
+          "kind": "manual",
+          "result": "pass",
+          "observed_at": "2026-09-08T13:50:20.840526+00:00",
+          "expires_at": "2026-09-15T13:50:20.840526+00:00",
+          "contract_hash": "beafd3b8d25fddae8aad082d2846c2a8845b98ab4e72dc06d024b64d93ea2060",
+          "source_hash": "d7705933e47414e5e5d47ee14a1a61aade8d5950ce7b64ed051a1ee93e4408c1",
+          "observer": "codex-local-pilot",
+          "argv": [],
+          "exit_code": -1,
+          "output_hash": "",
+          "output_bytes": 0,
+          "artifact": ".spec-loop/artifacts/pilot-release.json",
+          "artifact_hash": "cb6ddf63b240dee3ffc625e46416f9f7ac5f55a0c95010a2576354729fcdd44c",
+          "notes": "Actual source packaging and extracted diagnostic check passed; scope is local source evaluation.",
+          "environment": "Linux x86_64; Python 3.12.13",
+          "trust": "local-untrusted"
+        },
+        {
+          "schema_version": 1,
+          "id": "EV-f2b9ea2dbaf2411ca5403a780821c546",
+          "change_id": "CHG-006",
+          "check_id": "CHK-OPS",
+          "kind": "manual",
+          "result": "pass",
+          "observed_at": "2026-09-08T13:50:20.628781+00:00",
+          "expires_at": "2026-09-15T13:50:20.628781+00:00",
+          "contract_hash": "beafd3b8d25fddae8aad082d2846c2a8845b98ab4e72dc06d024b64d93ea2060",
+          "source_hash": "d7705933e47414e5e5d47ee14a1a61aade8d5950ce7b64ed051a1ee93e4408c1",
+          "observer": "codex-local-pilot",
+          "argv": [],
+          "exit_code": -1,
+          "output_hash": "",
+          "output_bytes": 0,
+          "artifact": ".spec-loop/artifacts/pilot-operations.json",
+          "artifact_hash": "c149d6819bc0a4bd70e835330b71bdfbd18dfc5a67d79cc92b8d9d72130c3b6a",
+          "notes": "Actual local resume, source invalidation and version recovery exercised; host operation untested.",
+          "environment": "Linux x86_64; Python 3.12.13",
+          "trust": "local-untrusted"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": ".spec-loop/artifacts/design.md",
+      "sha256": "dfef9f74b36c47446d393eba8f0115b70801dee149929cf0133677eaaa6d83bb",
+      "content_base64": "IyBJbnN0YWxsYXRpb24gam91cm5leQoKQnVpbGRlciBuZWVkOiBkaXN0aW5ndWlzaCB2YWxpZCBzb3VyY2UsIGEgc3RhbGUgY29waWVkIHBsdWdpbiBhbmQgYWN0dWFsIGxvYWRlZCBiZWhhdmlvci4gU3RhcnQgd2l0aCBvbmUgcmVhZC1vbmx5IGRpYWdub3N0aWMgY29tbWFuZC4gRmFpbHVyZXMgbmFtZSB0aGUgcmVzb3VyY2Ugb3IgbWlzbWF0Y2g7IHN1Y2Nlc3NmdWwgZmlsZSBjaGVja3Mgc2hvdyBob3N0X2xvYWRpbmcgdW52ZXJpZmllZC4gVGhlIGhvc3QgY2hvb3NlcyBpdHMgb3duIGluc3RhbGxhdGlvbiBmbG93LiBBIG5ldyBjaGF0IGNoZWNrcyBza2lsbCBzZWxlY3Rpb24gYW5kIGJ1bmRsZWQgcGF0aHMuIFRoZSBwb3J0YWJsZSBvdXRwdXQgaXMgSlNPTiBmb3IgYWdlbnRzOyB0aGUgZ3VpZGUgZXhwbGFpbnMgdGhlIHVzZXIncyBuZXh0IGFjdGlvbi4gSHVtYW4gdXNhYmlsaXR5LCBhY2Nlc3NpYmlsaXR5IG9mIGhvc3QgVUkgYW5kIHRpbWUtdG8tZmlyc3QtdGFzayByZW1haW4gdW5tZWFzdXJlZC4K"
+    },
+    {
+      "path": ".spec-loop/artifacts/architecture.md",
+      "sha256": "564fee794b4ba954582630ee8fdcace444e3d1653676ca7ef15057d605d93ca9",
+      "content_base64": "IyBEaWFnbm9zdGljcyBhcmNoaXRlY3R1cmUKClRoZSBzdGFuZGFsb25lIGNoZWNrZXIgcmVhZHMgYm91bmRlZCBmaWxlcywgcGFyc2VzIGVuZ2luZSBzeW50YXggd2l0aG91dCBleGVjdXRpbmcgaXQsIHZhbGlkYXRlcyByZWxhdGl2ZSByZXNvdXJjZSBsaW5rcyBhbmQgcHJvZHVjZXMgYSBzdGFibGUgcGF5bG9hZCBpbnZlbnRvcnkuIEV4cGxpY2l0IGNvcHkgY29tcGFyaXNvbiBub3JtYWxpemVzIG9ubHkgdGhlIENvZGV4IGNhY2hlYnVzdGVyIGFuZCBnZW5lcmF0ZWQgUHl0aG9uIGNhY2hlcy4gRXh0cmFjdGVkIHBhY2thZ2VzIHVzZSBhIGNvbXBsZXRlIHVuc2lnbmVkIGhhc2ggbWFuaWZlc3QuIE5vIG5ldHdvcmssIG1hcmtldHBsYWNlIGVkaXRzIG9yIGNyZWRlbnRpYWwgcmVhZHMgb2NjdXIuIFRoZSBuYXRpdmUgcHJvZHVjdCBzdGF0ZSBoYXMgc2VwYXJhdGUgY29udHJhY3RzIGZvciBwb3J0YWJsZSBkaWFnbm9zdGljcyBhbmQgYWN0dWFsIGhvc3QgbG9hZGluZy4gRXhpc3RpbmcgZ2F0ZXMgZGVyaXZlIGRlbGl2ZXJ5IGV2aWRlbmNlOyBhIHNvdXJjZSBjaGFuZ2Ugb3IgZW5naW5lIHVwZ3JhZGUgaW52YWxpZGF0ZXMgY3VycmVudCBldmlkZW5jZS4gSGlzdG9yaWNhbCByZWxlYXNlIHJlY29yZHMgcmV0YWluIHRoZWlyIGZyb3plbiBldmlkZW5jZS4gVGVzdHMgb3BlcmF0ZSBvbiBkaXNwb3NhYmxlIGNvcGllcy4K"
+    },
+    {
+      "path": ".spec-loop/artifacts/release.md",
+      "sha256": "77c2b2d543b87bb6a07db6196a29729d8a3e88bd53674ea9538756b6f7b1771c",
+      "content_base64": "IyBMb2NhbCBzb3VyY2UgcmVsZWFzZQoKVGhlIHVzZXIgYXBwcm92ZWQgaW1wbGVtZW50YXRpb24gb2YgdGhlIGluc3RhbGxhdGlvbi9waWxvdCBtaWxlc3RvbmUuIEJ1aWxkIHRoZSBjb21taXR0ZWQgc291cmNlIHdpdGggc2NyaXB0cy9wYWNrYWdlLnB5LCB2ZXJpZnkgdGhlIGV4dHJhY3RlZCBwYWNrYWdlIHdpdGggaW5zdGFsbF9jaGVjayAtLXBhY2thZ2UgYW5kIHJlY29yZCB0aGUgYXJ0aWZhY3QgZGlnZXN0LiBBIGxvY2FsIHRlY2huaWNhbCBzb3VyY2UtcGFja2FnZSByZWxlYXNlIGNhbiBiZSBzZWFsZWQgdW5kZXIgQ0hHLTAwNiBhZnRlciBhY2NlcHRhbmNlIGFuZCBvcGVyYXRpb25hbCBldmlkZW5jZSBwYXNzLiBJdCBkb2VzIG5vdCBpbnN0YWxsIGEgaG9zdCwgZGVwbG95IGEgcHJvZHVjdCwgcHVibGlzaCBhIG1hcmtldHBsYWNlIG9yIGZ1bGZpbGwgQ0hHLUhPU1QuIERlbGl2ZXIgdGhlIGltcGxlbWVudGF0aW9uIHRocm91Z2ggYSByZXZpZXdlZCBHaXRIdWIgYnJhbmNoLiBQcmVzZXJ2ZSB0aGUgcHJpb3IgcGFja2FnZSBhbmQgcmVjb3JkcyBmb3IgcmVjb3ZlcnkuCg=="
+    },
+    {
+      "path": ".spec-loop/artifacts/operations.md",
+      "sha256": "00dc40d29e7a29170cf46a4e14097d854dd7e8d58273b6bbbd976266b71b6c6d",
+      "content_base64": "IyBSZWNvdmVyeSBhbmQgb25nb2luZyBjaGVja3MKClJ1biBkaWFnbm9zdGljcyBmcm9tIGEgZGlmZmVyZW50IHdvcmtpbmcgZGlyZWN0b3J5IGFuZCBjb21wYXJlIGV4cGxpY2l0IHNvdXJjZS9jb3B5IHBhdGhzLiBVc2UgY29udGV4dCB0byByZXN1bWUgbmF0aXZlIGNoYW5nZSB3b3JrLiBWZXJpZnkgYSBsYXRlciBzb3VyY2UgZWRpdCBzdGFsZXMgY3VycmVudCBldmlkZW5jZSB3aGlsZSByZWxlYXNlLWluc3BlY3Qgc3RpbGwgcmVhZHMgdGhlIHNlYWxlZCBoaXN0b3J5LiBWZXJpZnkgdjAuNSBwcm9qZWN0IGRhdGEgY2FuIGJlIG9wZW5lZCBieSB2MC42LCB0aGVuIGNvbGxlY3QgZnJlc2ggZXZpZGVuY2UgYWZ0ZXIgYWxpZ25tZW50LiBEbyBub3QgcmV3cml0ZSBvbGQgcmVjZWlwdHMuIE5vIGFjdHVhbCBDb2RleCBDTEkgaXMgYXZhaWxhYmxlIGluIHRoaXMgZGV2ZWxvcG1lbnQgd29ya3NwYWNlLiBUaGUgc2NoZWR1bGVkIHJldmlldyByYW4gbGF0ZSBvbmNlOyB0aW1pbmcgcmVsaWFiaWxpdHkgYW5kIGluZGVwZW5kZW50IG1pc3NlZC1ydW4gYWxlcnRzIHJlbWFpbiBzZXBhcmF0ZSBvcGVyYXRpb25hbCB3b3JrLiBSZXBvcnQgdGhvc2UgbGltaXRzIGFuZCBrZWVwIGh1bWFuIG91dGNvbWVzIG1pc3NpbmcuCg=="
+    },
+    {
+      "path": ".spec-loop/artifacts/pilot-release.json",
+      "sha256": "cb6ddf63b240dee3ffc625e46416f9f7ac5f55a0c95010a2576354729fcdd44c",
+      "content_base64": "ewogICJhY3Rpb24iOiAiQnVpbHQgYSBjb21taXR0ZWQgc291cmNlIGFyY2hpdmUgYW5kIHZlcmlmaWVkIGFsbCBleHRyYWN0ZWQgaW52ZW50b3J5IGhhc2hlczsgZXZhbHVhdGVkIHRoZSBkaWFnbm9zdGljcyBtb2R1bGUgbG9jYWxseSIsCiAgImFyY2hpdmUiOiB7CiAgICAiYXJjaGl2ZSI6ICIvd29ya3NwYWNlL3NjcmF0Y2gvYzU3NGQ3YWYxODk3L3BpbG90LXYwNi92ZXJpZmllZC9zcGVjLWxvb3Atc291cmNlLnRhci5neiIsCiAgICAic291cmNlX2NvbW1pdCI6ICI1MjcyYWEyNjI3MmE2ZWE2NjhjMWIwN2Y5ZjI1ZTMxYzkxNzVkNjFiIiwKICAgICJzb3VyY2VfZmlsZXMiOiAxMzEsCiAgICAic2hhMjU2IjogIjg0ZmQyODA0ODRmZDAwY2MxY2E3Y2U2YjQwMTEzZWY2NzZiNzE1ZDM5ODE0MmUxZGM4NzM3ZWU1NjkzMjY1OWUiLAogICAgInZlcmlmaWVkIjogdHJ1ZQogIH0sCiAgImV4dHJhY3RlZF9jaGVjayI6IHsKICAgICJwYXNzZWQiOiB0cnVlLAogICAgInNvdXJjZSI6IHsKICAgICAgIm5hbWUiOiAic3BlYy1sb29wIiwKICAgICAgInZlcnNpb24iOiAiMC42LjAiLAogICAgICAiZW5naW5lX3ZlcnNpb24iOiAiMC42LjAiLAogICAgICAic2tpbGxzIjogWwogICAgICAgICJsb29wLWJ1aWxkIiwKICAgICAgICAibG9vcC1kZXNpZ24iLAogICAgICAgICJsb29wLWRpc2NvdmVyIiwKICAgICAgICAibG9vcC1ldm9sdmUiLAogICAgICAgICJsb29wLW9wZXJhdGUiLAogICAgICAgICJsb29wLXBsYW4iLAogICAgICAgICJsb29wLXByb2R1Y3QiLAogICAgICAgICJsb29wLXJlbGVhc2UiLAogICAgICAgICJsb29wLXNwZWNpZnkiLAogICAgICAgICJsb29wLXZlcmlmeSIsCiAgICAgICAgInNwZWMtbG9vcCIKICAgICAgXSwKICAgICAgInBheWxvYWRfZGlnZXN0IjogIjEyZGFjNjljYWY4ZGE4YWJjNWYzZGEyNGEzYmQ0MWU1OTQ0ZTFiM2I4MzE1MDJkODU4NTdmNWI0MjlhYzdiMTgiCiAgICB9LAogICAgImhvc3RfbG9hZGluZyI6ICJ1bnZlcmlmaWVkIiwKICAgICJjb2RleF9jbGlfYXZhaWxhYmxlIjogZmFsc2UsCiAgICAibXV0YXRpb25zIjogZmFsc2UsCiAgICAiaW5zdGFsbGVkX2NvcHkiOiB7CiAgICAgICJzdGF0dXMiOiAibm90LXN1cHBsaWVkIgogICAgfSwKICAgICJwYWNrYWdlIjogewogICAgICAidmVyaWZpZWQiOiB0cnVlLAogICAgICAic291cmNlX2NvbW1pdCI6ICI1MjcyYWEyNjI3MmE2ZWE2NjhjMWIwN2Y5ZjI1ZTMxYzkxNzVkNjFiIiwKICAgICAgImZpbGVzIjogMTMyLAogICAgICAidHJ1c3QiOiAiVW5zaWduZWQgaW52ZW50b3J5OyBjb21wYXJlIHRoZSBhcmNoaXZlIGRpZ2VzdCB3aXRoIGEgdHJ1c3RlZCByZWxlYXNlLiIKICAgIH0KICB9LAogICJ0YXJnZXQiOiAibG9jYWwtZGlhZ25vc3RpY3MtZXZhbHVhdGlvbiIsCiAgImFydGlmYWN0IjogInNjcmlwdHMvaW5zdGFsbF9jaGVjay5weSIsCiAgImF1dGhvcml0eSI6ICJVc2VyIGFwcHJvdmVkIHYwLjYgaW1wbGVtZW50YXRpb24gYW5kIGxvY2FsIHBpbG90IiwKICAibGltaXRzIjogIk5vIGhvc3QgaW5zdGFsbGF0aW9uLCBtYXJrZXRwbGFjZSBwdWJsaWNhdGlvbiwgcmVtb3RlIGRlcGxveW1lbnQgb3IgaHVtYW4gb3V0Y29tZS4gQXJjaGl2ZSBleGlzdHMgaW4gdGhlIGxvY2FsIHBpbG90IGRpcmVjdG9yeTsgQ0kgc3VwcGxpZXMgYSBzZXBhcmF0ZSBkb3dubG9hZGFibGUgc291cmNlIGFyY2hpdmUuIgp9Cg=="
+    },
+    {
+      "path": ".spec-loop/artifacts/pilot-operations.json",
+      "sha256": "c149d6819bc0a4bd70e835330b71bdfbd18dfc5a67d79cc92b8d9d72130c3b6a",
+      "content_base64": "ewogICJraW5kIjogImFjdHVhbC1sb2NhbC1vcGVyYXRpb25zIiwKICAicHJvamVjdCI6ICJTcGVjIExvb3AgZGlhZ25vc3RpY3MiLAogICJjb250ZXh0X2luaXRpYXRpdmUiOiAiSU5JLUlOU1RBTEwiLAogICJzb3VyY2VfZWRpdCI6ICJhY2NlcHRhbmNlIGJlY2FtZSBzdGFsZTsgcmVzdG9yaW5nIG9yaWdpbmFsIGJ5dGVzIHJlc3RvcmVkIHZhbGlkaXR5IiwKICAidXBncmFkZSI6ICJBY3R1YWwgdjAuNSBlbmdpbmUgZXZpZGVuY2Ugd2FzIHN0YWxlIHVuZGVyIHYwLjY7IHJlcnVubmluZyBhY2NlcHRhbmNlIHdpdGggdjAuNiBwYXNzZWQiLAogICJzY29wZSI6ICJTb3VyY2UvbmF0aXZlIHdvcmtmbG93IG9ubHk7IG5vIGhvc3QgbG9hZGluZywgZGVwbG95bWVudCBvciBodW1hbiB0cmlhbC4iCn0K"
+    }
+  ],
+  "receipt_path": ".spec-loop/artifacts/pilot-release.json",
+  "artifact": {
+    "path": "scripts/install_check.py",
+    "sha256": "18c0a451e87638aecc13d49b0995ced8c46a77a3903fbb17e60f42bd80658e72",
+    "size_bytes": 9992
+  },
+  "trust": "local-untrusted",
+  "digest": "3c01769319fe51a49261155b7c145f29b5940a6cc09ce733ce145d508b8699da"
+}

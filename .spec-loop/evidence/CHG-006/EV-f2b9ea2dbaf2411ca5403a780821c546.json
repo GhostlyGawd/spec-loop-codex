@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-f2b9ea2dbaf2411ca5403a780821c546",
+  "change_id": "CHG-006",
+  "check_id": "CHK-OPS",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T13:50:20.628781+00:00",
+  "expires_at": "2026-09-15T13:50:20.628781+00:00",
+  "contract_hash": "beafd3b8d25fddae8aad082d2846c2a8845b98ab4e72dc06d024b64d93ea2060",
+  "source_hash": "d7705933e47414e5e5d47ee14a1a61aade8d5950ce7b64ed051a1ee93e4408c1",
+  "observer": "codex-local-pilot",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/pilot-operations.json",
+  "artifact_hash": "c149d6819bc0a4bd70e835330b71bdfbd18dfc5a67d79cc92b8d9d72130c3b6a",
+  "notes": "Actual local resume, source invalidation and version recovery exercised; host operation untested.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

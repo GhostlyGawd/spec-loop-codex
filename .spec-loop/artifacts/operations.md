@@ -1,0 +1,3 @@
+# Recovery and ongoing checks
+
+Run diagnostics from a different working directory and compare explicit source/copy paths. Use context to resume native change work. Verify a later source edit stales current evidence while release-inspect still reads the sealed history. Verify v0.5 project data can be opened by v0.6, then collect fresh evidence after alignment. Do not rewrite old receipts. No actual Codex CLI is available in this development workspace. The scheduled review ran late once; timing reliability and independent missed-run alerts remain separate operational work. Report those limits and keep human outcomes missing.

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "name": "Spec Loop product",
+  "profile": "product",
+  "constraints": [
+    {
+      "statement": "Internal use of actual plugin source; host loading and human value require separate observations.",
+      "source": "docs/CHANGE-006.md"
+    }
+  ],
+  "evidence_ttl_hours": 168,
+  "context_max_chars": 100000
+}

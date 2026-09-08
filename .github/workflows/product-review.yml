@@ -3,7 +3,7 @@ name: Spec Loop product review
 on:
   pull_request:
   push:
-    branches: [main, codex/background-review]
+    branches: [main, codex/background-review, codex/installation-pilot]
   schedule:
     - cron: '17 7 * * *'
   workflow_dispatch:
@@ -68,3 +68,28 @@ jobs:
           persist-credentials: false
       - name: Run regression tests
         run: python3 -m unittest discover -s tests -v
+      - name: Check source resources
+        run: python3 scripts/install_check.py --root .
+      - name: Check native project resume
+        run: python3 scripts/spec_loop.py context CHG-006 --max-chars 100000
+      - name: Build and check the source package
+        run: |
+          python3 scripts/package.py --root . --output "$RUNNER_TEMP/spec-loop-source.tar.gz"
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          import tarfile
+          import subprocess
+          folder = Path(os.environ['RUNNER_TEMP']) / 'spec-loop-extracted'
+          folder.mkdir()
+          with tarfile.open(Path(os.environ['RUNNER_TEMP']) / 'spec-loop-source.tar.gz') as archive:
+              archive.extractall(folder, filter='data')
+          source = folder / 'spec-loop'
+          subprocess.run(['python3', str(source / 'scripts/install_check.py'), '--root', str(source), '--package'], check=True)
+          PY
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: spec-loop-source-${{ github.sha }}
+          path: ${{ runner.temp }}/spec-loop-source.tar.gz
+          if-no-files-found: error
+          retention-days: 14
