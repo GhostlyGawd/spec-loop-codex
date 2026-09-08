@@ -8,7 +8,7 @@ Version: 0.8.0. This is a source package and working local reference implementat
 
 ## Review health in 0.8
 
-Read-only schedule, current-commit review and installed Work version checks now share an evidence report. See [review health](docs/REVIEW_HEALTH.md) and the saved [project handoff](WORK_STATE.md). A health check does not create a watchdog or enable unattended sync.
+Read-only schedule, current-commit review and installed Work version checks now share an evidence report. See [review health](docs/REVIEW_HEALTH.md) and the saved [project handoff](https://github.com/GhostlyGawd/spec-loop-codex/blob/main/WORK_STATE.md). A health check does not create a watchdog or enable unattended sync.
 
 ## ChatGPT Work mode in 0.7
 

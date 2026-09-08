@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-af23b5b3110541d2be112881e5943301",
+  "change_id": "CHG-008",
+  "check_id": "CHK-OPS",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T16:36:24.833355+00:00",
+  "expires_at": "2026-09-15T16:36:24.833355+00:00",
+  "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+  "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
+  "observer": "chatgpt-work-final-source",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/health-result.json",
+  "artifact_hash": "e2ad81bdd4b28e3d7890845b3493bf5eb854f584143913f734530cfaf9e2f24a",
+  "notes": "Read-only operations verified against actual GitHub run metadata and installed bundle. Final change is a handoff URL fix; archived observations retain their original timestamps. Fresh user chat remains unobserved.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "spec-loop",
+  "version": "0.8.0",
+  "source_commit": "956e3713dbd5a04cd9d868f424b8fb5a494be10b",
+  "source_tree": "12d30cda1c39c5120fc3ccfc11f49cd9ed774c84",
+  "payload_digest": "5681b0feb36e9f612257a5e4c624b7a720b426af7b0d822b85637b78acb9c390",
+  "scope": "Committed plugin resources. Excludes root project state, CI and untracked files.",
+  "layout": "work-guides-v1",
+  "host_loading": "unverified",
+  "installation": "not-performed"
+}
