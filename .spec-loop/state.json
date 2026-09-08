@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "revision": 9,
+  "revision": 10,
   "active_change": "CHG-HOST",
-  "summary": "Draft PR #6 contains the verified v0.8 Work pilot and renewed evidence. New-chat confirmation and single-user outcome remain complete. On 8 September the existing review automation is enabled with no recorded run; its configured start is 9 September. Product priorities unchanged.",
-  "next_action": "Review PR #6 and its GitHub checks; inspect the first independent automation execution after its configured start on 9 September 2026 at 08:00 America/Los_Angeles.",
+  "summary": "Draft PR #6 prepared; its 5d8bcbc GitHub review and test run passed. User requested the review now. A separate one-time read-only check was scheduled for 8 September 2026 at 23:21:23 UTC and read back as enabled; execution is not yet observed. The existing daily schedule and product priorities are unchanged.",
+  "next_action": "Read the one-time review result when delivered, then review PR #6 for merge. Continue the existing daily review schedule.",
   "blockers": [
-    "First independent automation run is not due yet; sustained timing reliability needs later evidence."
+    "One-time independent review was scheduled; completion and sustained timing reliability are not yet observed."
   ],
-  "updated_at": "2026-09-08T23:19:03.704471+00:00",
+  "updated_at": "2026-09-08T23:20:55.070916+00:00",
   "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
   "contract_hash": "0092df36623c9e750779be69c5ffc203b7953e037b38956636e0262d3ff5eda8",
   "events": [
@@ -55,6 +55,11 @@
       "at": "2026-09-08T23:19:03.704471+00:00",
       "change": "CHG-HOST",
       "summary": "Draft PR #6 contains the verified v0.8 Work pilot and renewed evidence. New-chat confirmation and single-user outcome remain complete. On 8 September the existing review automation is enabled with no recorded run; its configured start is 9 September. Product priorities unchanged."
+    },
+    {
+      "at": "2026-09-08T23:20:55.070916+00:00",
+      "change": "CHG-HOST",
+      "summary": "Draft PR #6 prepared; its 5d8bcbc GitHub review and test run passed. User requested the review now. A separate one-time read-only check was scheduled for 8 September 2026 at 23:21:23 UTC and read back as enabled; execution is not yet observed. The existing daily schedule and product priorities are unchanged."
     }
   ]
 }
