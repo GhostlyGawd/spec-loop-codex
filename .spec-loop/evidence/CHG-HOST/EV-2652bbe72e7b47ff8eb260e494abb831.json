@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "EV-2652bbe72e7b47ff8eb260e494abb831",
+  "change_id": "CHG-HOST",
+  "check_id": "CHK-ACCEPT",
+  "kind": "manual",
+  "result": "pass",
+  "observed_at": "2026-09-08T20:41:47.087124+00:00",
+  "expires_at": "2026-09-15T20:41:47.087124+00:00",
+  "contract_hash": "0092df36623c9e750779be69c5ffc203b7953e037b38956636e0262d3ff5eda8",
+  "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
+  "observer": "chatgpt-work-with-user-confirmation",
+  "argv": [],
+  "exit_code": -1,
+  "output_hash": "",
+  "output_bytes": 0,
+  "artifact": ".spec-loop/artifacts/host-user-confirmation-2026-09-08.md",
+  "artifact_hash": "23c8905bd46ca7ce2a4ca41e7d94ade780bbaadf789eaa319b68f0bcab692ebd",
+  "notes": "User confirmed this is the new-chat trial. Saved skill selection, v0.8 resource execution, onboarding and actual project resume were observed here. Host build number not exposed.",
+  "environment": "Linux x86_64; Python 3.12.13",
+  "trust": "local-untrusted"
+}

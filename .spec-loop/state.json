@@ -1,15 +1,13 @@
 {
   "schema_version": 1,
-  "revision": 7,
+  "revision": 8,
   "active_change": "CHG-HOST",
-  "summary": "CHG-006 v0.8 acceptance, package and recovery evidence renewed; all release gates pass. Installed tools completed synthetic onboarding and CHG-HOST operations passed. See .spec-loop/artifacts/host-observation.md. Product priorities unchanged.",
-  "next_action": "Complete CHG-HOST onboarding in a new user Work conversation and collect builder feedback; inspect the existing review automation after its first scheduled run on 9 September 2026.",
+  "summary": "User confirmed this is the new Work chat and that restored goal, status and next task matched expectations. CHG-HOST acceptance, release, operations and single-user outcome checks pass. Prior request for another chat is superseded; priorities unchanged.",
+  "next_action": "Inspect the existing review automation after its first scheduled run on 9 September 2026; retain current priorities pending an explicit product decision.",
   "blockers": [
-    "CHG-HOST acceptance and host release observations remain incomplete; synthetic onboarding is technical evidence only.",
-    "Real builder feedback and recorded release outcomes remain missing.",
-    "Existing review automation is enabled but has no recorded run; its configured start is 9 September 2026 at 08:00 America/Los_Angeles. Sustained timing remains unverified."
+    "First independent review automation execution and sustained timing reliability need future evidence."
   ],
-  "updated_at": "2026-09-08T20:25:45.876498+00:00",
+  "updated_at": "2026-09-08T20:42:14.033307+00:00",
   "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
   "contract_hash": "0092df36623c9e750779be69c5ffc203b7953e037b38956636e0262d3ff5eda8",
   "events": [
@@ -47,6 +45,11 @@
       "at": "2026-09-08T20:25:45.876498+00:00",
       "change": "CHG-HOST",
       "summary": "CHG-006 v0.8 acceptance, package and recovery evidence renewed; all release gates pass. Installed tools completed synthetic onboarding and CHG-HOST operations passed. See .spec-loop/artifacts/host-observation.md. Product priorities unchanged."
+    },
+    {
+      "at": "2026-09-08T20:42:14.033307+00:00",
+      "change": "CHG-HOST",
+      "summary": "User confirmed this is the new Work chat and that restored goal, status and next task matched expectations. CHG-HOST acceptance, release, operations and single-user outcome checks pass. Prior request for another chat is superseded; priorities unchanged."
     }
   ]
 }

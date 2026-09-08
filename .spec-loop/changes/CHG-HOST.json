@@ -84,7 +84,7 @@
         "REQ-001"
       ],
       "depends_on": [],
-      "status": "doing",
+      "status": "done",
       "write_scope": [
         ".spec-loop/artifacts/host-observation.md"
       ]
