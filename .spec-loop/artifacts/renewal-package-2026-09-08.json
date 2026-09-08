@@ -1,0 +1,29 @@
+{
+  "source_commit": "88c204afed772f1d68c931b3d1e640b7fd63a273",
+  "archive_sha256": "f2402fbcc9dcbd63b368bc013d233cdd7db202b8d35609efd61e8d455f97cefe",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "/root/.codex/skills/remote-skills/skill-6aa02e9a0cf48191b6aa837ac2c619af/bundle/scripts/install_check.py",
+        "--root",
+        "/workspace/scratch/d7325438dea1/renewal-extracted/spec-loop",
+        "--package"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"passed\": true,\n  \"source\": {\n    \"name\": \"spec-loop\",\n    \"version\": \"0.8.0\",\n    \"engine_version\": \"0.8.0\",\n    \"skills\": [\n      \"loop-build\",\n      \"loop-design\",\n      \"loop-discover\",\n      \"loop-evolve\",\n      \"loop-operate\",\n      \"loop-plan\",\n      \"loop-product\",\n      \"loop-release\",\n      \"loop-specify\",\n      \"loop-verify\",\n      \"spec-loop\"\n    ],\n    \"payload_digest\": \"70391b7020b1ae6eac8accec729493444f8ee620aec95095a4551754ac56cfa2\"\n  },\n  \"host_loading\": \"unverified\",\n  \"codex_cli_available\": false,\n  \"mutations\": false,\n  \"installed_copy\": {\n    \"status\": \"not-supplied\"\n  },\n  \"package\": {\n    \"verified\": true,\n    \"source_commit\": \"88c204afed772f1d68c931b3d1e640b7fd63a273\",\n    \"files\": 187,\n    \"trust\": \"Unsigned inventory; compare the archive digest with a trusted release.\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "/workspace/scratch/d7325438dea1/renewal-extracted/spec-loop/source-history.bundle",
+        "/workspace/scratch/d7325438dea1/renewal-recovered"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Cloning into '/workspace/scratch/d7325438dea1/renewal-recovered'...\nNote: switching to '88c204afed772f1d68c931b3d1e640b7fd63a273'.\n\nYou are in 'detached HEAD' state. You can look around, make experimental\nchanges and commit them, and you can discard any commits you make in this\nstate without impacting any branches by switching back to a branch.\n\nIf you want to create a new branch to retain commits you create, you may\ndo so (now or later) by using -c with the switch command. Example:\n\n  git switch -c <new-branch-name>\n\nOr undo this operation with:\n\n  git switch -\n\nTurn off this advice by setting config variable advice.detachedHead to false\n\n"
+    }
+  ]
+}

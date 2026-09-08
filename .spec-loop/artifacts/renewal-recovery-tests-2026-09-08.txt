@@ -1,0 +1,10 @@
+test_source_edit_stales_evidence (test_spec_loop.ContractTests.test_source_edit_stales_evidence) ... ok
+test_checkpoint_detects_conflict_and_stale_source (test_spec_loop.ContractTests.test_checkpoint_detects_conflict_and_stale_source) ... ok
+test_backup_restore_adds_revision_and_keeps_decisions (test_product.ProductTests.test_backup_restore_adds_revision_and_keeps_decisions) ... ok
+test_cli_refresh_after_evidence_and_context_resume (test_product.ProductTests.test_cli_refresh_after_evidence_and_context_resume) ... ok
+test_unknown_version_and_tampering_fail_closed (test_product.ProductTests.test_unknown_version_and_tampering_fail_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.866s
+
+OK

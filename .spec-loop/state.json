@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "revision": 5,
-  "active_change": "CHG-008",
-  "summary": "Final clean-source release and Work resource export verified; personal bundle links to saved project handoff",
-  "next_action": "Verify the published source and saved Work update; observe watchdog execution, fresh user chat and human feedback",
+  "revision": 10,
+  "active_change": "CHG-HOST",
+  "summary": "Draft PR #6 prepared; its 5d8bcbc GitHub review and test run passed. User requested the review now. A separate one-time read-only check was scheduled for 8 September 2026 at 23:21:23 UTC and read back as enabled; execution is not yet observed. The existing daily schedule and product priorities are unchanged.",
+  "next_action": "Read the one-time review result when delivered, then review PR #6 for merge. Continue the existing daily review schedule.",
   "blockers": [
-    "Fresh user chat, real builder outcome and first watchdog execution remain unobserved"
+    "One-time independent review was scheduled; completion and sustained timing reliability are not yet observed."
   ],
-  "updated_at": "2026-09-08T16:36:25.454498+00:00",
+  "updated_at": "2026-09-08T23:20:55.070916+00:00",
   "source_hash": "31995e27f2a0bc72e924651e83f8e5eef224b3477b6973707a1bb4b8477a322a",
-  "contract_hash": "1c449da9872cf42f6b5a30eccc2952f8e776f43208790dcb1b6075d0172a030d",
+  "contract_hash": "0092df36623c9e750779be69c5ffc203b7953e037b38956636e0262d3ff5eda8",
   "events": [
     {
       "at": "2026-09-08T13:50:19.611921+00:00",
@@ -35,6 +35,31 @@
       "at": "2026-09-08T16:36:25.454498+00:00",
       "change": "CHG-008",
       "summary": "Final clean-source release and Work resource export verified; personal bundle links to saved project handoff"
+    },
+    {
+      "at": "2026-09-08T18:37:33.987573+00:00",
+      "change": "CHG-008",
+      "summary": "Resumed main 88c204a in this user Work conversation; doctor, context and roadmap succeeded; installed v0.8.0 matches. See .spec-loop/artifacts/resume-2026-09-08.md. Product revision 3 and priorities unchanged."
+    },
+    {
+      "at": "2026-09-08T20:25:45.876498+00:00",
+      "change": "CHG-HOST",
+      "summary": "CHG-006 v0.8 acceptance, package and recovery evidence renewed; all release gates pass. Installed tools completed synthetic onboarding and CHG-HOST operations passed. See .spec-loop/artifacts/host-observation.md. Product priorities unchanged."
+    },
+    {
+      "at": "2026-09-08T20:42:14.033307+00:00",
+      "change": "CHG-HOST",
+      "summary": "User confirmed this is the new Work chat and that restored goal, status and next task matched expectations. CHG-HOST acceptance, release, operations and single-user outcome checks pass. Prior request for another chat is superseded; priorities unchanged."
+    },
+    {
+      "at": "2026-09-08T23:19:03.704471+00:00",
+      "change": "CHG-HOST",
+      "summary": "Draft PR #6 contains the verified v0.8 Work pilot and renewed evidence. New-chat confirmation and single-user outcome remain complete. On 8 September the existing review automation is enabled with no recorded run; its configured start is 9 September. Product priorities unchanged."
+    },
+    {
+      "at": "2026-09-08T23:20:55.070916+00:00",
+      "change": "CHG-HOST",
+      "summary": "Draft PR #6 prepared; its 5d8bcbc GitHub review and test run passed. User requested the review now. A separate one-time read-only check was scheduled for 8 September 2026 at 23:21:23 UTC and read back as enabled; execution is not yet observed. The existing daily schedule and product priorities are unchanged."
     }
   ]
 }
