@@ -45,7 +45,13 @@ class WorkBundleTests(unittest.TestCase):
         self.assertFalse((self.output / 'scripts/private-untracked.txt').exists())
         self.assertEqual(data['host_loading'], 'unverified')
         self.assertEqual(data['installation'], 'not-performed')
-        self.assertTrue(install_check.check(self.output, expected_digest=data['payload_digest'])['passed'])
+        self.assertFalse(list(self.output.rglob('SKILL.md')))
+        self.assertTrue((self.output / 'skills/spec-loop/GUIDE.md').is_file())
+        self.assertTrue(install_check.check(self.output, expected_digest=data['payload_digest'], work_bundle=True)['passed'])
+        with self.assertRaisesRegex(ValueError, 'missing'):
+            install_check.check(self.output)
+        with self.assertRaisesRegex(ValueError, 'not a source archive'):
+            install_check.check(self.output, package=True, work_bundle=True)
         for name, digest in data['files'].items():
             self.assertEqual(install_check.hashed((self.output / name).read_bytes()), digest)
         # Resource resolution must work outside the plugin folder, without a Codex executable.
@@ -89,7 +95,7 @@ class WorkBundleTests(unittest.TestCase):
         with (self.output / 'scripts/product.py').open('a') as f:
             f.write('\n# changed after export\n')
         with self.assertRaisesRegex(ValueError, 'expected digest'):
-            install_check.check(self.output, expected_digest=first['payload_digest'])
+            install_check.check(self.output, expected_digest=first['payload_digest'], work_bundle=True)
 
 
 if __name__ == '__main__':

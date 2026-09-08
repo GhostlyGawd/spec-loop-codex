@@ -5,7 +5,7 @@ description: Build and maintain products in ChatGPT Work from linked specs, task
 
 # Spec Loop
 
-Read [Work mode setup and resume](bundle/skills/spec-loop/references/work-mode.md), then [the main workflow](bundle/skills/spec-loop/SKILL.md). Load only the stage needed for the user's request.
+Read [Work mode setup and resume](bundle/skills/spec-loop/references/work-mode.md), then [the main workflow](bundle/skills/spec-loop/GUIDE.md). Load only the stage needed for the user's request.
 
 This personal skill contains the Spec Loop plugin resources in `bundle/`. Resolve that folder from this skill's actual location. With a skill resource provider, read these relative resources through that provider and use its returned filesystem root for commands. Do not guess a desktop or cache path.
 

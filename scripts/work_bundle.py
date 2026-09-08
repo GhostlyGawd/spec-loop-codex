@@ -3,6 +3,7 @@
 import argparse
 import json
 from pathlib import Path
+import re
 import shutil
 
 import install_check
@@ -40,7 +41,16 @@ def build(root, output):
         size += blob_size
         if blob_size > install_check.LIMIT or size > install_check.TOTAL_LIMIT or len(entries) >= install_check.FILE_COUNT:
             raise ValueError('Work bundle exceeds resource limits.')
-        entries[name] = git(root, 'cat-file', 'blob', oid)
+        data = git(root, 'cat-file', 'blob', oid)
+        # Personal skill saving accepts one SKILL.md entry. Lifecycle workflows
+        # stay readable resources; the original plugin retains its skill entries.
+        if path.name == 'SKILL.md' and path.parts[0] == 'skills':
+            name = str(path.with_name('GUIDE.md'))
+        if path.suffix == '.md':
+            text = data.decode('utf-8')
+            text = re.sub(r'(\]\([^\s)]*)SKILL\.md(?=[#)])', r'\1GUIDE.md', text)
+            data = text.encode('utf-8')
+        entries[name] = data
     # Reserve the destination exclusively. Never replace an existing skill bundle.
     output.mkdir()
     try:
@@ -48,7 +58,7 @@ def build(root, output):
             target = install_check.safe(output, name)
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
-        source = install_check.inspect(output)
+        source = install_check.inspect(output, work_bundle=True)
         if git(root, 'rev-parse', 'HEAD').decode().strip() != commit or git(root, 'diff', 'HEAD', '--name-only'):
             raise ValueError('Source changed during bundling.')
         result = {'name': 'spec-loop', 'version': source['engine_version'],
@@ -57,6 +67,7 @@ def build(root, output):
                   'payload_digest': source['payload_digest'],
                   'files': {k: install_check.hashed(v) for k, v in sorted(entries.items())},
                   'scope': 'Committed plugin resources. Excludes root project state, CI and untracked files.',
+                  'layout': 'work-guides-v1',
                   'host_loading': 'unverified', 'installation': 'not-performed'}
         (output / 'work-bundle.json').write_text(json.dumps(result, indent=2) + '\n')
         return result
